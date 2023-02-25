@@ -1,0 +1,14 @@
+@use './' as *;
+
+.app {
+  min-height: 100vh;
+  width: 100%;
+  background-color: $colors-primary-bg;
+  color: $colors-primary-txt;
+}
+
+.stages {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  padding: 25px;
+}

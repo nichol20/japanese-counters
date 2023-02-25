@@ -1,11 +1,7 @@
 import { LevelReference } from '@/types/stages'
 
-interface LevelReferences {
-  [level: number]: LevelReference[]
-}
-
-export const maiLevelReferences: LevelReferences = {
-  1: [
+export const maiLevelReferences: LevelReference[][] = [
+  [
     {
       number: '１',
       reading: {
@@ -42,7 +38,7 @@ export const maiLevelReferences: LevelReferences = {
       }
     }
   ],
-  2: [
+  [
     {
       number: '６',
       reading: {
@@ -79,10 +75,10 @@ export const maiLevelReferences: LevelReferences = {
       }
     }
   ]
-}
+]
 
-export const honLevelReferences: LevelReferences = {
-  1: [
+export const honLevelReferences: LevelReference[][] = [
+  [
     {
       number: '１',
       reading: {
@@ -119,7 +115,7 @@ export const honLevelReferences: LevelReferences = {
       }
     }
   ],
-  2: [
+  [
     {
       number: '６',
       reading: {
@@ -156,10 +152,10 @@ export const honLevelReferences: LevelReferences = {
       }
     }
   ]
-}
+]
 
-export const hikiLevelReferences: LevelReferences = {
-  1: [
+export const hikiLevelReferences: LevelReference[][] = [
+  [
     {
       number: '１',
       reading: {
@@ -196,7 +192,7 @@ export const hikiLevelReferences: LevelReferences = {
       }
     }
   ],
-  2: [
+  [
     {
       number: '６',
       reading: {
@@ -233,4 +229,4 @@ export const hikiLevelReferences: LevelReferences = {
       }
     }
   ]
-}
+]

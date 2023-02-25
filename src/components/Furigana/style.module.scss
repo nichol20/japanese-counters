@@ -1,0 +1,9 @@
+@use '../../styles/' as *;
+
+.furigana {
+  font-size: 3em;
+
+  .reading {
+    scale: .7;
+  }
+}

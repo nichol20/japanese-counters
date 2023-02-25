@@ -5,21 +5,23 @@ export interface Stages {
 }
 
 export interface StageGroup {
-  stageIds: string[]
+  id: string
+  description: string
+  stages: Stage[]
 }
 
 export interface Stage {
   id: string
-  kanji: Kanji
+  counter: Counter
   description: string
   instruction: string
   icons: Icon[]
   levels: Level[]
 }
 
-export interface Kanji {
-  content: string
-  furigana: string
+export interface Counter {
+  kanji: string
+  reading: string
 }
 
 export interface Level {

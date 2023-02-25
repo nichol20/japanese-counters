@@ -1,0 +1,32 @@
+@use './colors';
+
+@mixin display-flex($justifyContent: center, $alignItems: center) {
+  display: flex;
+  justify-content: $justifyContent;
+  align-items: $alignItems;
+}
+
+@mixin button-style() {
+  background-color: colors.$primary-btn-bg;
+  color: colors.$primary-btn-txt;
+  border: 1px solid colors.$primary-btn-border;
+  outline: none;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: 200ms background;
+  padding: 4px 6px;
+
+  &:hover {
+    background-color: colors.$primary-btn-bg-hover;
+  }
+}
+
+@mixin secondary-button-style() {
+  @include button-style();
+  background-color: colors.$secondary-btn-bg;
+  border-color: colors.$secondary-btn-border;
+
+  &:hover {
+    background-color: colors.$secondary-btn-bg-hover;
+  }
+}
