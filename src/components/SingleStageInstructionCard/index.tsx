@@ -1,4 +1,4 @@
-import { Stage, StageGroup } from '@/types/stages'
+import { Stage } from '@/types/stages'
 import Image from 'next/image'
 import { forwardRef, useImperativeHandle, useState } from 'react'
 import {Furigana} from '../Furigana'

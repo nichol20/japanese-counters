@@ -41,7 +41,8 @@ export const hikiStage: Stage = {
 export const stageGroup1: StageGroup = {
   id: 'stageGroup1',
   description: "When you're ready, let's see if you can remember which counter goes with which thing!",
-  stages: [ maiStage, honStage, hikiStage ]
+  stages: [ maiStage, honStage, hikiStage ],
+  levelChapter: 'level 10'
 }
 
 export const stages: Stages = {

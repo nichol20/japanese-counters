@@ -8,6 +8,7 @@ export interface StageGroup {
   id: string
   description: string
   stages: Stage[]
+  levelChapter: string
 }
 
 export interface Stage {
@@ -25,6 +26,7 @@ export interface Counter {
 }
 
 export interface Level {
+  chapter: string
   name: string
   references: LevelReference[]
   description: string

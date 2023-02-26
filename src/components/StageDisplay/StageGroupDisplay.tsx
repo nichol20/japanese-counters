@@ -5,6 +5,7 @@ import {Furigana} from '@/components/Furigana';
 
 import styles from './style.module.scss';
 import { useEffect, useRef, useState } from 'react';
+import { StageGroupInstructionCard, StageGroupInstructionCardRef } from '../StageGroupInstructionCard';
 
 interface StageGroupDisplayProps {
   stage: StageGroup
@@ -13,6 +14,11 @@ interface StageGroupDisplayProps {
 
 export const StageGroupDisplay = ({ stage }: StageGroupDisplayProps) => {
   const [ icons, setIcons ] = useState<Icon[]>([])
+  const stageInstructionCardRef = useRef<StageGroupInstructionCardRef>(null)
+
+  const handlePlayBtnClick = () => {
+    if(stageInstructionCardRef.current) stageInstructionCardRef.current.show()
+  }
 
   useEffect(() => {
     const selectRandomIcon = (iconList: Icon[]) => {
@@ -59,11 +65,12 @@ export const StageGroupDisplay = ({ stage }: StageGroupDisplayProps) => {
         <div className={styles.description}>{stage.description}</div>
         <div className={styles.levels}>
           <div className={styles.level}>
-            <span className={styles.name}>Mixed review</span>
-            <button className={styles.playBtn}>Play</button>
+            <span className={styles.name}>{stage.levelChapter} - Mixed review</span>
+            <button className={styles.playBtn} onClick={handlePlayBtnClick} >Play</button>
           </div>
         </div>
       </div>
+      <StageGroupInstructionCard stage={stage} ref={stageInstructionCardRef} />
     </div>
   )
 }
