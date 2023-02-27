@@ -6,6 +6,7 @@ import {Furigana} from '@/components/Furigana';
 import styles from './style.module.scss';
 import { useEffect, useRef, useState } from 'react';
 import { StageGroupInstructionCard, StageGroupInstructionCardRef } from '../StageGroupInstructionCard';
+import { selectRandomItem } from '@/utils/functions';
 
 interface StageGroupDisplayProps {
   stage: StageGroup
@@ -21,23 +22,19 @@ export const StageGroupDisplay = ({ stage }: StageGroupDisplayProps) => {
   }
 
   useEffect(() => {
-    const selectRandomIcon = (iconList: Icon[]) => {
-      return iconList[Math.floor(Math.random() * iconList.length)]
-    }
-
     const stages: Stage[] = stage.stages
     const selectedIcons: Icon[] = []
 
     // Select one random item from each list
     stages.forEach(({ icons: iconList }) => {
-      const randomIcon = selectRandomIcon(iconList)
+      const randomIcon = selectRandomItem(iconList)
       selectedIcons.push(randomIcon)
     })
 
     // Select the remaining random items
     while (selectedIcons.length < 5) {
-      const randomStage = stages[Math.floor(Math.random() * stages.length)]
-      const randomIcon = selectRandomIcon(randomStage.icons)
+      const randomStage = selectRandomItem(stages)
+      const randomIcon = selectRandomItem(randomStage.icons)
 
       if (!selectedIcons.includes(randomIcon)) {
         selectedIcons.push(randomIcon)
@@ -65,7 +62,7 @@ export const StageGroupDisplay = ({ stage }: StageGroupDisplayProps) => {
         <div className={styles.description}>{stage.description}</div>
         <div className={styles.levels}>
           <div className={styles.level}>
-            <span className={styles.name}>{stage.levelChapter} - Mixed review</span>
+            <span className={styles.name}>level {stage.levelChapter} - Mixed review</span>
             <button className={styles.playBtn} onClick={handlePlayBtnClick} >Play</button>
           </div>
         </div>

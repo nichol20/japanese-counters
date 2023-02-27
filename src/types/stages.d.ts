@@ -6,6 +6,7 @@ export interface Stages {
 
 export interface StageGroup {
   id: string
+  name: string
   description: string
   stages: Stage[]
   levelChapter: string
@@ -13,6 +14,7 @@ export interface StageGroup {
 
 export interface Stage {
   id: string
+  name: string
   counter: Counter
   description: string
   instruction: string
@@ -29,12 +31,19 @@ export interface Level {
   chapter: string
   name: string
   references: LevelReference[]
+  wrongAnswers: string[]
   description: string
 }
 
 export interface LevelReference {
-  number: string
+  number: LevelReferenceNumber
   reading: LevelReferenceReading
+}
+
+export interface LevelReferenceNumber {
+  actual: number
+  english: string
+  japanese: string
 }
 
 export interface LevelReferenceReading {

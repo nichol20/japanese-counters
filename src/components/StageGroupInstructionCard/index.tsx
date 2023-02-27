@@ -1,4 +1,5 @@
 import { StageGroup } from "@/types/stages";
+import Router from "next/router";
 import React, { forwardRef, useImperativeHandle, useState } from "react";
 import { Furigana } from "../Furigana";
 
@@ -24,6 +25,10 @@ export const StageGroupInstructionCard = forwardRef<StageGroupInstructionCardRef
 
   const close = () => {
     setShowInstructionCard(false)
+  }
+
+  const handleStartClick = () => {
+    Router.push(`/play/japanese-counters?stage=${stage.name}`)
   }
 
   const toggleReview = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
@@ -65,7 +70,7 @@ export const StageGroupInstructionCard = forwardRef<StageGroupInstructionCardRef
                       <div className={styles.examples}>
                         {levels[2].references.map((reference, index) => (
                           <div className={styles.example} key={index}>
-                            <span className={styles.number}>{reference.number}</span>
+                            <span className={styles.number}>{reference.number.japanese}</span>
                             <span className={styles.reading}>{reference.reading.hiragana}</span>
                           </div>
                         ))}
@@ -77,7 +82,7 @@ export const StageGroupInstructionCard = forwardRef<StageGroupInstructionCardRef
             </div>
           </div>
           <div className={styles.actions}>
-            <button className={styles.startLevelButton}>Start level</button>
+            <button className={styles.startLevelButton} onClick={handleStartClick}>Start level</button>
             <button className={styles.returnButton} onClick={close}>Return to game menu</button>
           </div>
         </div>

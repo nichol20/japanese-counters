@@ -1,5 +1,6 @@
 import { Stage } from '@/types/stages'
 import Image from 'next/image'
+import Router from 'next/router'
 import { forwardRef, useImperativeHandle, useState } from 'react'
 import {Furigana} from '../Furigana'
 import styles from './style.module.scss'
@@ -24,6 +25,10 @@ export const SingleStageInstructionCard = forwardRef<SingleStageInstructionCardR
 
   const close = () => {
     setShowInstructionCard(false)
+  }
+
+  const handleStartClick = () => {
+    Router.push(`/play/japanese-counters?stage=${stage.name}&level=${levelIndex + 1}`)
   }
 
   useImperativeHandle(ref, () => ({
@@ -63,14 +68,14 @@ export const SingleStageInstructionCard = forwardRef<SingleStageInstructionCardR
             <div className={styles.examples}>
               {stage.levels[levelIndex].references.map((reference, index) => (
                 <div className={styles.example} key={index}>
-                  <span className={styles.number}>{reference.number}</span>
+                  <span className={styles.number}>{reference.number.japanese}</span>
                   <span className={styles.reading}>{reference.reading.hiragana}</span>
                 </div>
               ))}
             </div>
           </div>
           <div className={styles.actions}>
-            <button className={styles.startLevelButton}>Start level</button>
+            <button className={styles.startLevelButton} onClick={handleStartClick}>Start level</button>
             <button className={styles.returnButton} onClick={close}>Return to game menu</button>
           </div>
         </div>

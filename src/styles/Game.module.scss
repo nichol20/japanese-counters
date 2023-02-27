@@ -1,0 +1,29 @@
+@use '../styles' as *;
+
+.iconList {
+  list-style: none;
+  @include mixins-display-flex();
+}
+
+.answerList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.answer {
+  background-color: #f2f2f2;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  transition: background-color 0.3s ease;
+}
+
+.correctAnswer {
+  background-color: #d3f7cf;
+}
+
+.incorrectAnswer {
+  background-color: #ffb6b9;
+}

@@ -2,8 +2,9 @@ import { Stage, StageGroup, Stages } from "@/types/stages";
 import { hikiIcons, honIcons, maiIcons } from "./icons";
 import { hikiLevels, honLevels, maiLevels } from "./levels";
 
-export const maiStage: Stage = {
+export const mai: Stage = {
   id: '1',
+  name: 'mai',
   counter: {
     kanji: '枚',
     reading: 'まい'
@@ -14,8 +15,9 @@ export const maiStage: Stage = {
   levels: maiLevels
 }
 
-export const honStage: Stage = {
+export const hon: Stage = {
   id: '2',
+  name: 'hon',
   counter: {
     kanji: '本',
     reading: 'ほん'
@@ -26,8 +28,9 @@ export const honStage: Stage = {
   levels: honLevels
 }
 
-export const hikiStage: Stage = {
+export const hiki: Stage = {
   id: '3',
+  name: 'hiki',
   counter: {
     kanji: '匹',
     reading: 'ひき'
@@ -38,16 +41,17 @@ export const hikiStage: Stage = {
   levels: hikiLevels
 }
 
-export const stageGroup1: StageGroup = {
+export const group1: StageGroup = {
   id: 'stageGroup1',
+  name: 'group1',
   description: "When you're ready, let's see if you can remember which counter goes with which thing!",
-  stages: [ maiStage, honStage, hikiStage ],
-  levelChapter: 'level 10'
+  stages: [ mai, hon, hiki ],
+  levelChapter: '10'
 }
 
 export const stages: Stages = {
-  maiStage,
-  honStage,
-  hikiStage,
-  stageGroup1
+  mai,
+  hon,
+  hiki,
+  group1
 }

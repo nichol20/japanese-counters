@@ -36,7 +36,7 @@ export const SingleStageDisplay = ({ stage }: SingleStageDisplayProps) => {
       <div className={styles.levels}>
         {stage.levels.map((level, index) => (
           <div className={styles.level} key={index}>
-            <span className={styles.name}>{level.chapter} - {level.name}</span>
+            <span className={styles.name}>level {level.chapter} - {level.name}</span>
             <button className={styles.playBtn} onClick={() => handlePlayBtnClick(index)} >Play</button>
           </div>
         ))}
