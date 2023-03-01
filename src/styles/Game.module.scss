@@ -1,29 +1,88 @@
 @use '../styles' as *;
 
+.game {
+  width: 100%;
+  min-height: 100vh;
+  @include mixins-display-flex();
+  flex-direction: column;
+  background-color: $colors-primary-bg;
+}
+
+.timer {
+  width: 500px;
+}
+
+.question {
+  width: 600px;
+  @include mixins-display-flex();
+  flex-direction: column;
+}
+
 .iconList {
   list-style: none;
   @include mixins-display-flex();
+  max-width: 360px;
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+  width: 100%;
+
+  .item {
+    width: 18%;
+    margin: 1%;
+    
+    .icon {
+      width: 70px;
+      height: 70px;
+    }
+  }
 }
 
 .answerList {
   list-style: none;
   margin: 0;
   padding: 0;
+  @include mixins-display-flex(space-between);
+  flex-wrap: wrap;
+  width: 100%;
 }
 
 .answer {
-  background-color: #f2f2f2;
-  border-radius: 0.5rem;
+  color: $colors-primary-btn-txt;
+  border-radius: 4px;
   cursor: pointer;
-  margin-bottom: 0.5rem;
-  padding: 0.5rem;
-  transition: background-color 0.3s ease;
+  height: 40px;
+  transition: background-color 300ms ease, border-color 300ms ease;
+  min-width: 48%;
+  margin-bottom: 10px;
+  @include mixins-display-flex();
+}
+
+.answerStyle1 {
+  background-color: $colors-answer-bg-1;
+  border: 1px solid $colors-answer-border-1;
+}
+
+.answerStyle2 {
+  background-color: $colors-answer-bg-2;
+  border: 1px solid $colors-answer-border-2;
+}
+
+.answerStyle3 {
+  background-color: $colors-answer-bg-3;
+  border: 1px solid $colors-answer-border-3;
+}
+
+.answerStyle4 {
+  background-color: $colors-answer-bg-4;
+  border: 1px solid $colors-answer-border-4;
 }
 
 .correctAnswer {
-  background-color: #d3f7cf;
+  background-color: $colors-success;
+  border-color: $colors-success;
 }
 
 .incorrectAnswer {
-  background-color: #ffb6b9;
+  background-color: $colors-danger;
+  border-color: $colors-danger;
 }
