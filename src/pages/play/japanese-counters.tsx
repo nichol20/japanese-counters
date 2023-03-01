@@ -71,6 +71,7 @@ export default function JapaneseCounters() {
   const generateQuestion = () => {
     generateRandomIcon()
     generateRandomAnswers()
+
     // Random styles in answer buttons
     setAnswerStyleList(prev => shuffleArray(prev))
 

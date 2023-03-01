@@ -55,6 +55,8 @@
   min-width: 48%;
   margin-bottom: 10px;
   @include mixins-display-flex();
+  font-size: 1.2em;
+  font-weight: 500;
 }
 
 .answerStyle1 {

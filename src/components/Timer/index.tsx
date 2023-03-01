@@ -1,3 +1,5 @@
+import { hourglassesIcon } from '@/assets';
+import Image from 'next/image';
 import { useState, useEffect, forwardRef, useImperativeHandle } from 'react';
 
 import styles from './style.module.scss'
@@ -52,7 +54,11 @@ export const Timer = forwardRef<TimerRef, TimerProps>(
 
   return (
     <div className={styles.timer}>
-      <div style={{ width: `${progress}%` }} className={styles.progressBar} />
+      <Image src={hourglassesIcon} alt="hourglasses" className={styles.icon} />
+      <div className={styles.bar}>
+        <div className={styles.backgroundBar} />
+        <div style={{ width: `${progress}%` }} className={styles.progressBar} />
+      </div>
     </div>
   )
 })

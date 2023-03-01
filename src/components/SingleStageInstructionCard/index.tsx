@@ -28,7 +28,7 @@ export const SingleStageInstructionCard = forwardRef<SingleStageInstructionCardR
   }
 
   const handleStartClick = () => {
-    Router.push(`/play/japanese-counters?stage=${stage.name}&level=${levelIndex + 1}`)
+    Router.push(`/play/japanese-counters?stage=${stage.name}&level=${stage.levels[levelIndex].chapter}`)
   }
 
   useImperativeHandle(ref, () => ({

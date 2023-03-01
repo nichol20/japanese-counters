@@ -1,10 +1,12 @@
+export { default as hourglassesIcon } from './images/hourglasses.png'
+
 // 枚(まい)
 export { default as blanketIcon } from './images/mai/blanket.png'
 export { default as paperIcon } from './images/mai/paper.png'
 export { default as pizzaIcon } from './images/mai/pizza.png'
 export { default as plateIcon } from './images/mai/plate.png'
 export { default as shirtIcon } from './images/mai/shirt.png'
-export { default as sliceOfBreadIcon } from './images/mai/slice_of_bread.png'
+export { default as sliceOfBreadIcon } from './images/mai/slice-of-bread.png'
 export { default as sweaterIcon } from './images/mai/sweater.png'
 
 // 本(ほん)
