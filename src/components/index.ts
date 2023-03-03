@@ -1,4 +1,7 @@
 export { Furigana } from './Furigana'
+export { Card } from './Card'
+export { Timer } from './Timer'
+export { FinishedLevelCard } from './FinishedLevelCard'
 export { SingleStageDisplay } from './StageDisplay/SingleStageDisplay'
 export { StageGroupDisplay } from './StageDisplay/StageGroupDisplay'
 export { SingleStageInstructionCard } from './SingleStageInstructionCard'

@@ -1,4 +1,4 @@
-import { useRouter } from "next/router"
+import Router, { useRouter } from "next/router"
 import { stages } from "@/data/stages"
 import { useEffect, useRef, useState } from "react"
 import { Icon, Level, LevelReference } from "@/types/stages"
@@ -7,9 +7,12 @@ import { selectRandomItem, shuffleArray } from "@/utils/functions"
 import styles from '../../styles/Game.module.scss'
 import Image from "next/image"
 import { Timer, TimerRef } from "@/components/Timer"
+import { FinishedLevelCard } from "@/components"
+import { FinishedLevelCardRef } from "@/components/FinishedLevelCard"
 
 const defaultChapter = '1'
 const defaultStage = 'mai'
+const questionLimit = 5
 
 export default function JapaneseCounters() {
   const router = useRouter()
@@ -23,8 +26,21 @@ export default function JapaneseCounters() {
   const [ selectedAnswer, setSelectedAnswer ] = useState<string | null>(null);
   const [ answerStyleList, setAnswerStyleList ] = useState([ styles.answerStyle1, styles.answerStyle2, styles.answerStyle3, styles.answerStyle4 ])
   const timerRef = useRef<TimerRef>(null)
+  const finishedLevelCardRef = useRef<FinishedLevelCardRef>(null)
+  const [ questionAsked, setQuestionsAsked ] = useState(0)
 
   if(!stage) return null
+
+  const isAnswerCorrect = (answer: string) => {
+    if(!currentReference) return false
+    return answer === currentReference.reading.hiragana || answer === currentReference.reading.kanji
+  }
+
+  const getAnswerClass = (answer: string): string => {
+    if(selectedAnswer === null) return ''
+    else if(isAnswerCorrect(answer)) return styles.correctAnswer
+    else return styles.incorrectAnswer
+  }
 
   const generateRandomIcon = () => {
     if(isStageGroup) {
@@ -50,25 +66,11 @@ export default function JapaneseCounters() {
     }
   }
 
-  const handleAnswerClick = (answer: string) => {
-    setSelectedAnswer(answer)
-    if(timerRef.current) timerRef.current.pause()
-
-    setTimeout(generateQuestion, 2000)
-  }
-
-  const isAnswerCorrect = (answer: string) => {
-    if(!currentReference) return false
-    return answer === currentReference.reading.hiragana || answer === currentReference.reading.kanji
-  }
-
-  const getAnswerClass = (answer: string): string => {
-    if(selectedAnswer === null) return ''
-    else if(isAnswerCorrect(answer)) return styles.correctAnswer
-    else return styles.incorrectAnswer
-  }
-
   const generateQuestion = () => {
+    if(questionAsked > questionLimit && finishedLevelCardRef.current) {
+      return finishedLevelCardRef.current.show()
+    }
+    
     generateRandomIcon()
     generateRandomAnswers()
 
@@ -77,11 +79,25 @@ export default function JapaneseCounters() {
 
     setSelectedAnswer(null)
     if(timerRef.current) timerRef.current.reset()
+    setQuestionsAsked(prev => prev + 1)
+  }
+
+  const onTimeout = () => {
+    setSelectedAnswer('!')
+    setTimeout(generateQuestion, 2000)
+  }
+ 
+  const handleAnswerClick = (answer: string) => {
+    setSelectedAnswer(answer)
+    if(timerRef.current) timerRef.current.pause()
+
+    setTimeout(generateQuestion, 2000)
   }
 
   useEffect(() => {
     generateQuestion()
   }, [])
+
 
   if(!currentReference || !currentIcon) return null
 
@@ -91,7 +107,7 @@ export default function JapaneseCounters() {
         <Timer
          totalTime={200} 
          decreaseTime={20} 
-         onTimeout={() => {}}
+         onTimeout={onTimeout}
          ref={timerRef}
         />
       </div>
@@ -115,6 +131,7 @@ export default function JapaneseCounters() {
           ))}
         </ul>
       </div>
+      <FinishedLevelCard completionPercentage={57} status='success' ref={finishedLevelCardRef}/>
     </div>
   )
 }

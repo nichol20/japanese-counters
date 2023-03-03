@@ -16,7 +16,7 @@ export interface TimerRef {
 }
 
 export const Timer = forwardRef<TimerRef, TimerProps>(
-({ totalTime, decreaseTime }, ref) => {
+({ totalTime, decreaseTime, onTimeout }, ref) => {
   const [ timeLeft, setTimeLeft ] = useState(totalTime)
   const [ isActive, setIsActive ] = useState(true)
   const progress = (timeLeft / totalTime) * 100
@@ -41,6 +41,7 @@ export const Timer = forwardRef<TimerRef, TimerProps>(
     
     if (timeLeft === 0) {
       clearTimeout(timeoutId)
+      onTimeout()
     }
     
     return () => clearTimeout(timeoutId)

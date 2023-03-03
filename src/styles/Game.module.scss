@@ -6,6 +6,7 @@
   @include mixins-display-flex();
   flex-direction: column;
   background-color: $colors-primary-bg;
+  gap: 50px;
 }
 
 .timer {
