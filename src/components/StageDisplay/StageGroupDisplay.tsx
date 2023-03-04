@@ -6,7 +6,7 @@ import {Furigana} from '@/components/Furigana';
 import styles from './style.module.scss';
 import { useEffect, useRef, useState } from 'react';
 import { StageGroupInstructionCard, StageGroupInstructionCardRef } from '../StageGroupInstructionCard';
-import { selectRandomItem } from '@/utils/functions';
+import { selectRandomItem } from '@/utils/array';
 
 interface StageGroupDisplayProps {
   stage: StageGroup

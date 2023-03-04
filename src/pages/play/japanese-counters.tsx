@@ -2,21 +2,27 @@ import Router, { useRouter } from "next/router"
 import { stages } from "@/data/stages"
 import { useEffect, useRef, useState } from "react"
 import { Icon, Level, LevelReference } from "@/types/stages"
-import { selectRandomItem, shuffleArray } from "@/utils/functions"
+import { selectRandomItem, shuffleArray } from "@/utils/array"
 
 import styles from '../../styles/Game.module.scss'
 import Image from "next/image"
 import { Timer, TimerRef } from "@/components/Timer"
 import { FinishedLevelCard } from "@/components"
 import { FinishedLevelCardRef } from "@/components/FinishedLevelCard"
+import { GetServerSideProps } from "next"
+import { ParsedUrlQuery } from "querystring"
 
+interface JapaneseCountersProps {
+  query: ParsedUrlQuery
+}
+
+export const GAME_PATH = '/play/japanese-counters'
 const defaultChapter = '1'
 const defaultStage = 'mai'
-const questionLimit = 5
+const questionLimit = 1
 
-export default function JapaneseCounters() {
-  const router = useRouter()
-  const { level: chapterQuery, stage: stageQuery } = router.query
+export default function JapaneseCounters({ query }: JapaneseCountersProps) {
+  const { level: chapterQuery, stage: stageQuery } = query
   const chapter = typeof(chapterQuery) === 'string' ? chapterQuery : defaultChapter
   const stage = typeof(stageQuery) === 'string' ? stages[stageQuery] : stages[defaultStage]
   const isStageGroup = 'stages' in stage
@@ -28,6 +34,8 @@ export default function JapaneseCounters() {
   const timerRef = useRef<TimerRef>(null)
   const finishedLevelCardRef = useRef<FinishedLevelCardRef>(null)
   const [ questionAsked, setQuestionsAsked ] = useState(0)
+  const [ correctAnswers, setCorrectAnswers ] = useState(0)
+  const percentageResult = Math.floor((correctAnswers / questionLimit) * 100)
 
   if(!stage) return null
 
@@ -67,8 +75,8 @@ export default function JapaneseCounters() {
   }
 
   const generateQuestion = () => {
-    if(questionAsked > questionLimit && finishedLevelCardRef.current) {
-      return finishedLevelCardRef.current.show()
+    if(questionAsked > questionLimit) {
+      return finishLevel()
     }
     
     generateRandomIcon()
@@ -88,10 +96,20 @@ export default function JapaneseCounters() {
   }
  
   const handleAnswerClick = (answer: string) => {
+    // block user from clicking multiple times
+    if(selectedAnswer) return
+
     setSelectedAnswer(answer)
+    
+    if(isAnswerCorrect(answer)) setCorrectAnswers(prev => prev + 1)
+
     if(timerRef.current) timerRef.current.pause()
 
     setTimeout(generateQuestion, 2000)
+  }
+
+  const finishLevel = () => {
+    if(finishedLevelCardRef.current) finishedLevelCardRef.current.show()
   }
 
   useEffect(() => {
@@ -131,7 +149,19 @@ export default function JapaneseCounters() {
           ))}
         </ul>
       </div>
-      <FinishedLevelCard completionPercentage={57} status='success' ref={finishedLevelCardRef}/>
+      <FinishedLevelCard
+       percentageResult={percentageResult}
+       query={query}
+       ref={finishedLevelCardRef}
+      />
     </div>
   )
+}
+
+export const getServerSideProps: GetServerSideProps = async ({ query }) => {
+  return { 
+    props: {
+      query
+    }
+  }
 }
