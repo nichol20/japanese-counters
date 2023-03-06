@@ -6,6 +6,7 @@
   @include mixins-display-flex(flex-start, center);
   flex-direction: column;
   gap: 20px;
+  color: $colors-primary-txt;
 }
 
 .description {

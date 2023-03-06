@@ -1,23 +1,26 @@
 import Image from 'next/image';
+import Router from 'next/router';
 
 import { Stage } from '@/types/stages';
 import {Furigana} from '@/components/Furigana';
 
 import styles from './style.module.scss';
-import { useRef, useState } from 'react';
-import { SingleStageInstructionCard, SingleStageInstructionCardRef } from '../SingleStageInstructionCard';
+import { GAME_PATH } from '@/data/app'
 
 interface SingleStageDisplayProps {
   stage: Stage
 }
 
 export const SingleStageDisplay = ({ stage }: SingleStageDisplayProps) => {
-  const [ currentLevelIndex, setCurrentLevelIndex ] = useState(0)
-  const stageInstructionCardRef = useRef<SingleStageInstructionCardRef>(null)
 
-  const handlePlayBtnClick = (index: number) => {
-    setCurrentLevelIndex(index)
-    if(stageInstructionCardRef.current) stageInstructionCardRef.current.show()
+  const handlePlayBtnClick = (chapter: string) => {
+    Router.push({
+      pathname: GAME_PATH,
+      query: {
+        stage: stage.name,
+        level: chapter
+      }
+    })
   }
   
   return (
@@ -37,11 +40,10 @@ export const SingleStageDisplay = ({ stage }: SingleStageDisplayProps) => {
         {stage.levels.map((level, index) => (
           <div className={styles.level} key={index}>
             <span className={styles.name}>level {level.chapter} - {level.name}</span>
-            <button className={styles.playBtn} onClick={() => handlePlayBtnClick(index)} >Play</button>
+            <button className={styles.playBtn} onClick={() => handlePlayBtnClick(level.chapter)} >Play</button>
           </div>
         ))}
       </div>
-      <SingleStageInstructionCard ref={stageInstructionCardRef} stage={stage} levelIndex={currentLevelIndex} />
     </div>
   )
 }

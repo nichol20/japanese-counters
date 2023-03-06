@@ -8,6 +8,7 @@ import styles from './style.module.scss'
 
 interface StageGroupInstructionCardProps {
   stage: StageGroup
+  onStart: () => void
 }
 
 export interface StageGroupInstructionCardRef {
@@ -16,7 +17,7 @@ export interface StageGroupInstructionCardRef {
 }
 
 export const StageGroupInstructionCard = forwardRef<StageGroupInstructionCardRef, StageGroupInstructionCardProps>(
-({ stage }, ref) => {
+({ stage, onStart }, ref) => {
   const [ showInstructionCard, setShowInstructionCard ] = useState(false)
   const { stages } = stage
 
@@ -29,7 +30,7 @@ export const StageGroupInstructionCard = forwardRef<StageGroupInstructionCardRef
   }
 
   const handleStartClick = () => {
-    Router.push(`/play/japanese-counters?stage=${stage.name}`)
+    onStart()
   }
 
   const toggleReview = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {

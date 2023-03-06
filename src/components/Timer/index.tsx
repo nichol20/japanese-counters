@@ -13,16 +13,21 @@ interface TimerProps {
 export interface TimerRef {
   reset: (newTotalTime?: number) => void
   pause: () => void
+  start: () => void
 }
 
 export const Timer = forwardRef<TimerRef, TimerProps>(
 ({ totalTime, decreaseTime, onTimeout }, ref) => {
   const [ timeLeft, setTimeLeft ] = useState(totalTime)
-  const [ isActive, setIsActive ] = useState(true)
+  const [ isActive, setIsActive ] = useState(false)
   const progress = (timeLeft / totalTime) * 100
 
   const pause = () => {
     setIsActive(false)
+  }
+
+  const start = () => {
+    setIsActive(true)
   }
   
   const reset = (newTotalTime: number=totalTime) => {
@@ -45,12 +50,13 @@ export const Timer = forwardRef<TimerRef, TimerProps>(
     }
     
     return () => clearTimeout(timeoutId)
-  }, [timeLeft])
+  }, [timeLeft, isActive])
   
   
   useImperativeHandle(ref, () => ({
     reset,
-    pause
+    pause,
+    start
   }))
 
   return (

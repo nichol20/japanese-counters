@@ -7,32 +7,44 @@ import { selectRandomItem, shuffleArray } from "@/utils/array"
 import styles from '../../styles/Game.module.scss'
 import Image from "next/image"
 import { Timer, TimerRef } from "@/components/Timer"
-import { FinishedLevelCard } from "@/components"
+import { FinishedLevelCard, SingleStageInstructionCard } from "@/components"
 import { FinishedLevelCardRef } from "@/components/FinishedLevelCard"
 import { GetServerSideProps } from "next"
 import { ParsedUrlQuery } from "querystring"
+import { StageGroupInstructionCard, StageGroupInstructionCardRef } from "@/components/StageGroupInstructionCard"
+import { SingleStageInstructionCardRef } from "@/components/SingleStageInstructionCard"
 
 interface JapaneseCountersProps {
   query: ParsedUrlQuery
 }
 
-export const GAME_PATH = '/play/japanese-counters'
 const defaultChapter = '1'
 const defaultStage = 'mai'
-const questionLimit = 1
+const questionLimit = 10
 
 export default function JapaneseCounters({ query }: JapaneseCountersProps) {
   const { level: chapterQuery, stage: stageQuery } = query
   const chapter = typeof(chapterQuery) === 'string' ? chapterQuery : defaultChapter
   const stage = typeof(stageQuery) === 'string' ? stages[stageQuery] : stages[defaultStage]
+
   const isStageGroup = 'stages' in stage
+
   const [ currentIcon, setCurrentIcon ] = useState<Icon>()
   const [ currentReference, setCurrentReference ] = useState<LevelReference>()
+
   const [ answers, setAnswers ] = useState<string[]>([])
   const [ selectedAnswer, setSelectedAnswer ] = useState<string | null>(null);
-  const [ answerStyleList, setAnswerStyleList ] = useState([ styles.answerStyle1, styles.answerStyle2, styles.answerStyle3, styles.answerStyle4 ])
+  const [ answerStyleList, setAnswerStyleList ] = useState([ 
+    styles.answerStyle1, 
+    styles.answerStyle2, 
+    styles.answerStyle3, 
+    styles.answerStyle4 
+  ])
+
+  const stageInstructionCardRef = useRef<SingleStageInstructionCardRef | StageGroupInstructionCardRef>(null)
   const timerRef = useRef<TimerRef>(null)
   const finishedLevelCardRef = useRef<FinishedLevelCardRef>(null)
+  
   const [ questionAsked, setQuestionsAsked ] = useState(0)
   const [ correctAnswers, setCorrectAnswers ] = useState(0)
   const percentageResult = Math.floor((correctAnswers / questionLimit) * 100)
@@ -50,43 +62,38 @@ export default function JapaneseCounters({ query }: JapaneseCountersProps) {
     else return styles.incorrectAnswer
   }
 
-  const generateRandomIcon = () => {
+  const generateRandomValues = () => {
     if(isStageGroup) {
       const randomStage = selectRandomItem(stage.stages)
+      const randomLevel = selectRandomItem(randomStage.levels)
+      const randomReference = selectRandomItem(randomLevel.references)
+      
       setCurrentIcon(selectRandomItem(randomStage.icons))
-    }
-    else setCurrentIcon(selectRandomItem(stage.icons))
-  }
-
-  const generateRandomAnswers = () => {
-    if(isStageGroup) {
-      const randomStage = selectRandomItem(stage.stages)
-      const level = randomStage.levels.filter(l => l.chapter === chapter)[0]
-      const randomReference = selectRandomItem(level.references)
       setCurrentReference(randomReference)
-      setAnswers(shuffleArray([...level.wrongAnswers, randomReference.reading.hiragana]))
+      setAnswers(shuffleArray([...randomLevel.wrongAnswers, randomReference.reading.hiragana]))
     }
     else {
       const level = stage.levels.filter(l => l.chapter === chapter)[0]
       const randomReference = selectRandomItem(level.references)
+
+      setCurrentIcon(selectRandomItem(stage.icons))
       setCurrentReference(randomReference)
       setAnswers(shuffleArray([...level.wrongAnswers, randomReference.reading.hiragana]))
     }
   }
 
   const generateQuestion = () => {
-    if(questionAsked > questionLimit) {
+    if(questionAsked >= questionLimit) {
       return finishLevel()
     }
-    
-    generateRandomIcon()
-    generateRandomAnswers()
+
+    generateRandomValues()
 
     // Random styles in answer buttons
     setAnswerStyleList(prev => shuffleArray(prev))
 
     setSelectedAnswer(null)
-    if(timerRef.current) timerRef.current.reset()
+    timerRef.current?.reset()
     setQuestionsAsked(prev => prev + 1)
   }
 
@@ -109,15 +116,22 @@ export default function JapaneseCounters({ query }: JapaneseCountersProps) {
   }
 
   const finishLevel = () => {
-    if(finishedLevelCardRef.current) finishedLevelCardRef.current.show()
+    finishedLevelCardRef.current?.show()
+    console.log('finalizando')
+  }
+
+  const onStart = () => {
+    stageInstructionCardRef.current!.close()
+    generateQuestion()
+    timerRef.current?.start()
   }
 
   useEffect(() => {
-    generateQuestion()
-  }, [])
-
-
-  if(!currentReference || !currentIcon) return null
+    setQuestionsAsked(0)
+    setCorrectAnswers(0)
+    finishedLevelCardRef.current?.close()
+    stageInstructionCardRef.current?.show()
+  }, [ query ])
 
   return (
     <div className={styles.game}>
@@ -131,9 +145,12 @@ export default function JapaneseCounters({ query }: JapaneseCountersProps) {
       </div>
       <div className={styles.question}>
         <ul className={styles.iconList}>
-          {Array(currentReference.number.actual).fill('').map((_, index) => (
+          {Array(currentReference?.number.actual).fill('').map((_, index) => (
             <li className={styles.item} key={index}>
+              {
+               currentIcon &&   
               <Image src={currentIcon.src} alt={currentIcon.name.english} className={styles.icon} />
+              }
             </li>
           ))}
         </ul>
@@ -151,9 +168,22 @@ export default function JapaneseCounters({ query }: JapaneseCountersProps) {
       </div>
       <FinishedLevelCard
        percentageResult={percentageResult}
-       query={query}
+       stage={stage}
+       chapter={chapter}
        ref={finishedLevelCardRef}
       />
+      {isStageGroup ? 
+      <StageGroupInstructionCard
+       stage={stage} 
+       onStart={onStart}
+       ref={stageInstructionCardRef} 
+      /> 
+      : <SingleStageInstructionCard
+       ref={stageInstructionCardRef} 
+       stage={stage} 
+       chapter={chapter} 
+       onStart={onStart}
+      />}
     </div>
   )
 }

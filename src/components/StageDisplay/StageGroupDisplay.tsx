@@ -4,9 +4,10 @@ import { Icon, Stage, StageGroup } from '@/types/stages';
 import {Furigana} from '@/components/Furigana';
 
 import styles from './style.module.scss';
-import { useEffect, useRef, useState } from 'react';
-import { StageGroupInstructionCard, StageGroupInstructionCardRef } from '../StageGroupInstructionCard';
+import { useEffect, useState } from 'react';
 import { selectRandomItem } from '@/utils/array';
+import Router from 'next/router';
+import { GAME_PATH } from '@/data/app'
 
 interface StageGroupDisplayProps {
   stage: StageGroup
@@ -15,10 +16,14 @@ interface StageGroupDisplayProps {
 
 export const StageGroupDisplay = ({ stage }: StageGroupDisplayProps) => {
   const [ icons, setIcons ] = useState<Icon[]>([])
-  const stageInstructionCardRef = useRef<StageGroupInstructionCardRef>(null)
 
   const handlePlayBtnClick = () => {
-    if(stageInstructionCardRef.current) stageInstructionCardRef.current.show()
+    Router.push({
+      pathname: GAME_PATH,
+      query: {
+        stage: stage.name
+      }
+    })
   }
 
   useEffect(() => {
@@ -67,7 +72,6 @@ export const StageGroupDisplay = ({ stage }: StageGroupDisplayProps) => {
           </div>
         </div>
       </div>
-      <StageGroupInstructionCard stage={stage} ref={stageInstructionCardRef} />
     </div>
   )
 }

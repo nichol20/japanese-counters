@@ -1,0 +1,1 @@
+export const GAME_PATH = '/play/japanese-counters'

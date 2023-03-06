@@ -8,7 +8,8 @@ import styles from './style.module.scss'
 
 interface SingleStageInstructionCardProps {
   stage: Stage
-  levelIndex: number
+  chapter: string
+  onStart: () => void
 }
 
 export interface SingleStageInstructionCardRef {
@@ -17,8 +18,9 @@ export interface SingleStageInstructionCardRef {
 }
 
 export const SingleStageInstructionCard = forwardRef<SingleStageInstructionCardRef, SingleStageInstructionCardProps>(
-({ stage, levelIndex }, ref) => {
+({ stage, chapter, onStart }, ref) => {
   const [ showInstructionCard, setShowInstructionCard ] = useState(false)
+  const level = stage.levels.filter(s => s.chapter === chapter)[0]
 
   const show = () => {
     setShowInstructionCard(true)
@@ -29,7 +31,7 @@ export const SingleStageInstructionCard = forwardRef<SingleStageInstructionCardR
   }
 
   const handleStartClick = () => {
-    Router.push(`/play/japanese-counters?stage=${stage.name}&level=${stage.levels[levelIndex].chapter}`)
+    onStart()
   }
 
   useImperativeHandle(ref, () => ({
@@ -61,11 +63,11 @@ export const SingleStageInstructionCard = forwardRef<SingleStageInstructionCardR
         </ul>
         <span className={styles.instruction}>{stage.instruction}</span>
         <span className={styles.explanation}>
-          {stage.levels[levelIndex].description}<br/>
+          {level.description}<br/>
           Please study the counters below before you begin!
         </span>
         <div className={styles.examples}>
-          {stage.levels[levelIndex].references.map((reference, index) => (
+          {level.references.map((reference, index) => (
             <div className={styles.example} key={index}>
               <span className={styles.number}>{reference.number.japanese}</span>
               <span className={styles.reading}>{reference.reading.hiragana}</span>
