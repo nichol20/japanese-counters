@@ -1,22 +1,24 @@
 @use '../../styles' as *;
 
 .circularProgress {
+  --border-width: 3px;
+
   @include mixins-display-flex();
   position: relative;
   height: 140px;
   width: 140px;
   border-radius: 50%;
   background: conic-gradient($colors-circular-progress-bar 3.6deg, $colors-circular-progress-border 0deg);
-  border: 3px solid $colors-circular-progress-border;
+  border: var(--border-width, 3px) solid $colors-circular-progress-border;
 
   &::before {
     content: "";
     position: absolute;
-    height: 110px;
-    width: 110px;
+    height: 80%;
+    width: 80%;
     border-radius: 50%;
     background-color: $colors-primary-bg;
-    border: 3px solid $colors-circular-progress-border;
+    border: var(--border-width, 3px) solid $colors-circular-progress-border;
   }
 
 }

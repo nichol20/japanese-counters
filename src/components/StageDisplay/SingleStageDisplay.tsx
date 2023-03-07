@@ -6,13 +6,15 @@ import {Furigana} from '@/components/Furigana';
 
 import styles from './style.module.scss';
 import { GAME_PATH } from '@/data/app'
+import { CircularProgress } from '../CircularProgress';
+import { getLevelsPercentage, LevelsPercentage } from '@/utils/localStorage';
 
 interface SingleStageDisplayProps {
   stage: Stage
+  levelsPercentage: LevelsPercentage
 }
 
-export const SingleStageDisplay = ({ stage }: SingleStageDisplayProps) => {
-
+export const SingleStageDisplay = ({ stage, levelsPercentage }: SingleStageDisplayProps) => {
   const handlePlayBtnClick = (chapter: string) => {
     Router.push({
       pathname: GAME_PATH,
@@ -22,6 +24,7 @@ export const SingleStageDisplay = ({ stage }: SingleStageDisplayProps) => {
       }
     })
   }
+
   
   return (
     <div className={styles.stageDisplay}>
@@ -39,6 +42,7 @@ export const SingleStageDisplay = ({ stage }: SingleStageDisplayProps) => {
       <div className={styles.levels}>
         {stage.levels.map((level, index) => (
           <div className={styles.level} key={index}>
+            <CircularProgress progressValue={levelsPercentage[level.chapter] || 0} diameter={50} />
             <span className={styles.name}>level {level.chapter} - {level.name}</span>
             <button className={styles.playBtn} onClick={() => handlePlayBtnClick(level.chapter)} >Play</button>
           </div>

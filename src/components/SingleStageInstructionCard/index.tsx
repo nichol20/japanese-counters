@@ -30,6 +30,10 @@ export const SingleStageInstructionCard = forwardRef<SingleStageInstructionCardR
     setShowInstructionCard(false)
   }
 
+  const returnToGameMenu = () => {
+    Router.push('/')
+  }
+
   const handleStartClick = () => {
     onStart()
   }
@@ -77,7 +81,7 @@ export const SingleStageInstructionCard = forwardRef<SingleStageInstructionCardR
       </div>
       <div className={styles.actions}>
         <button className={styles.startLevelButton} onClick={handleStartClick}>Start the level</button>
-        <button className={styles.returnButton} onClick={close}>Return to game menu</button>
+        <button className={styles.returnButton} onClick={returnToGameMenu}>Return to game menu</button>
       </div>
     </Card>
   )

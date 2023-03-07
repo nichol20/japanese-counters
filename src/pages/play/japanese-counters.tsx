@@ -13,6 +13,9 @@ import { GetServerSideProps } from "next"
 import { ParsedUrlQuery } from "querystring"
 import { StageGroupInstructionCard, StageGroupInstructionCardRef } from "@/components/StageGroupInstructionCard"
 import { SingleStageInstructionCardRef } from "@/components/SingleStageInstructionCard"
+import { isStageGroup } from "@/utils/stage"
+import { setLevelPercentage } from "@/utils/localStorage"
+import { useLocalStorage } from "@/hooks/useLocalStorage"
 
 interface JapaneseCountersProps {
   query: ParsedUrlQuery
@@ -20,14 +23,12 @@ interface JapaneseCountersProps {
 
 const defaultChapter = '1'
 const defaultStage = 'mai'
-const questionLimit = 10
+const questionLimit = 1
 
 export default function JapaneseCounters({ query }: JapaneseCountersProps) {
   const { level: chapterQuery, stage: stageQuery } = query
-  const chapter = typeof(chapterQuery) === 'string' ? chapterQuery : defaultChapter
   const stage = typeof(stageQuery) === 'string' ? stages[stageQuery] : stages[defaultStage]
-
-  const isStageGroup = 'stages' in stage
+  const chapter = typeof(chapterQuery) === 'string' ? chapterQuery : isStageGroup(stage) ? stage.levelChapter : defaultChapter
 
   const [ currentIcon, setCurrentIcon ] = useState<Icon>()
   const [ currentReference, setCurrentReference ] = useState<LevelReference>()
@@ -48,6 +49,7 @@ export default function JapaneseCounters({ query }: JapaneseCountersProps) {
   const [ questionAsked, setQuestionsAsked ] = useState(0)
   const [ correctAnswers, setCorrectAnswers ] = useState(0)
   const percentageResult = Math.floor((correctAnswers / questionLimit) * 100)
+  useLocalStorage(() => setLevelPercentage(chapter, percentageResult))
 
   if(!stage) return null
 
@@ -63,7 +65,7 @@ export default function JapaneseCounters({ query }: JapaneseCountersProps) {
   }
 
   const generateRandomValues = () => {
-    if(isStageGroup) {
+    if(isStageGroup(stage)) {
       const randomStage = selectRandomItem(stage.stages)
       const randomLevel = selectRandomItem(randomStage.levels)
       const randomReference = selectRandomItem(randomLevel.references)
@@ -117,7 +119,6 @@ export default function JapaneseCounters({ query }: JapaneseCountersProps) {
 
   const finishLevel = () => {
     finishedLevelCardRef.current?.show()
-    console.log('finalizando')
   }
 
   const onStart = () => {
@@ -172,7 +173,7 @@ export default function JapaneseCounters({ query }: JapaneseCountersProps) {
        chapter={chapter}
        ref={finishedLevelCardRef}
       />
-      {isStageGroup ? 
+      {isStageGroup(stage) ? 
       <StageGroupInstructionCard
        stage={stage} 
        onStart={onStart}

@@ -6,39 +6,42 @@
   flex-direction: column;
   max-width: 380px;
   gap: 15px;
+}
 
-  .iconList {
-    list-style: none;
-    @include mixins-display-flex();
-    gap: 8px;
 
-    .item {
-      width: 38px;
-      height: 38px;
+.iconList {
+  list-style: none;
+  @include mixins-display-flex();
+  gap: 8px;
 
-      img {
-        width: 100%;
-        height: 100%;
-      }
+  .item {
+    width: 38px;
+    height: 38px;
+
+    img {
+      width: 100%;
+      height: 100%;
     }
   }
+}
 
-  .description {
-      font-size: 1em;
-  }
+.description {
+    font-size: 1em;
+}
 
-  .levels {
-    width: 100%;
-    margin-top: auto;
+.levels {
+  width: 100%;
+  margin-top: auto;
 
-    .level {
-      display: grid;
-      grid-template-columns: 1fr 50px;
-      margin-bottom: 10px;
+  .level {
+    display: grid;
+    grid-template-columns: 50px 1fr 50px;
+    margin-bottom: 10px;
+    align-items: center;
+    gap: 5px;
 
-      .playBtn {
-        @include mixins-button-style();
-      }
+    .playBtn {
+      @include mixins-button-style();
     }
   }
 }

@@ -8,13 +8,16 @@ import { useEffect, useState } from 'react';
 import { selectRandomItem } from '@/utils/array';
 import Router from 'next/router';
 import { GAME_PATH } from '@/data/app'
+import { CircularProgress } from '../CircularProgress';
+import { getLevelsPercentage, LevelsPercentage } from '@/utils/localStorage';
 
 interface StageGroupDisplayProps {
   stage: StageGroup
+  levelsPercentage: LevelsPercentage
 }
 
 
-export const StageGroupDisplay = ({ stage }: StageGroupDisplayProps) => {
+export const StageGroupDisplay = ({ stage, levelsPercentage }: StageGroupDisplayProps) => {
   const [ icons, setIcons ] = useState<Icon[]>([])
 
   const handlePlayBtnClick = () => {
@@ -67,6 +70,7 @@ export const StageGroupDisplay = ({ stage }: StageGroupDisplayProps) => {
         <div className={styles.description}>{stage.description}</div>
         <div className={styles.levels}>
           <div className={styles.level}>
+            <CircularProgress progressValue={levelsPercentage[stage.levelChapter] || 0} diameter={50} />
             <span className={styles.name}>level {stage.levelChapter} - Mixed review</span>
             <button className={styles.playBtn} onClick={handlePlayBtnClick} >Play</button>
           </div>

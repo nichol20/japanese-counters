@@ -27,8 +27,8 @@ export const FinishedLevelCard = forwardRef<FinishedLevelCardRef, FinishedLevelC
   const router = useRouter()
   const [ showFinishedLevelCard, setShowFinishedLevelCard ] = useState(false)
   const isSuccessful = percentageResult > 50
-  
   const isStageGroup = 'stages' in stage
+  
   const currentLevelIndex = isStageGroup ? 0 : stage.levels.findIndex(level => level.chapter === chapter)
   const stageKeys = Object.keys(stages)
   const stageKeyIndex = stageKeys.indexOf(stage.name)
