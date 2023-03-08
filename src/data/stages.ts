@@ -1,6 +1,6 @@
 import { Stage, StageGroup, Stages } from "@/types/stages";
-import { hikiIcons, honIcons, maiIcons } from "./icons";
-import { hikiLevels, honLevels, maiLevels } from "./levels";
+import { daiIcons, hikiIcons, honIcons, maiIcons, nichiIcons, tsuIcons } from "./icons";
+import { daiLevels, hikiLevels, honLevels, maiLevels, nichiLevels, tsuLevels } from "./levels";
 
 export const mai: Stage = {
   id: '1',
@@ -49,9 +49,60 @@ export const group1: StageGroup = {
   levelChapter: '10'
 }
 
+export const dai: Stage = {
+  id: '4',
+  name: 'dai',
+  counter: {
+    kanji: '台',
+    reading: 'だい'
+  },
+  description: "台/だい is a counter that is attached to a number when you are counting machines, devices, and vehicles.",
+  instruction: "You just have to write 台/だい after each number!",
+  icons: daiIcons,
+  levels: daiLevels
+}
+
+export const tsu: Stage = {
+  id: '5',
+  name: 'dai',
+  counter: {
+    kanji: 'つ',
+    reading: ''
+  },
+  description: "つ is a generic counter that is attached to a number when you are counting things. It only goes up to 10.",
+  instruction: "There is not a general rule for these, so please memorize each one.",
+  icons: tsuIcons,
+  levels: tsuLevels
+}
+
+export const nichi: Stage = {
+  id: '6',
+  name: 'nichi',
+  counter: {
+    kanji: '日',
+    reading: 'にち'
+  },
+  description: "日/にち is a counter that is attached to the days of the month. This is a special counter, as many of the numbers do not have a standard suffix that is used.",
+  instruction: "1st through 10th, 14th, 19th, 20th, and 24th all have special readings. The remaining dates are the normal number plus 日/にち.",
+  icons: nichiIcons,
+  levels: nichiLevels
+}
+
+export const group2: StageGroup = {
+  id: 'stageGroup2',
+  name: 'group2',
+  description: "When you're ready, let's see if you can remember which counter goes with which thing!",
+  stages: [ dai, tsu, nichi ],
+  levelChapter: '10'
+}
+
 export const stages: Stages = {
   mai,
   hon,
   hiki,
-  group1
+  group1,
+  dai,
+  tsu,
+  nichi,
+  group2
 }

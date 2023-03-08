@@ -146,7 +146,7 @@ export default function JapaneseCounters({ query }: JapaneseCountersProps) {
       </div>
       <div className={styles.question}>
         <ul className={styles.iconList}>
-          {Array(currentReference?.number.actual).fill('').map((_, index) => (
+          {Array(currentReference?.number.amountOfIcons).fill('').map((_, index) => (
             <li className={styles.item} key={index}>
               {
                currentIcon &&   

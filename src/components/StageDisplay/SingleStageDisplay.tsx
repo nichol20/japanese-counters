@@ -2,12 +2,12 @@ import Image from 'next/image';
 import Router from 'next/router';
 
 import { Stage } from '@/types/stages';
-import {Furigana} from '@/components/Furigana';
-
-import styles from './style.module.scss';
+import { Furigana } from '@/components/Furigana';
 import { GAME_PATH } from '@/data/app'
 import { CircularProgress } from '../CircularProgress';
-import { getLevelsPercentage, LevelsPercentage } from '@/utils/localStorage';
+import { LevelsPercentage } from '@/utils/localStorage';
+
+import styles from './style.module.scss';
 
 interface SingleStageDisplayProps {
   stage: Stage

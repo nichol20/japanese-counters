@@ -5,58 +5,59 @@ export interface Stages {
 }
 
 export interface StageGroup {
-  id: string
-  name: string
-  description: string
-  stages: Stage[]
+  id:           string
+  name:         string
+  description:  string
+  stages:       Stage[]
   levelChapter: string
 }
 
 export interface Stage {
-  id: string
-  name: string
-  counter: Counter
+  id:          string
+  name:        string
+  counter:     Counter
   description: string
   instruction: string
-  icons: Icon[]
-  levels: Level[]
+  icons:       Icon[]
+  levels:      Level[]
 }
 
 export interface Counter {
-  kanji: string
+  kanji:  string
   reading: string
 }
 
 export interface Level {
-  chapter: string
-  name: string
-  references: LevelReference[]
+  chapter:      string
+  name:         string
+  references:   LevelReference[]
   wrongAnswers: string[]
-  description: string
+  description:  string
 }
 
 export interface LevelReference {
-  number: LevelReferenceNumber
+  number:  LevelReferenceNumber
   reading: LevelReferenceReading
 }
 
 export interface LevelReferenceNumber {
-  actual: number
-  english: string
-  japanese: string
+  actual:        number
+  english:       string
+  japanese:      string
+  amountOfIcons: number
 }
 
 export interface LevelReferenceReading {
-  kanji: string
+  kanji:    string
   hiragana: string
 }
 
 export interface Icon {
-  src: StaticImageData
+  src:  StaticImageData
   name: IconName
 }
 
 export interface IconName {
-  english: string
+  english:  string
   japanese: string
 }

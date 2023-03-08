@@ -1,15 +1,15 @@
 import Image from 'next/image';
+import Router from 'next/router';
+import { useEffect, useState } from 'react';
 
 import { Icon, Stage, StageGroup } from '@/types/stages';
 import {Furigana} from '@/components/Furigana';
+import { GAME_PATH } from '@/data/app'
+import { selectRandomItem } from '@/utils/array';
+import { CircularProgress } from '../CircularProgress';
+import { LevelsPercentage } from '@/utils/localStorage';
 
 import styles from './style.module.scss';
-import { useEffect, useState } from 'react';
-import { selectRandomItem } from '@/utils/array';
-import Router from 'next/router';
-import { GAME_PATH } from '@/data/app'
-import { CircularProgress } from '../CircularProgress';
-import { getLevelsPercentage, LevelsPercentage } from '@/utils/localStorage';
 
 interface StageGroupDisplayProps {
   stage: StageGroup

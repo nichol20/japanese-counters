@@ -1,6 +1,14 @@
 import { Icon } from "@/types/stages";
 
-import { blanketIcon, catIcon, dogIcon, fishIcon, flowerIcon, ladybirdIcon, mouseIcon, pantsIcon, paperIcon, penIcon, pizzaIcon, plateIcon, ropeIcon, shirtIcon, sliceOfBreadIcon, sweaterIcon, tieIcon, treeIcon, umbrellaIcon } from "@/assets";
+import { 
+  blanketIcon, paperIcon, pizzaIcon, shirtIcon, sweaterIcon, sliceOfBreadIcon, plateIcon, // mai
+  flowerIcon,  pantsIcon, penIcon, ropeIcon, treeIcon, umbrellaIcon, tieIcon, // hon
+  catIcon, dogIcon, fishIcon, ladybirdIcon, mouseIcon, // hiki
+  bicycleIcon, laptopIcon, tvIcon, carIcon, refrigeratorIcon,  // dai
+  orangeIcon, bellPepperIcon, teddyBearIcon, cupIcon, // tsu
+  calendar1Icon, calendar2Icon, calendar3Icon, calendar4Icon, calendar5Icon, calendar6Icon, calendar7Icon, calendar8Icon, calendar9Icon, calendar10Icon, calendar11Icon, calendar12Icon, calendar13Icon, calendar14Icon, calendar15Icon, calendar16Icon, calendar17Icon, calendar18Icon, calendar19Icon, calendar20Icon, calendar21Icon, calendar22Icon, calendar23Icon, calendar24Icon, calendar25Icon, calendar26Icon, calendar27Icon, calendar28Icon, calendar29Icon, calendar30Icon, calendar31Icon // nichi
+} from "@/assets";
+
 
 export const maiIcons: Icon[] = [
   {
@@ -142,4 +150,293 @@ export const hikiIcons: Icon[] = [
       japanese: '虫/むし'
     }
   }
+]
+
+export const daiIcons: Icon[] = [
+  {
+    src: laptopIcon,
+    name: {
+      english: 'computer',
+      japanese: 'コンピューター'
+    }
+  },
+  {
+    src: tvIcon,
+    name: {
+      english: 'TV',
+      japanese: 'テレビ'
+    }
+  },
+  {
+    src: carIcon,
+    name: {
+      english: 'car',
+      japanese: '車/くるま'
+    }
+  },
+  {
+    src: bicycleIcon,
+    name: {
+      english: 'bicycle',
+      japanese: '自転車/じてんしゃ'
+    }
+  },
+  {
+    src: refrigeratorIcon,
+    name: {
+      english: 'refrigerator',
+      japanese: '冷蔵庫/れいぞうこ'
+    }
+  },
+]
+
+export const tsuIcons: Icon[] = [
+  {
+    src: orangeIcon,
+    name: {
+      english: 'mandarin orange',
+      japanese: 'みかん'
+    }
+  },
+  {
+    src: bellPepperIcon,
+    name: {
+      english: 'bell pepper',
+      japanese: 'ピーマン'
+    }
+  },
+  {
+    src: teddyBearIcon,
+    name: {
+      english: 'stuffed animal',
+      japanese: 'ぬいぐるみ'
+    }
+  },
+  {
+    src: cupIcon,
+    name: {
+      english: 'cup',
+      japanese: 'カップ'
+    }
+  }
+]
+
+export const nichiIcons: Icon[] = [
+  {
+    src: calendar1Icon,
+    name: {
+      english: 'days of the month',
+      japanese: '日/にち'
+    }
+  },
+  {
+    src: calendar2Icon,
+    name: {
+      english: 'days of the month',
+      japanese: '日/にち'
+    }
+  },
+  {
+    src: calendar3Icon,
+    name: {
+      english: 'days of the month',
+      japanese: '日/にち'
+    }
+  },
+  {
+    src: calendar4Icon,
+    name: {
+      english: 'days of the month',
+      japanese: '日/にち'
+    }
+  },
+  {
+    src: calendar5Icon,
+    name: {
+      english: 'days of the month',
+      japanese: '日/にち'
+    }
+  },
+  {
+    src: calendar6Icon,
+    name: {
+      english: 'days of the month',
+      japanese: '日/にち'
+    }
+  },
+  {
+    src: calendar7Icon,
+    name: {
+      english: 'days of the month',
+      japanese: '日/にち'
+    }
+  },
+  {
+    src: calendar8Icon,
+    name: {
+      english: 'days of the month',
+      japanese: '日/にち'
+    }
+  },
+  {
+    src: calendar9Icon,
+    name: {
+      english: 'days of the month',
+      japanese: '日/にち'
+    }
+  },
+  {
+    src: calendar10Icon,
+    name: {
+      english: 'days of the month',
+      japanese: '日/にち'
+    }
+  },
+  {
+    src: calendar11Icon,
+    name: {
+      english: 'days of the month',
+      japanese: '日/にち'
+    }
+  },
+  {
+    src: calendar12Icon,
+    name: {
+      english: 'days of the month',
+      japanese: '日/にち'
+    }
+  },
+  {
+    src: calendar13Icon,
+    name: {
+      english: 'days of the month',
+      japanese: '日/にち'
+    }
+  },
+  {
+    src: calendar14Icon,
+    name: {
+      english: 'days of the month',
+      japanese: '日/にち'
+    }
+  },
+  {
+    src: calendar15Icon,
+    name: {
+      english: 'days of the month',
+      japanese: '日/にち'
+    }
+  },
+  {
+    src: calendar16Icon,
+    name: {
+      english: 'days of the month',
+      japanese: '日/にち'
+    }
+  },
+  {
+    src: calendar17Icon,
+    name: {
+      english: 'days of the month',
+      japanese: '日/にち'
+    }
+  },
+  {
+    src: calendar18Icon,
+    name: {
+      english: 'days of the month',
+      japanese: '日/にち'
+    }
+  },
+  {
+    src: calendar19Icon,
+    name: {
+      english: 'days of the month',
+      japanese: '日/にち'
+    }
+  },
+  {
+    src: calendar20Icon,
+    name: {
+      english: 'days of the month',
+      japanese: '日/にち'
+    }
+  },
+  {
+    src: calendar21Icon,
+    name: {
+      english: 'days of the month',
+      japanese: '日/にち'
+    }
+  },
+  {
+    src: calendar22Icon,
+    name: {
+      english: 'days of the month',
+      japanese: '日/にち'
+    }
+  },
+  {
+    src: calendar23Icon,
+    name: {
+      english: 'days of the month',
+      japanese: '日/にち'
+    }
+  },
+  {
+    src: calendar24Icon,
+    name: {
+      english: 'days of the month',
+      japanese: '日/にち'
+    }
+  },
+  {
+    src: calendar25Icon,
+    name: {
+      english: 'days of the month',
+      japanese: '日/にち'
+    }
+  },
+  {
+    src: calendar26Icon,
+    name: {
+      english: 'days of the month',
+      japanese: '日/にち'
+    }
+  },
+  {
+    src: calendar27Icon,
+    name: {
+      english: 'days of the month',
+      japanese: '日/にち'
+    }
+  },
+  {
+    src: calendar28Icon,
+    name: {
+      english: 'days of the month',
+      japanese: '日/にち'
+    }
+  },
+  {
+    src: calendar29Icon,
+    name: {
+      english: 'days of the month',
+      japanese: '日/にち'
+    }
+  },
+  {
+    src: calendar30Icon,
+    name: {
+      english: 'days of the month',
+      japanese: '日/にち'
+    }
+  },
+  {
+    src: calendar31Icon,
+    name: {
+      english: 'days of the month',
+      japanese: '日/にち'
+    }
+  },
 ]
