@@ -1,4 +1,5 @@
 import { Level } from "@/types/stages";
+import { nichiIcons } from "./icons";
 import { daiLevelReferences, hikiLevelReferences, honLevelReferences, maiLevelReferences, nichiLevelReferences, tsuLevelReferences } from "./references";
 
 export const maiLevels: Level[] = [
@@ -127,6 +128,7 @@ export const nichiLevels: Level[] = [
     name: '1st ~ 5th',
     description: 'This level covers 1 through 5.',
     references: nichiLevelReferences[0],
+    specificInstructionIcons: [ nichiIcons[0] ],
     wrongAnswers: ['a','b','c']
   },
   {
@@ -134,6 +136,7 @@ export const nichiLevels: Level[] = [
     name: '6th ~ 10th',
     description: 'This level covers 6 through 10.',
     references: nichiLevelReferences[1],
+    specificInstructionIcons: [ nichiIcons[5] ],
     wrongAnswers: ['a','b','c']
   },
   {
@@ -141,6 +144,7 @@ export const nichiLevels: Level[] = [
     name: '11th ~ 31st',
     description: 'This level covers 11 through 31.',
     references: nichiLevelReferences[2],
+    specificInstructionIcons: [ nichiIcons[10] ],
     wrongAnswers: ['a','b','c']
   },
   {
@@ -148,6 +152,7 @@ export const nichiLevels: Level[] = [
     name: 'Review',
     description: 'This level covers 1 through 31.',
     references: [...nichiLevelReferences[0], ...nichiLevelReferences[1], ...nichiLevelReferences[2]],
+    specificInstructionIcons: [ nichiIcons[0] ],
     wrongAnswers: ['a','b','c']
   }
 ]

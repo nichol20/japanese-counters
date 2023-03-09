@@ -64,7 +64,7 @@ export const dai: Stage = {
 
 export const tsu: Stage = {
   id: '5',
-  name: 'dai',
+  name: 'tsu',
   counter: {
     kanji: 'つ',
     reading: ''
@@ -93,7 +93,7 @@ export const group2: StageGroup = {
   name: 'group2',
   description: "When you're ready, let's see if you can remember which counter goes with which thing!",
   stages: [ dai, tsu, nichi ],
-  levelChapter: '10'
+  levelChapter: '21'
 }
 
 export const stages: Stages = {

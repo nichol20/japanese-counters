@@ -1,21 +1,21 @@
-import Router, { useRouter } from "next/router"
-import { stages } from "@/data/stages"
 import { useEffect, useRef, useState } from "react"
-import { Icon, Level, LevelReference } from "@/types/stages"
-import { selectRandomItem, shuffleArray } from "@/utils/array"
-
-import styles from '../../styles/Game.module.scss'
+import { ParsedUrlQuery } from "querystring"
+import { GetServerSideProps } from "next"
 import Image from "next/image"
+
+import { stages } from "@/data/stages"
+import { Icon, LevelReference } from "@/types/stages"
+import { selectRandomItem, shuffleArray } from "@/utils/array"
+import { useLocalStorage } from "@/hooks/useLocalStorage"
 import { Timer, TimerRef } from "@/components/Timer"
 import { FinishedLevelCard, SingleStageInstructionCard } from "@/components"
 import { FinishedLevelCardRef } from "@/components/FinishedLevelCard"
-import { GetServerSideProps } from "next"
-import { ParsedUrlQuery } from "querystring"
 import { StageGroupInstructionCard, StageGroupInstructionCardRef } from "@/components/StageGroupInstructionCard"
 import { SingleStageInstructionCardRef } from "@/components/SingleStageInstructionCard"
 import { isStageGroup } from "@/utils/stage"
 import { setLevelPercentage } from "@/utils/localStorage"
-import { useLocalStorage } from "@/hooks/useLocalStorage"
+
+import styles from '../../styles/Game.module.scss'
 
 interface JapaneseCountersProps {
   query: ParsedUrlQuery
@@ -23,7 +23,7 @@ interface JapaneseCountersProps {
 
 const defaultChapter = '1'
 const defaultStage = 'mai'
-const questionLimit = 1
+const questionLimit = 10
 
 export default function JapaneseCounters({ query }: JapaneseCountersProps) {
   const { level: chapterQuery, stage: stageQuery } = query
@@ -69,8 +69,14 @@ export default function JapaneseCounters({ query }: JapaneseCountersProps) {
       const randomStage = selectRandomItem(stage.stages)
       const randomLevel = selectRandomItem(randomStage.levels)
       const randomReference = selectRandomItem(randomLevel.references)
+
+      // if the reference has specific icons, choose randomly among them
+      if(randomReference.specificIcons && randomReference.specificIcons.length > 0) {
+        setCurrentIcon(selectRandomItem(randomReference.specificIcons))
+      } else {
+        setCurrentIcon(selectRandomItem(randomStage.icons))
+      }
       
-      setCurrentIcon(selectRandomItem(randomStage.icons))
       setCurrentReference(randomReference)
       setAnswers(shuffleArray([...randomLevel.wrongAnswers, randomReference.reading.hiragana]))
     }
@@ -78,7 +84,13 @@ export default function JapaneseCounters({ query }: JapaneseCountersProps) {
       const level = stage.levels.filter(l => l.chapter === chapter)[0]
       const randomReference = selectRandomItem(level.references)
 
-      setCurrentIcon(selectRandomItem(stage.icons))
+      // if the reference has specific icons, choose randomly among them
+      if(randomReference.specificIcons && randomReference.specificIcons.length > 0) {
+        setCurrentIcon(selectRandomItem(randomReference.specificIcons))
+      } else {
+        setCurrentIcon(selectRandomItem(stage.icons))
+      }
+
       setCurrentReference(randomReference)
       setAnswers(shuffleArray([...level.wrongAnswers, randomReference.reading.hiragana]))
     }
@@ -128,6 +140,11 @@ export default function JapaneseCounters({ query }: JapaneseCountersProps) {
   }
 
   useEffect(() => {
+    // reset
+    setCurrentIcon(undefined)
+    setCurrentReference(undefined)
+    setSelectedAnswer(null)
+    setAnswers([])
     setQuestionsAsked(0)
     setCorrectAnswers(0)
     finishedLevelCardRef.current?.close()
@@ -146,12 +163,10 @@ export default function JapaneseCounters({ query }: JapaneseCountersProps) {
       </div>
       <div className={styles.question}>
         <ul className={styles.iconList}>
-          {Array(currentReference?.number.amountOfIcons).fill('').map((_, index) => (
+          {Array(currentReference?.number.icons).fill('').map((_, index) => (
             <li className={styles.item} key={index}>
-              {
-               currentIcon &&   
-              <Image src={currentIcon.src} alt={currentIcon.name.english} className={styles.icon} />
-              }
+              {currentIcon &&   
+              <Image src={currentIcon.src} alt={currentIcon.name.english} className={styles.icon} />}
             </li>
           ))}
         </ul>

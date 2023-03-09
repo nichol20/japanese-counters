@@ -13,38 +13,40 @@ export interface StageGroup {
 }
 
 export interface Stage {
-  id:          string
-  name:        string
-  counter:     Counter
-  description: string
-  instruction: string
-  icons:       Icon[]
-  levels:      Level[]
+  id:                   string
+  name:                 string
+  counter:              Counter
+  description:          string
+  instruction:          string
+  icons:                Icon[]
+  levels:               Level[]
 }
 
 export interface Counter {
-  kanji:  string
+  kanji:   string
   reading: string
 }
 
 export interface Level {
-  chapter:      string
-  name:         string
-  references:   LevelReference[]
-  wrongAnswers: string[]
-  description:  string
+  chapter:                    string
+  name:                       string
+  references:                 LevelReference[]
+  wrongAnswers:               string[]
+  description:                string
+  specificInstructionIcons?:  Icon[]
 }
 
 export interface LevelReference {
-  number:  LevelReferenceNumber
-  reading: LevelReferenceReading
+  number:         LevelReferenceNumber
+  reading:        LevelReferenceReading
+  specificIcons?: Icon[]
 }
 
 export interface LevelReferenceNumber {
   actual:        number
   english:       string
   japanese:      string
-  amountOfIcons: number
+  icons:         number
 }
 
 export interface LevelReferenceReading {

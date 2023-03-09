@@ -21,6 +21,7 @@ export const SingleStageInstructionCard = forwardRef<SingleStageInstructionCardR
 ({ stage, chapter, onStart }, ref) => {
   const [ showInstructionCard, setShowInstructionCard ] = useState(false)
   const level = stage.levels.filter(s => s.chapter === chapter)[0]
+  const icons = level.specificInstructionIcons ? level.specificInstructionIcons : stage.icons
 
   const show = () => {
     setShowInstructionCard(true)
@@ -54,7 +55,7 @@ export const SingleStageInstructionCard = forwardRef<SingleStageInstructionCardR
         </div>
         <div className={styles.description}>{stage.description}</div>
         <ul className={styles.iconList}>
-          {stage.icons.map((icon, index) => (
+          {icons.map((icon, index) => (
             <li className={styles.item} key={index}>
               <div className={styles.iconBox}>
                 <Image src={icon.src} alt={icon.name.english} />

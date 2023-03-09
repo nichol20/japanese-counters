@@ -1,4 +1,5 @@
 import { LevelReference } from '@/types/stages'
+import { nichiIcons } from './icons'
 import { LevelReferenceNumbers } from './numbers'
 
 export const maiLevelReferences: LevelReference[][] = [
@@ -391,316 +392,347 @@ export const nichiLevelReferences: LevelReference[][] = [
     {
       number: {
         ...LevelReferenceNumbers[1],
-        amountOfIcons: 1
+        icons: 1
       },
       reading: {
         hiragana: 'ついたち',
         kanji: '一日'
-      }
+      },
+      specificIcons: [ nichiIcons[0] ]
     },
     {
       number: {
         ...LevelReferenceNumbers[2],
-        amountOfIcons: 1
+        icons: 1
       },
       reading: {
         hiragana: 'ふつか',
         kanji: '二日'
-      }
+      },
+      specificIcons: [ nichiIcons[1] ]
     },
     {
       number: {
         ...LevelReferenceNumbers[3],
-        amountOfIcons: 1
+        icons: 1
       },
       reading: {
         hiragana: 'みっか',
         kanji: '三日'
-      }
+      },
+      specificIcons: [ nichiIcons[2] ]
     },
     {
       number: {
         ...LevelReferenceNumbers[4],
-        amountOfIcons: 1
+        icons: 1
       },
       reading: {
         hiragana: 'よっか',
         kanji: '四日'
-      }
+      },
+      specificIcons: [ nichiIcons[3] ]
     },
     {
       number: {
         ...LevelReferenceNumbers[5],
-        amountOfIcons: 1
+        icons: 1
       },
       reading: {
         hiragana: 'いつか',
         kanji: '五日'
-      }
+      },
+      specificIcons: [ nichiIcons[4] ]
     }
   ],
   [
     {
       number: {
         ...LevelReferenceNumbers[6],
-        amountOfIcons: 1
+        icons: 1
       },
       reading: {
         hiragana: 'むいか',
         kanji: '六日'
-      }
+      },
+      specificIcons: [ nichiIcons[5] ]
     },
     {
       number: {
         ...LevelReferenceNumbers[7],
-        amountOfIcons: 1
+        icons: 1
       },
       reading: {
         hiragana: 'なのか',
         kanji: '七日'
-      }
+      },
+      specificIcons: [ nichiIcons[6] ]
     },
     {
       number: {
         ...LevelReferenceNumbers[8],
-        amountOfIcons: 1
+        icons: 1
       },
       reading: {
         hiragana: 'ようか',
         kanji: '八日'
-      }
+      },
+      specificIcons: [ nichiIcons[7] ]
     },
     {
       number: {
         ...LevelReferenceNumbers[9],
-        amountOfIcons: 1
+        icons: 1
       },
       reading: {
         hiragana: 'ここのか',
         kanji: '九日'
-      }
+      },
+      specificIcons: [ nichiIcons[8] ]
     },
     {
       number: {
         ...LevelReferenceNumbers[10],
-        amountOfIcons: 1
+        icons: 1
       },
       reading: {
         hiragana: 'とおか',
         kanji: '十日'
-      }
+      },
+      specificIcons: [ nichiIcons[9] ]
     },
   ],
   [
     {
       number: {
         ...LevelReferenceNumbers[11],
-        amountOfIcons: 1
+        icons: 1
       },
       reading: {
         hiragana: 'じゅういちにち',
         kanji: '十一日'
-      }
+      },
+      specificIcons: [ nichiIcons[10] ]
     },
     {
       number: {
         ...LevelReferenceNumbers[12],
-        amountOfIcons: 1
+        icons: 1
       },
       reading: {
         hiragana: 'じゅうににち',
         kanji: '十二日'
-      }
+      },
+      specificIcons: [ nichiIcons[11] ]
     },
     {
       number: {
         ...LevelReferenceNumbers[13],
-        amountOfIcons: 1
+        icons: 1
       },
       reading: {
         hiragana: 'じゅうさんにち',
         kanji: '十三日'
-      }
+      },
+      specificIcons: [ nichiIcons[12] ]
     },
     {
       number: {
         ...LevelReferenceNumbers[14],
-        amountOfIcons: 1
+        icons: 1
       },
       reading: {
         hiragana: 'じゅうよっか',
         kanji: '十四日'
-      }
+      },
+      specificIcons: [ nichiIcons[13] ]
     },
     {
       number: {
         ...LevelReferenceNumbers[15],
-        amountOfIcons: 1
+        icons: 1
       },
       reading: {
         hiragana: 'じゅうごにち',
         kanji: '十五日'
-      }
+      },
+      specificIcons: [ nichiIcons[14] ]
     },
     {
       number: {
         ...LevelReferenceNumbers[16],
-        amountOfIcons: 1
+        icons: 1
       },
       reading: {
         hiragana: 'じゅうろくにち',
         kanji: '十六日'
-      }
+      },
+      specificIcons: [ nichiIcons[15] ]
     },
     {
       number: {
         ...LevelReferenceNumbers[17],
-        amountOfIcons: 1
+        icons: 1
       },
       reading: {
         hiragana: 'じゅうしちにち',
         kanji: '十七日'
-      }
+      },
+      specificIcons: [ nichiIcons[16] ]
     },
     {
       number: {
         ...LevelReferenceNumbers[18],
-        amountOfIcons: 1
+        icons: 1
       },
       reading: {
         hiragana: 'じゅうはちにち',
         kanji: '十八日'
-      }
+      },
+      specificIcons: [ nichiIcons[17] ]
     },
     {
       number: {
         ...LevelReferenceNumbers[19],
-        amountOfIcons: 1
+        icons: 1
       },
       reading: {
         hiragana: 'じゅうくにち',
         kanji: '十九日'
-      }
+      },
+      specificIcons: [ nichiIcons[18] ]
     },
     {
       number: {
         ...LevelReferenceNumbers[20],
-        amountOfIcons: 1
+        icons: 1
       },
       reading: {
         hiragana: 'はつか',
         kanji: '二十日'
-      }
+      },
+      specificIcons: [ nichiIcons[19] ]
     },
     {
       number: {
         ...LevelReferenceNumbers[21],
-        amountOfIcons: 1
+        icons: 1
       },
       reading: {
         hiragana: 'にじゅういちにち',
         kanji: '二十一日'
-      }
+      },
+      specificIcons: [ nichiIcons[20] ]
     },
     {
       number: {
         ...LevelReferenceNumbers[22],
-        amountOfIcons: 1
+        icons: 1
       },
       reading: {
         hiragana: 'にじゅうににち',
         kanji: '二十二日'
-      }
+      },
+      specificIcons: [ nichiIcons[21] ]
     },
     {
       number: {
         ...LevelReferenceNumbers[23],
-        amountOfIcons: 1
+        icons: 1
       },
       reading: {
         hiragana: 'にじゅうさんにち',
         kanji: '二十三日'
-      }
+      },
+      specificIcons: [ nichiIcons[22] ]
     },
     {
       number: {
         ...LevelReferenceNumbers[24],
-        amountOfIcons: 1
+        icons: 1
       },
       reading: {
         hiragana: 'にじゅうよっか',
         kanji: '二十四日'
-      }
+      },
+      specificIcons: [ nichiIcons[23] ]
     },
     {
       number: {
         ...LevelReferenceNumbers[25],
-        amountOfIcons: 1
+        icons: 1
       },
       reading: {
         hiragana: 'にじゅうごにち',
         kanji: '二十五日'
-      }
+      },
+      specificIcons: [ nichiIcons[24] ]
     },
     {
       number: {
         ...LevelReferenceNumbers[26],
-        amountOfIcons: 1
+        icons: 1
       },
       reading: {
         hiragana: 'にじゅうろくにち',
         kanji: '二十六日'
-      }
+      },
+      specificIcons: [ nichiIcons[25] ]
     },
     {
       number: {
         ...LevelReferenceNumbers[27],
-        amountOfIcons: 1
+        icons: 1
       },
       reading: {
         hiragana: 'にじゅうしちにち',
         kanji: '二十七日'
-      }
+      },
+      specificIcons: [ nichiIcons[26] ]
     },
     {
       number: {
         ...LevelReferenceNumbers[28],
-        amountOfIcons: 1
+        icons: 1
       },
       reading: {
         hiragana: 'にじゅうはちにち',
         kanji: '二十八日'
-      }
+      },
+      specificIcons: [ nichiIcons[27] ]
     },
     {
       number: {
         ...LevelReferenceNumbers[29],
-        amountOfIcons: 1
+        icons: 1
       },
       reading: {
         hiragana: 'にじゅうくにち',
         kanji: '二十九日'
-      }
+      },
+      specificIcons: [ nichiIcons[28] ]
     },
     {
       number: {
         ...LevelReferenceNumbers[30],
-        amountOfIcons: 1
+        icons: 1
       },
       reading: {
         hiragana: 'さんじゅうにち',
         kanji: '三十日'
-      }
+      },
+      specificIcons: [ nichiIcons[29] ]
     },
     {
       number: {
         ...LevelReferenceNumbers[31],
-        amountOfIcons: 1
+        icons: 1
       },
       reading: {
         hiragana: 'さんじゅういちにち',
         kanji: '三十一日'
-      }
+      },
+      specificIcons: [ nichiIcons[30] ]
     },
   ]
 ]
