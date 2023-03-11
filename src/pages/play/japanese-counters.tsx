@@ -69,6 +69,8 @@ export default function JapaneseCounters({ query }: JapaneseCountersProps) {
       const randomStage = selectRandomItem(stage.stages)
       const randomLevel = selectRandomItem(randomStage.levels)
       const randomReference = selectRandomItem(randomLevel.references)
+      // this reference will be used to fill in the missing answers
+      const fillingReferences = shuffleArray(randomLevel.references.filter(r => r !== randomReference))
 
       // if the reference has specific icons, choose randomly among them
       if(randomReference.specificIcons && randomReference.specificIcons.length > 0) {
@@ -76,13 +78,37 @@ export default function JapaneseCounters({ query }: JapaneseCountersProps) {
       } else {
         setCurrentIcon(selectRandomItem(randomStage.icons))
       }
+
+      // creating answers
+      const unshuffledAnswers = [
+        ...randomReference.wrongAnswers.slice(0, 3), 
+        randomReference.reading.hiragana
+      ]
+
+      if(unshuffledAnswers.length < 4) {
+        fillingReferences.forEach(r => {
+          // fill up to 4
+          unshuffledAnswers.push(...r.wrongAnswers.slice(0, 4 - unshuffledAnswers.length))
+        })
+      }
+
+      if(unshuffledAnswers.length < 4) {
+        fillingReferences.forEach(r => {
+          // fill up to 4
+          if(unshuffledAnswers.length < 4) {
+            unshuffledAnswers.push(r.reading.hiragana)
+          }
+        })
+      }
       
       setCurrentReference(randomReference)
-      setAnswers(shuffleArray([...randomLevel.wrongAnswers, randomReference.reading.hiragana]))
+      setAnswers(shuffleArray(unshuffledAnswers))
     }
     else {
       const level = stage.levels.filter(l => l.chapter === chapter)[0]
       const randomReference = selectRandomItem(level.references)
+      // this reference will be used to fill in the missing answers
+      const fillingReferences = shuffleArray(level.references.filter(r => r !== randomReference))
 
       // if the reference has specific icons, choose randomly among them
       if(randomReference.specificIcons && randomReference.specificIcons.length > 0) {
@@ -91,8 +117,31 @@ export default function JapaneseCounters({ query }: JapaneseCountersProps) {
         setCurrentIcon(selectRandomItem(stage.icons))
       }
 
+      // creating answers
+      const unshuffledAnswers = [
+        ...randomReference.wrongAnswers.slice(0, 3), 
+        randomReference.reading.hiragana
+      ]
+
+      
+      if(unshuffledAnswers.length < 4) {
+        fillingReferences.forEach(r => {
+          // fill up to 4
+          unshuffledAnswers.push(...r.wrongAnswers.slice(0, 4 - unshuffledAnswers.length))
+        })
+      }
+
+      if(unshuffledAnswers.length < 4) {
+        fillingReferences.forEach(r => {
+          // fill up to 4
+          if(unshuffledAnswers.length < 4) {
+            unshuffledAnswers.push(r.reading.hiragana)
+          }
+        })
+      }
+
       setCurrentReference(randomReference)
-      setAnswers(shuffleArray([...level.wrongAnswers, randomReference.reading.hiragana]))
+      setAnswers(shuffleArray(unshuffledAnswers))
     }
   }
 
@@ -157,7 +206,7 @@ export default function JapaneseCounters({ query }: JapaneseCountersProps) {
         <Timer
          totalTime={200} 
          decreaseTime={20} 
-         onTimeout={onTimeout}
+         onTimeout={() => {}}
          ref={timerRef}
         />
       </div>

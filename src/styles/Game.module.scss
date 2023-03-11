@@ -45,6 +45,7 @@
   @include mixins-display-flex(space-between);
   flex-wrap: wrap;
   width: 100%;
+  gap: 10px;
 }
 
 .answer {
@@ -53,8 +54,8 @@
   cursor: pointer;
   height: 40px;
   transition: background-color 300ms ease, border-color 300ms ease;
-  min-width: 48%;
-  margin-bottom: 10px;
+  min-width: 49%;
+  flex-grow: 1;
   @include mixins-display-flex();
   font-size: 1.2em;
   font-weight: 500;

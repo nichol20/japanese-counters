@@ -9,35 +9,40 @@ export const maiLevelReferences: LevelReference[][] = [
       reading: {
         hiragana: 'いちまい',
         kanji: '一枚'
-      }
+      },
+      wrongAnswers: ['ひとまい', 'いっまい']
     },
     {
       number: LevelReferenceNumbers[2],
       reading: {
         hiragana: 'にまい',
         kanji: '二枚'
-      }
+      },
+      wrongAnswers: ['ふたまい']
     },
     {
       number: LevelReferenceNumbers[3],
       reading: {
         hiragana: 'さんまい',
         kanji: '三枚'
-      }
+      },
+      wrongAnswers: ['みまい', 'みつまい']
     },
     {
       number: LevelReferenceNumbers[4],
       reading: {
         hiragana: 'よんまい',
         kanji: '四枚'
-      }
+      },
+      wrongAnswers: ['しまい', 'よまい']
     },
     {
       number: LevelReferenceNumbers[5],
       reading: {
         hiragana: 'ごまい',
         kanji: '五枚'
-      }
+      },
+      wrongAnswers: []
     }
   ],
   [
@@ -46,35 +51,40 @@ export const maiLevelReferences: LevelReference[][] = [
       reading: {
         hiragana: 'ろくまい',
         kanji: '六枚'
-      }
+      },
+      wrongAnswers: ['しっまい', 'じゅっまい', 'やまい', 'はっまい', 'ろっまい', 'くまい']
     },
     {
       number: LevelReferenceNumbers[7],
       reading: {
         hiragana: 'しちまい',
         kanji: '七舞'
-      }
+      },
+      wrongAnswers: ['しっまい', 'じゅっまい', 'やまい', 'はっまい', 'ろっまい', 'くまい']
     },
     {
       number: LevelReferenceNumbers[8],
       reading: {
         hiragana: 'はちまい',
         kanji: '八枚'
-      }
+      },
+      wrongAnswers: ['しっまい', 'じゅっまい', 'やまい', 'はっまい', 'ろっまい', 'くまい']
     },
     {
       number: LevelReferenceNumbers[9],
       reading: {
         hiragana: 'きゅうまい',
         kanji: '九枚'
-      }
+      },
+      wrongAnswers: ['しっまい', 'じゅっまい', 'やまい', 'はっまい', 'ろっまい', 'くまい']
     },
     {
       number: LevelReferenceNumbers[10],
       reading: {
         hiragana: 'じゅうまい',
         kanji: '十枚'
-      }
+      },
+      wrongAnswers: ['しっまい', 'じゅっまい', 'やまい', 'はっまい', 'ろっまい', 'くまい']
     }
   ]
 ]
@@ -86,35 +96,40 @@ export const honLevelReferences: LevelReference[][] = [
       reading: {
         hiragana: 'いっぽん',
         kanji: '一本'
-      }
+      },
+      wrongAnswers: [ 'いちほん', 'いちぼん', 'いちぽん', 'いっほん', 'いっぼん', 'ひとほん', 'ひとぼん', 'ひとぽん' ]
     },
     {
       number: LevelReferenceNumbers[2],
       reading: {
         hiragana: 'にほん',
         kanji: '二本'
-      }
+      },
+      wrongAnswers: [ 'にぼん', 'にぽん', 'ふたほん', 'ふたぼん', 'ふたぽん' ]
     },
     {
       number: LevelReferenceNumbers[3],
       reading: {
         hiragana: 'さんぼん',
         kanji: '三本'
-      }
+      },
+      wrongAnswers: [ 'さんぼん', 'さんぽん', 'みっほん', 'みっぼん', 'みっぽん', 'みつほん', 'みつぼん', 'みつぽん' ]
     },
     {
       number: LevelReferenceNumbers[4],
       reading: {
         hiragana: 'よんほん',
         kanji: '四本'
-      }
+      },
+      wrongAnswers: ['しほん', 'しぼん', 'しぽん', 'よほん', 'よぼん', 'よぽん', 'よんぼん', 'よんぽん']
     },
     {
       number: LevelReferenceNumbers[5],
       reading: {
         hiragana: 'ごほん',
         kanji: '五本'
-      }
+      },
+      wrongAnswers: [ 'ごぼん', 'ごぽん' ]
     }
   ],
   [
@@ -123,35 +138,40 @@ export const honLevelReferences: LevelReference[][] = [
       reading: {
         hiragana: 'ろっぽん',
         kanji: '六本'
-      }
+      },
+      wrongAnswers: [ 'ろくほん', 'ろくぼん', 'ろくぽん', 'ろっほん', 'ろっぼん' ]
     },
     {
       number: LevelReferenceNumbers[7],
       reading: {
         hiragana: 'ななほん',
         kanji: '七本'
-      }
+      },
+      wrongAnswers: [ 'しちほん', 'しちぼん', 'しちぽん', 'しっほん', 'しっぼん', 'しっぽん', 'ななぼん', 'ななぽん' ]
     },
     {
       number: LevelReferenceNumbers[8],
       reading: {
         hiragana: 'はっぽん',
         kanji: '八本'
-      }
+      },
+      wrongAnswers: ['はちほん', 'はちぼん', 'はちぽん', 'はっほん', 'はっぼん', 'やほん', 'やぼん', 'やぽん']
     },
     {
       number: LevelReferenceNumbers[9],
       reading: {
         hiragana: 'きゅうほん',
         kanji: '九本'
-      }
+      },
+      wrongAnswers: [ 'きゅうぼん', 'きゅうぽん', 'くほん', 'くぼん', 'くぽん' ]
     },
     {
       number: LevelReferenceNumbers[10],
       reading: {
         hiragana: 'じゅっぽん',
         kanji: '十本'
-      }
+      },
+      wrongAnswers: [ 'じゅうほん', 'じゅうぼん', 'じゅうぽん', 'じゅっほん', 'じゅっぼん' ]
     }
   ]
 ]
@@ -163,35 +183,40 @@ export const hikiLevelReferences: LevelReference[][] = [
       reading: {
         hiragana: 'いっぴき',
         kanji: '一匹'
-      }
+      },
+      wrongAnswers: [ 'いちひき', 'いちびき', 'いちぴき', 'いっひき', 'いっびき', 'ひとひき', 'ひとびき', 'ひとぴき' ]
     },
     {
       number: LevelReferenceNumbers[2],
       reading: {
         hiragana: 'にひき',
         kanji: '二匹'
-      }
+      },
+      wrongAnswers: [ 'にびき', 'にぴき', 'ふたひき', 'ふたびき', 'ふたぴき' ]
     },
     {
       number: LevelReferenceNumbers[3],
       reading: {
         hiragana: 'さんびき',
         kanji: '三匹'
-      }
+      },
+      wrongAnswers: [ 'さんひき', 'さんぴき', 'みっひき', 'みっびき', 'みっぴき', 'みつひき', 'みつびき', 'みつぴき' ]
     },
     {
       number: LevelReferenceNumbers[4],
       reading: {
         hiragana: 'よんひき',
         kanji: '四匹'
-      }
+      },
+      wrongAnswers: [ 'しひき', 'しびき', 'しぴき', 'よひき', 'よびき', 'よぴき', 'よんびき', 'よんぴき' ]
     },
     {
       number: LevelReferenceNumbers[5],
       reading: {
         hiragana: 'ごひき',
         kanji: '五匹'
-      }
+      },
+      wrongAnswers: [ 'ごびき', 'ごぴき' ]
     }
   ],
   [
@@ -200,35 +225,40 @@ export const hikiLevelReferences: LevelReference[][] = [
       reading: {
         hiragana: 'ろっぴき',
         kanji: '六匹'
-      }
+      },
+      wrongAnswers: [ 'ろくひき', 'ろくびき', 'ろくぴき', 'ろっひき', 'ろっびき' ]
     },
     {
       number: LevelReferenceNumbers[7],
       reading: {
         hiragana: 'ななひき',
         kanji: '七匹'
-      }
+      },
+      wrongAnswers: [ 'しちひき', 'しちびき', 'しちぴき', 'しっひき', 'しっびき', 'しっぴき', 'ななびき', 'ななぴき' ]
     },
     {
       number: LevelReferenceNumbers[8],
       reading: {
         hiragana: 'はっぴき',
         kanji: '八匹'
-      }
+      },
+      wrongAnswers: ['はちひき', 'はちびき', 'はちぴき', 'はっひき', 'はっびき', 'やひき', 'やびき', 'やぴき']
     },
     {
       number: LevelReferenceNumbers[9],
       reading: {
         hiragana: 'きゅうひき',
         kanji: '九匹'
-      }
+      },
+      wrongAnswers: [ 'きゅうびき', 'きゅうぴき', 'くひき', 'くびき', 'くぴき' ]
     },
     {
       number: LevelReferenceNumbers[10],
       reading: {
         hiragana: 'じゅっぴき',
         kanji: '十匹'
-      }
+      },
+      wrongAnswers: [ 'じゅうひき', 'じゅうびき', 'じゅうぴき', 'じゅっひき', 'じゅっびき' ]
     }
   ]
 ]
@@ -240,35 +270,40 @@ export const daiLevelReferences: LevelReference[][] = [
       reading: {
         hiragana: 'いちだい',
         kanji: '一台'
-      }
+      },
+      wrongAnswers: [ 'いっだい', 'ひとだい' ]
     },
     {
       number: LevelReferenceNumbers[2],
       reading: {
         hiragana: 'にだい',
         kanji: '二台'
-      }
+      },
+      wrongAnswers: [ 'ふただい' ]
     },
     {
       number: LevelReferenceNumbers[3],
       reading: {
         hiragana: 'さんだい',
         kanji: '三台'
-      }
+      },
+      wrongAnswers: [ 'みっだい', 'みつだい' ]
     },
     {
       number: LevelReferenceNumbers[4],
       reading: {
         hiragana: 'よんだい',
         kanji: '四台'
-      }
+      },
+      wrongAnswers: [ 'しだい', 'よだい' ]
     },
     {
       number: LevelReferenceNumbers[5],
       reading: {
         hiragana: 'ごだい',
         kanji: '五台'
-      }
+      },
+      wrongAnswers: []
     }
   ],
   [
@@ -277,35 +312,40 @@ export const daiLevelReferences: LevelReference[][] = [
       reading: {
         hiragana: 'ろくだい',
         kanji: '六台'
-      }
+      },
+      wrongAnswers: [ 'ろっだい' ]
     },
     {
       number: LevelReferenceNumbers[7],
       reading: {
         hiragana: 'ななだい',
         kanji: '七台'
-      }
+      },
+      wrongAnswers: [ 'しちだい', 'しっだい' ]
     },
     {
       number: LevelReferenceNumbers[8],
       reading: {
         hiragana: 'はちだい',
         kanji: '八台'
-      }
+      },
+      wrongAnswers: [ 'はっだい', 'やだい']
     },
     {
       number: LevelReferenceNumbers[9],
       reading: {
         hiragana: 'きゅうだい',
         kanji: '九台'
-      }
+      },
+      wrongAnswers: [ 'くだい' ]
     },
     {
       number: LevelReferenceNumbers[10],
       reading: {
         hiragana: 'じゅうだい',
         kanji: '十台'
-      }
+      },
+      wrongAnswers: [ 'じゅっだい' ]
     }
   ]
 ]
@@ -317,35 +357,40 @@ export const tsuLevelReferences: LevelReference[][] = [
       reading: {
         hiragana: 'ひとつ',
         kanji: '一つ'
-      }
+      },
+      wrongAnswers: []
     },
     {
       number: LevelReferenceNumbers[2],
       reading: {
         hiragana: 'ふたつ',
         kanji: '二つ'
-      }
+      },
+      wrongAnswers: []
     },
     {
       number: LevelReferenceNumbers[3],
       reading: {
         hiragana: 'みっつ',
         kanji: '三つ'
-      }
+      },
+      wrongAnswers: []
     },
     {
       number: LevelReferenceNumbers[4],
       reading: {
         hiragana: 'よっつ',
         kanji: '四つ'
-      }
+      },
+      wrongAnswers: []
     },
     {
       number: LevelReferenceNumbers[5],
       reading: {
         hiragana: 'いつつ',
         kanji: '五つ'
-      }
+      },
+      wrongAnswers: []
     }
   ],
   [
@@ -354,35 +399,40 @@ export const tsuLevelReferences: LevelReference[][] = [
       reading: {
         hiragana: 'むっつ',
         kanji: '六つ'
-      }
+      },
+      wrongAnswers: []
     },
     {
       number: LevelReferenceNumbers[7],
       reading: {
         hiragana: 'ななつ',
         kanji: '七つ'
-      }
+      },
+      wrongAnswers: []
     },
     {
       number: LevelReferenceNumbers[8],
       reading: {
         hiragana: 'やっつ',
         kanji: '八つ'
-      }
+      },
+      wrongAnswers: []
     },
     {
       number: LevelReferenceNumbers[9],
       reading: {
         hiragana: 'ここのつ',
         kanji: '九つ'
-      }
+      },
+      wrongAnswers: []
     },
     {
       number: LevelReferenceNumbers[10],
       reading: {
         hiragana: 'とお',
         kanji: '十'
-      }
+      },
+      wrongAnswers: []
     }
   ]
 ]
@@ -398,7 +448,8 @@ export const nichiLevelReferences: LevelReference[][] = [
         hiragana: 'ついたち',
         kanji: '一日'
       },
-      specificIcons: [ nichiIcons[0] ]
+      specificIcons: [ nichiIcons[0] ],
+      wrongAnswers: []
     },
     {
       number: {
@@ -409,7 +460,8 @@ export const nichiLevelReferences: LevelReference[][] = [
         hiragana: 'ふつか',
         kanji: '二日'
       },
-      specificIcons: [ nichiIcons[1] ]
+      specificIcons: [ nichiIcons[1] ],
+      wrongAnswers: []
     },
     {
       number: {
@@ -420,7 +472,8 @@ export const nichiLevelReferences: LevelReference[][] = [
         hiragana: 'みっか',
         kanji: '三日'
       },
-      specificIcons: [ nichiIcons[2] ]
+      specificIcons: [ nichiIcons[2] ],
+      wrongAnswers: []
     },
     {
       number: {
@@ -431,7 +484,8 @@ export const nichiLevelReferences: LevelReference[][] = [
         hiragana: 'よっか',
         kanji: '四日'
       },
-      specificIcons: [ nichiIcons[3] ]
+      specificIcons: [ nichiIcons[3] ],
+      wrongAnswers: []
     },
     {
       number: {
@@ -442,7 +496,8 @@ export const nichiLevelReferences: LevelReference[][] = [
         hiragana: 'いつか',
         kanji: '五日'
       },
-      specificIcons: [ nichiIcons[4] ]
+      specificIcons: [ nichiIcons[4] ],
+      wrongAnswers: []
     }
   ],
   [
@@ -455,7 +510,8 @@ export const nichiLevelReferences: LevelReference[][] = [
         hiragana: 'むいか',
         kanji: '六日'
       },
-      specificIcons: [ nichiIcons[5] ]
+      specificIcons: [ nichiIcons[5] ],
+      wrongAnswers: []
     },
     {
       number: {
@@ -466,7 +522,8 @@ export const nichiLevelReferences: LevelReference[][] = [
         hiragana: 'なのか',
         kanji: '七日'
       },
-      specificIcons: [ nichiIcons[6] ]
+      specificIcons: [ nichiIcons[6] ],
+      wrongAnswers: []
     },
     {
       number: {
@@ -477,7 +534,8 @@ export const nichiLevelReferences: LevelReference[][] = [
         hiragana: 'ようか',
         kanji: '八日'
       },
-      specificIcons: [ nichiIcons[7] ]
+      specificIcons: [ nichiIcons[7] ],
+      wrongAnswers: []
     },
     {
       number: {
@@ -488,7 +546,8 @@ export const nichiLevelReferences: LevelReference[][] = [
         hiragana: 'ここのか',
         kanji: '九日'
       },
-      specificIcons: [ nichiIcons[8] ]
+      specificIcons: [ nichiIcons[8] ],
+      wrongAnswers: []
     },
     {
       number: {
@@ -499,7 +558,8 @@ export const nichiLevelReferences: LevelReference[][] = [
         hiragana: 'とおか',
         kanji: '十日'
       },
-      specificIcons: [ nichiIcons[9] ]
+      specificIcons: [ nichiIcons[9] ],
+      wrongAnswers: []
     },
   ],
   [
@@ -512,7 +572,8 @@ export const nichiLevelReferences: LevelReference[][] = [
         hiragana: 'じゅういちにち',
         kanji: '十一日'
       },
-      specificIcons: [ nichiIcons[10] ]
+      specificIcons: [ nichiIcons[10] ],
+      wrongAnswers: []
     },
     {
       number: {
@@ -523,7 +584,8 @@ export const nichiLevelReferences: LevelReference[][] = [
         hiragana: 'じゅうににち',
         kanji: '十二日'
       },
-      specificIcons: [ nichiIcons[11] ]
+      specificIcons: [ nichiIcons[11] ],
+      wrongAnswers: []
     },
     {
       number: {
@@ -534,7 +596,8 @@ export const nichiLevelReferences: LevelReference[][] = [
         hiragana: 'じゅうさんにち',
         kanji: '十三日'
       },
-      specificIcons: [ nichiIcons[12] ]
+      specificIcons: [ nichiIcons[12] ],
+      wrongAnswers: []
     },
     {
       number: {
@@ -545,7 +608,8 @@ export const nichiLevelReferences: LevelReference[][] = [
         hiragana: 'じゅうよっか',
         kanji: '十四日'
       },
-      specificIcons: [ nichiIcons[13] ]
+      specificIcons: [ nichiIcons[13] ],
+      wrongAnswers: []
     },
     {
       number: {
@@ -556,7 +620,8 @@ export const nichiLevelReferences: LevelReference[][] = [
         hiragana: 'じゅうごにち',
         kanji: '十五日'
       },
-      specificIcons: [ nichiIcons[14] ]
+      specificIcons: [ nichiIcons[14] ],
+      wrongAnswers: []
     },
     {
       number: {
@@ -567,7 +632,8 @@ export const nichiLevelReferences: LevelReference[][] = [
         hiragana: 'じゅうろくにち',
         kanji: '十六日'
       },
-      specificIcons: [ nichiIcons[15] ]
+      specificIcons: [ nichiIcons[15] ],
+      wrongAnswers: []
     },
     {
       number: {
@@ -578,7 +644,8 @@ export const nichiLevelReferences: LevelReference[][] = [
         hiragana: 'じゅうしちにち',
         kanji: '十七日'
       },
-      specificIcons: [ nichiIcons[16] ]
+      specificIcons: [ nichiIcons[16] ],
+      wrongAnswers: []
     },
     {
       number: {
@@ -589,7 +656,8 @@ export const nichiLevelReferences: LevelReference[][] = [
         hiragana: 'じゅうはちにち',
         kanji: '十八日'
       },
-      specificIcons: [ nichiIcons[17] ]
+      specificIcons: [ nichiIcons[17] ],
+      wrongAnswers: []
     },
     {
       number: {
@@ -600,7 +668,8 @@ export const nichiLevelReferences: LevelReference[][] = [
         hiragana: 'じゅうくにち',
         kanji: '十九日'
       },
-      specificIcons: [ nichiIcons[18] ]
+      specificIcons: [ nichiIcons[18] ],
+      wrongAnswers: []
     },
     {
       number: {
@@ -611,7 +680,8 @@ export const nichiLevelReferences: LevelReference[][] = [
         hiragana: 'はつか',
         kanji: '二十日'
       },
-      specificIcons: [ nichiIcons[19] ]
+      specificIcons: [ nichiIcons[19] ],
+      wrongAnswers: []
     },
     {
       number: {
@@ -622,7 +692,8 @@ export const nichiLevelReferences: LevelReference[][] = [
         hiragana: 'にじゅういちにち',
         kanji: '二十一日'
       },
-      specificIcons: [ nichiIcons[20] ]
+      specificIcons: [ nichiIcons[20] ],
+      wrongAnswers: []
     },
     {
       number: {
@@ -633,7 +704,8 @@ export const nichiLevelReferences: LevelReference[][] = [
         hiragana: 'にじゅうににち',
         kanji: '二十二日'
       },
-      specificIcons: [ nichiIcons[21] ]
+      specificIcons: [ nichiIcons[21] ],
+      wrongAnswers: []
     },
     {
       number: {
@@ -644,7 +716,8 @@ export const nichiLevelReferences: LevelReference[][] = [
         hiragana: 'にじゅうさんにち',
         kanji: '二十三日'
       },
-      specificIcons: [ nichiIcons[22] ]
+      specificIcons: [ nichiIcons[22] ],
+      wrongAnswers: []
     },
     {
       number: {
@@ -655,7 +728,8 @@ export const nichiLevelReferences: LevelReference[][] = [
         hiragana: 'にじゅうよっか',
         kanji: '二十四日'
       },
-      specificIcons: [ nichiIcons[23] ]
+      specificIcons: [ nichiIcons[23] ],
+      wrongAnswers: []
     },
     {
       number: {
@@ -666,7 +740,8 @@ export const nichiLevelReferences: LevelReference[][] = [
         hiragana: 'にじゅうごにち',
         kanji: '二十五日'
       },
-      specificIcons: [ nichiIcons[24] ]
+      specificIcons: [ nichiIcons[24] ],
+      wrongAnswers: []
     },
     {
       number: {
@@ -677,7 +752,8 @@ export const nichiLevelReferences: LevelReference[][] = [
         hiragana: 'にじゅうろくにち',
         kanji: '二十六日'
       },
-      specificIcons: [ nichiIcons[25] ]
+      specificIcons: [ nichiIcons[25] ],
+      wrongAnswers: []
     },
     {
       number: {
@@ -688,7 +764,8 @@ export const nichiLevelReferences: LevelReference[][] = [
         hiragana: 'にじゅうしちにち',
         kanji: '二十七日'
       },
-      specificIcons: [ nichiIcons[26] ]
+      specificIcons: [ nichiIcons[26] ],
+      wrongAnswers: []
     },
     {
       number: {
@@ -699,7 +776,8 @@ export const nichiLevelReferences: LevelReference[][] = [
         hiragana: 'にじゅうはちにち',
         kanji: '二十八日'
       },
-      specificIcons: [ nichiIcons[27] ]
+      specificIcons: [ nichiIcons[27] ],
+      wrongAnswers: []
     },
     {
       number: {
@@ -710,7 +788,8 @@ export const nichiLevelReferences: LevelReference[][] = [
         hiragana: 'にじゅうくにち',
         kanji: '二十九日'
       },
-      specificIcons: [ nichiIcons[28] ]
+      specificIcons: [ nichiIcons[28] ],
+      wrongAnswers: []
     },
     {
       number: {
@@ -721,7 +800,8 @@ export const nichiLevelReferences: LevelReference[][] = [
         hiragana: 'さんじゅうにち',
         kanji: '三十日'
       },
-      specificIcons: [ nichiIcons[29] ]
+      specificIcons: [ nichiIcons[29] ],
+      wrongAnswers: []
     },
     {
       number: {
@@ -732,7 +812,8 @@ export const nichiLevelReferences: LevelReference[][] = [
         hiragana: 'さんじゅういちにち',
         kanji: '三十一日'
       },
-      specificIcons: [ nichiIcons[30] ]
+      specificIcons: [ nichiIcons[30] ],
+      wrongAnswers: []
     },
   ]
 ]
