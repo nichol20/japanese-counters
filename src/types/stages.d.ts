@@ -31,7 +31,6 @@ export interface Level {
   chapter:                    string
   name:                       string
   references:                 LevelReference[]
-  wrongAnswers:               string[]
   description:                string
   specificInstructionIcons?:  Icon[]
 }

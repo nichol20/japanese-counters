@@ -70,3 +70,20 @@ export { default as calendar28Icon } from './images/nichi/calendar-28.png'
 export { default as calendar29Icon } from './images/nichi/calendar-29.png'
 export { default as calendar30Icon } from './images/nichi/calendar-30.png'
 export { default as calendar31Icon } from './images/nichi/calendar-31.png'
+
+// 着(ちゃく)
+export { default as suitIcon } from './images/chaku/suit.png'
+export { default as jacketIcon } from './images/chaku/jacket.png'
+
+// 頭(とう)
+export { default as cowIcon } from './images/tou/cow.png'
+export { default as elephantIcon } from './images/tou/elephant.png'
+export { default as horseIcon } from './images/tou/horse.png'
+export { default as lionIcon } from './images/tou/lion.png'
+
+// 人(にん)
+export { default as manIcon } from './images/nin/man.png'
+export { default as womanIcon } from './images/nin/woman.png'
+export { default as babyIcon } from './images/nin/baby.png'
+export { default as boyIcon } from './images/nin/boy.png'
+export { default as grandfatherIcon } from './images/nin/grandfather.png'

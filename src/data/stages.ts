@@ -1,6 +1,6 @@
 import { Stage, StageGroup, Stages } from "@/types/stages";
-import { daiIcons, hikiIcons, honIcons, maiIcons, nichiIcons, tsuIcons } from "./icons";
-import { daiLevels, hikiLevels, honLevels, maiLevels, nichiLevels, tsuLevels } from "./levels";
+import { chakuIcons, daiIcons, hikiIcons, honIcons, maiIcons, nichiIcons, ninIcons, touIcons, tsuIcons } from "./icons";
+import { chakuLevels, daiLevels, hikiLevels, honLevels, maiLevels, nichiLevels, ninLevels, touLevels, tsuLevels } from "./levels";
 
 export const mai: Stage = {
   id: '1',
@@ -96,6 +96,53 @@ export const group2: StageGroup = {
   levelChapter: '21'
 }
 
+export const chaku: Stage = {
+  id: '7',
+  name: 'chaku',
+  counter: {
+    kanji: '着',
+    reading: 'ちゃく',
+  },
+  description: '着/ちゃく is a counter that is attached to a number when you are counting suits or sets of clothing.',
+  instruction: 'ちゃく is attached to each number (when written as kanji, though, it is always 着).',
+  icons: chakuIcons,
+  levels: chakuLevels
+}
+
+export const tou: Stage = {
+  id: '8',
+  name: 'tou',
+  counter: {
+    kanji: '頭',
+    reading: 'とう'
+  },
+  description: '頭/とう is a counter that is attached to a number when you are counting large animals.',
+  instruction: 'とう is attached to each number (when written as kanji, though, it is always 頭).',
+  icons: touIcons,
+  levels: touLevels
+}
+
+export const nin: Stage = {
+  id: '9',
+  name: 'nin',
+  counter: {
+    kanji: '人',
+    reading: 'にん'
+  },
+  description: '人/にん is a counter that is attached to a number when you are counting people.',
+  instruction: 'For three and up, にん (人) is attached to the number. One is ひとり (一人) and two is ふたり (二人), though.',
+  icons: ninIcons,
+  levels: ninLevels
+}
+
+export const group3: StageGroup = {
+  id: 'stageGroup3',
+  name: 'group3',
+  description: "When you're ready, let's see if you can remember which counter goes with which thing!",
+  stages: [chaku, tou, nin],
+  levelChapter: '31'
+}
+
 export const stages: Stages = {
   mai,
   hon,
@@ -104,5 +151,9 @@ export const stages: Stages = {
   dai,
   tsu,
   nichi,
-  group2
+  group2,
+  chaku,
+  tou,
+  nin,
+  group3
 }

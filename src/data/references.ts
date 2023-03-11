@@ -817,3 +817,264 @@ export const nichiLevelReferences: LevelReference[][] = [
     },
   ]
 ]
+
+export const chakuLevelReferences: LevelReference[][] = [
+  [
+    {
+      number: LevelReferenceNumbers[1],
+      reading: {
+        hiragana: 'いっちゃく',
+        kanji: '一着'
+      },
+      wrongAnswers: [ 'いちちゃく', 'ひとちゃく' ]
+    },
+    {
+      number: LevelReferenceNumbers[2],
+      reading: {
+        hiragana: 'にちゃく',
+        kanji: '二着'
+      },
+      wrongAnswers: [ 'ふたちゃく' ]
+    },
+    {
+      number: LevelReferenceNumbers[3],
+      reading: {
+        hiragana: 'さんちゃく',
+        kanji: '三着'
+      },
+      wrongAnswers: ['みっちゃく', 'みつちゃく']
+    },
+    {
+      number: LevelReferenceNumbers[4],
+      reading: {
+        hiragana: 'よんちゃく',
+        kanji: '四着'
+      },
+      wrongAnswers: [ 'しちゃく', 'よちゃく' ]
+    },
+    {
+      number: LevelReferenceNumbers[5],
+      reading: {
+        hiragana: 'ごちゃく',
+        kanji: '五着'
+      },
+      wrongAnswers: []
+    }
+  ],
+  [
+    {
+      number: LevelReferenceNumbers[6],
+      reading: {
+        hiragana: 'ろくちゃく',
+        kanji: '六着'
+      },
+      wrongAnswers: [ 'ろっちゃく' ]
+    },
+    {
+      number: LevelReferenceNumbers[7],
+      reading: {
+        hiragana: 'ななちゃく',
+        kanji: '七着'
+      },
+      wrongAnswers: [ 'しちちゃく', 'しっちゃく' ]
+    },
+    {
+      number: LevelReferenceNumbers[8],
+      reading: {
+        hiragana: 'はっちゃく',
+        kanji: '八着'
+      },
+      wrongAnswers: [ 'はちちゃく', 'やちゃく']
+    },
+    {
+      number: LevelReferenceNumbers[9],
+      reading: {
+        hiragana: 'きゅうちゃく',
+        kanji: '九着'
+      },
+      wrongAnswers: [ 'くちゃく' ]
+    },
+    {
+      number: LevelReferenceNumbers[10],
+      reading: {
+        hiragana: 'じっちゃく',
+        kanji: '十着'
+      },
+      wrongAnswers: [ 'じゅっちゃく', 'じゅうちゃく' ]
+    }
+  ]
+]
+
+export const touLevelReferences: LevelReference[][] = [
+  [
+    {
+      number: LevelReferenceNumbers[1],
+      reading: {
+        hiragana: 'いっとう',
+        kanji: '一頭'
+      },
+      wrongAnswers: [ 'いちとう', 'ひととう' ]
+    },
+    {
+      number: LevelReferenceNumbers[2],
+      reading: {
+        hiragana: 'にとう',
+        kanji: '二頭'
+      },
+      wrongAnswers: [ 'ふたとう' ]
+    },
+    {
+      number: LevelReferenceNumbers[3],
+      reading: {
+        hiragana: 'さんとう',
+        kanji: '三頭'
+      },
+      wrongAnswers: ['みっとう', 'みつとう']
+    },
+    {
+      number: LevelReferenceNumbers[4],
+      reading: {
+        hiragana: 'よんとう',
+        kanji: '四頭'
+      },
+      wrongAnswers: [ 'しとう', 'よとう' ]
+    },
+    {
+      number: LevelReferenceNumbers[5],
+      reading: {
+        hiragana: 'ごとう',
+        kanji: '五頭'
+      },
+      wrongAnswers: []
+    }
+  ],
+  [
+    {
+      number: LevelReferenceNumbers[6],
+      reading: {
+        hiragana: 'ろくとう',
+        kanji: '六頭'
+      },
+      wrongAnswers: [ 'ろっとう' ]
+    },
+    {
+      number: LevelReferenceNumbers[7],
+      reading: {
+        hiragana: 'ななとう',
+        kanji: '七頭'
+      },
+      wrongAnswers: [ 'しちとう', 'しっとう' ]
+    },
+    {
+      number: LevelReferenceNumbers[8],
+      reading: {
+        hiragana: 'はっとう',
+        kanji: '八頭'
+      },
+      wrongAnswers: [ 'はちとう', 'やとう']
+    },
+    {
+      number: LevelReferenceNumbers[9],
+      reading: {
+        hiragana: 'きゅうとう',
+        kanji: '九頭'
+      },
+      wrongAnswers: [ 'くとう' ]
+    },
+    {
+      number: LevelReferenceNumbers[10],
+      reading: {
+        hiragana: 'じっとう',
+        kanji: '十頭'
+      },
+      wrongAnswers: [ 'じゅっとう', 'じゅうとう' ]
+    }
+  ]
+]
+
+export const ninLevelReferences: LevelReference[][] = [
+  [
+    {
+      number: LevelReferenceNumbers[1],
+      reading: {
+        hiragana: 'ひとり',
+        kanji: '一人'
+      },
+      wrongAnswers: [ 'いっにん', 'いちにん', 'ひとにん' ]
+    },
+    {
+      number: LevelReferenceNumbers[2],
+      reading: {
+        hiragana: 'ふたり',
+        kanji: '二人'
+      },
+      wrongAnswers: [ 'ににん', 'ふたにん' ]
+    },
+    {
+      number: LevelReferenceNumbers[3],
+      reading: {
+        hiragana: 'さんにん',
+        kanji: '三人'
+      },
+      wrongAnswers: ['みっにん', 'みつにん']
+    },
+    {
+      number: LevelReferenceNumbers[4],
+      reading: {
+        hiragana: 'よにん',
+        kanji: '四人'
+      },
+      wrongAnswers: [ 'しにん', 'よんにん' ]
+    },
+    {
+      number: LevelReferenceNumbers[5],
+      reading: {
+        hiragana: 'ごにん',
+        kanji: '五人'
+      },
+      wrongAnswers: []
+    }
+  ],
+  [
+    {
+      number: LevelReferenceNumbers[6],
+      reading: {
+        hiragana: 'ろくにん',
+        kanji: '六人'
+      },
+      wrongAnswers: [ 'ろっにん' ]
+    },
+    {
+      number: LevelReferenceNumbers[7],
+      reading: {
+        hiragana: 'しちにん',  // ななにん
+        kanji: '七人'
+      },
+      wrongAnswers: [ 'しっにん' ]
+    },
+    {
+      number: LevelReferenceNumbers[8],
+      reading: {
+        hiragana: 'はちにん',
+        kanji: '八人'
+      },
+      wrongAnswers: [ 'はっにん', 'やにん']
+    },
+    {
+      number: LevelReferenceNumbers[9],
+      reading: {
+        hiragana: 'きゅうにん',
+        kanji: '九人'
+      },
+      wrongAnswers: [ 'くにん' ]
+    },
+    {
+      number: LevelReferenceNumbers[10],
+      reading: {
+        hiragana: 'じゅうにん',
+        kanji: '十人'
+      },
+      wrongAnswers: [ 'じゅっにん' ]
+    }
+  ]
+]

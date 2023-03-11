@@ -6,7 +6,10 @@ import {
   catIcon, dogIcon, fishIcon, ladybirdIcon, mouseIcon, // hiki
   bicycleIcon, laptopIcon, tvIcon, carIcon, refrigeratorIcon,  // dai
   orangeIcon, bellPepperIcon, teddyBearIcon, cupIcon, // tsu
-  calendar1Icon, calendar2Icon, calendar3Icon, calendar4Icon, calendar5Icon, calendar6Icon, calendar7Icon, calendar8Icon, calendar9Icon, calendar10Icon, calendar11Icon, calendar12Icon, calendar13Icon, calendar14Icon, calendar15Icon, calendar16Icon, calendar17Icon, calendar18Icon, calendar19Icon, calendar20Icon, calendar21Icon, calendar22Icon, calendar23Icon, calendar24Icon, calendar25Icon, calendar26Icon, calendar27Icon, calendar28Icon, calendar29Icon, calendar30Icon, calendar31Icon // nichi
+  calendar1Icon, calendar2Icon, calendar3Icon, calendar4Icon, calendar5Icon, calendar6Icon, calendar7Icon, calendar8Icon, calendar9Icon, calendar10Icon, calendar11Icon, calendar12Icon, calendar13Icon, calendar14Icon, calendar15Icon, calendar16Icon, calendar17Icon, calendar18Icon, calendar19Icon, calendar20Icon, calendar21Icon, calendar22Icon, calendar23Icon, calendar24Icon, calendar25Icon, calendar26Icon, calendar27Icon, calendar28Icon, calendar29Icon, calendar30Icon, calendar31Icon, // nichi
+  suitIcon, jacketIcon, // chaku
+  horseIcon, cowIcon, elephantIcon, lionIcon, // tou
+  manIcon, womanIcon, babyIcon, boyIcon, grandfatherIcon, // nin
 } from "@/assets";
 
 
@@ -437,6 +440,92 @@ export const nichiIcons: Icon[] = [
     name: {
       english: 'days of the month',
       japanese: '日/にち'
+    }
+  },
+]
+
+export const chakuIcons: Icon[] = [
+  {
+    src: suitIcon,
+    name: {
+      english: 'suit',
+      japanese: 'スーツ'
+    }
+  },
+  {
+    src: jacketIcon,
+    name: {
+      english: 'jacket',
+      japanese: '上着'
+    }
+  }
+]
+
+export const touIcons: Icon[] = [
+  {
+    src: horseIcon,
+    name: {
+      english: 'horse',
+      japanese: '馬/うま'
+    }
+  },
+  {
+    src: cowIcon,
+    name: {
+      english: 'cow',
+      japanese: '牛/うし'
+    }
+  },
+  {
+    src: elephantIcon,
+    name: {
+      english: 'elephant',
+      japanese: '象/ぞう'
+    }
+  },
+  {
+    src: lionIcon,
+    name: {
+      english: 'lion',
+      japanese: 'ライオン'
+    }
+  },
+]
+
+export const ninIcons: Icon[] = [
+  {
+    src: manIcon,
+    name: {
+      english: 'man',
+      japanese: '男性/だんせい'
+    }
+  },
+  {
+    src: womanIcon,
+    name: {
+      english: 'woman',
+      japanese: '女性/じょせい'
+    }
+  },
+  {
+    src: babyIcon,
+    name: {
+      english: 'baby',
+      japanese: '赤ちゃん/あかちゃん'
+    }
+  },
+  {
+    src: boyIcon,
+    name: {
+      english: 'boy',
+      japanese: '男の子/おとこのこ'
+    }
+  },
+  {
+    src: grandfatherIcon,
+    name: {
+      english: 'grandfather',
+      japanese: 'おじいさん'
     }
   },
 ]
