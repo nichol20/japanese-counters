@@ -1,15 +1,13 @@
 import { stages } from "@/data/stages"
+import { LevelsPercentage, Options } from "@/types/localStorage"
 import { isStageGroup } from "./stage"
 
-export interface LevelsPercentage {
-  [chapter: string]: number
-}
-
 enum LocalStorage {
-  LEVELS_PERCENTAGE = 'levelsPercentage'
+  LEVELS_PERCENTAGE = 'levelsPercentage',
+  OPTIONS = 'options'
 }
 
-export const populateStorage = () => {
+export const populateLevelsPercentage = () => {
   let levelsPercentage: LevelsPercentage = {}
 
   Object.values(stages).forEach(stage => {
@@ -30,11 +28,10 @@ export const getLevelsPercentage = () => {
   const levelsPercentageItem = localStorage.getItem(LocalStorage.LEVELS_PERCENTAGE)
 
   if(!levelsPercentageItem) {
-    return populateStorage()
+    return populateLevelsPercentage()
   }
   
-  const levelsPercentage = JSON.parse(levelsPercentageItem)
-  return (levelsPercentage as LevelsPercentage)
+  return JSON.parse(levelsPercentageItem) as LevelsPercentage
 }
 
 export const setLevelPercentage = (chapter: string, percentage: number) => {
@@ -45,4 +42,35 @@ export const setLevelPercentage = (chapter: string, percentage: number) => {
   levelsPercentage[chapter] = percentage
 
   localStorage.setItem(LocalStorage.LEVELS_PERCENTAGE, JSON.stringify(levelsPercentage))
+}
+
+export const populateOptions = () => {
+  const options: Options = {
+    answerType: 'hiragana'
+  }
+
+  localStorage.setItem(LocalStorage.OPTIONS, JSON.stringify(options))
+
+  return options
+}
+
+export const getOptions = () => {
+  const optionsItem = localStorage.getItem(LocalStorage.OPTIONS)
+
+  if(!optionsItem) {
+    return populateOptions()
+  }
+
+  return JSON.parse(optionsItem) as Options
+}
+
+export const setOptions = (newOptions: Partial<Options>) => {
+  let options = getOptions()
+
+  options = {
+    ...options,
+    ...newOptions
+  }
+
+  localStorage.setItem(LocalStorage.OPTIONS, JSON.stringify(options))
 }

@@ -10,6 +10,9 @@ import {
   suitIcon, jacketIcon, // chaku
   horseIcon, cowIcon, elephantIcon, lionIcon, // tou
   manIcon, womanIcon, babyIcon, boyIcon, grandfatherIcon, // nin
+  squidIcon, cupWithStrawIcon, coffeeIcon, bowlOfSoupIcon, // hai
+  // fun
+  donutIcon, presentIcon, eggIcon // ko
 } from "@/assets";
 
 
@@ -526,6 +529,65 @@ export const ninIcons: Icon[] = [
     name: {
       english: 'grandfather',
       japanese: 'おじいさん'
+    }
+  },
+]
+
+export const haiIcons: Icon[] = [
+  {
+    src: squidIcon,
+    name: {
+      english: 'squid',
+      japanese: 'いか'
+    }
+  },
+  {
+    src: cupWithStrawIcon,
+    name: {
+      english: 'cup of a drink',
+      japanese: 'ジュース, コーラ, etc.'
+    }
+  },
+  {
+    src: coffeeIcon,
+    name: {
+      english: 'coffee',
+      japanese: 'コーヒー'
+    }
+  },
+  {
+    src: bowlOfSoupIcon,
+    name: {
+      english: 'bowl of soup',
+      japanese: 'ラーメン, etc.'
+    }
+  },
+]
+
+export const funIcons: Icon[] = [
+
+]
+
+export const koIcons: Icon[] = [
+  {
+    src: donutIcon,
+    name: {
+      english: 'donut',
+      japanese: 'ドーナツ'
+    }
+  },
+  {
+    src: presentIcon,
+    name: {
+      english: 'present',
+      japanese: 'プレゼント'
+    }
+  },
+  {
+    src: eggIcon,
+    name: {
+      english: 'egg',
+      japanese: '卵/たまご'
     }
   },
 ]

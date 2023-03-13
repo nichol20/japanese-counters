@@ -6,6 +6,7 @@
   flex-direction: column;
   max-width: 380px;
   gap: 15px;
+  justify-self: center;
 }
 
 
@@ -27,11 +28,25 @@
 
 .description {
     font-size: 1em;
+    max-width: 300px;
+
+    @include medias-media('phone') {
+      font-size: .875em;
+      text-align: center;
+    }
 }
 
 .levels {
   width: 100%;
   margin-top: auto;
+
+  .name {
+    font-size: 1em;
+
+    @include medias-media('phone') {
+      font-size: .875em;
+    }
+  }
 
   .level {
     display: grid;

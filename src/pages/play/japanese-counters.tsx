@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react"
+import { useContext, useEffect, useRef, useState } from "react"
 import { ParsedUrlQuery } from "querystring"
 import { GetServerSideProps } from "next"
 import Image from "next/image"
@@ -16,6 +16,7 @@ import { isStageGroup } from "@/utils/stage"
 import { setLevelPercentage } from "@/utils/localStorage"
 
 import styles from '../../styles/Game.module.scss'
+import { OptionsContext } from "@/contexts/OptionsContext"
 
 interface JapaneseCountersProps {
   query: ParsedUrlQuery
@@ -26,6 +27,8 @@ const defaultStage = 'mai'
 const questionLimit = 10
 
 export default function JapaneseCounters({ query }: JapaneseCountersProps) {
+  const { answerType } = useContext(OptionsContext)
+
   const { level: chapterQuery, stage: stageQuery } = query
   const stage = typeof(stageQuery) === 'string' ? stages[stageQuery] : stages[defaultStage]
   const chapter = typeof(chapterQuery) === 'string' ? chapterQuery : isStageGroup(stage) ? stage.levelChapter : defaultChapter
@@ -194,11 +197,12 @@ export default function JapaneseCounters({ query }: JapaneseCountersProps) {
 
   return (
     <div className={styles.game}>
+      <h1>{answerType}</h1>
       <div className={styles.timer}>
         <Timer
          totalTime={200} 
          decreaseTime={20} 
-         onTimeout={onTimeout}
+         onTimeout={() => {}}
          ref={timerRef}
         />
       </div>
@@ -213,12 +217,13 @@ export default function JapaneseCounters({ query }: JapaneseCountersProps) {
         </ul>
         <ul className={styles.answerList}>
           {answers.map((answer, index) => (
-            <li
-              key={index}
-              className={`${styles.answer} ${answerStyleList[index]} ${getAnswerClass(answer)}`}
-              onClick={() => handleAnswerClick(answer)}
-            >
-              {answer}
+            <li key={index} className={styles.answerBox}>
+              <button
+               className={`${styles.answerBtn} ${answerStyleList[index]} ${getAnswerClass(answer)}`}
+               onClick={() => handleAnswerClick(answer)}
+              >
+                {answer}
+              </button>
             </li>
           ))}
         </ul>

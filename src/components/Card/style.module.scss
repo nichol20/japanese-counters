@@ -19,6 +19,10 @@
   background-color: $colors-primary-bg;
   border-radius: 8px;
   max-width: 550px;
+
+  @include medias-media('tablet') {
+    width: 90%;
+  }
 }
 
 .relativeBox {

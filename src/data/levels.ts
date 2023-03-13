@@ -1,6 +1,6 @@
 import { Level } from "@/types/stages";
 import { nichiIcons } from "./icons";
-import { chakuLevelReferences, daiLevelReferences, hikiLevelReferences, honLevelReferences, maiLevelReferences, nichiLevelReferences, ninLevelReferences, touLevelReferences, tsuLevelReferences } from "./references";
+import { chakuLevelReferences, daiLevelReferences, haiLevelReferences, hikiLevelReferences, honLevelReferences, maiLevelReferences, nichiLevelReferences, ninLevelReferences, touLevelReferences, tsuLevelReferences } from "./references";
 
 export const maiLevels: Level[] = [
   {
@@ -198,5 +198,26 @@ export const ninLevels: Level[] = [
     name: 'Review',
     description: 'This level covers 1 through 10.',
     references: [...ninLevelReferences[0], ...ninLevelReferences[1]]
+  },
+]
+
+export const haiLevels: Level[] = [
+  {
+    chapter: '32',
+    name: '1 ~ 5',
+    description: 'This level covers 1 through 5.',
+    references: haiLevelReferences[0]
+  },
+  {
+    chapter: '33',
+    name: '6 ~ 10',
+    description: 'This level covers 6 through 10.',
+    references: haiLevelReferences[1]
+  },
+  {
+    chapter: '34',
+    name: 'Review',
+    description: 'This level covers 1 through 10.',
+    references: [...haiLevelReferences[0], ...haiLevelReferences[1]]
   },
 ]

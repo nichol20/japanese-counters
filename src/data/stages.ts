@@ -1,6 +1,6 @@
 import { Stage, StageGroup, Stages } from "@/types/stages";
-import { chakuIcons, daiIcons, hikiIcons, honIcons, maiIcons, nichiIcons, ninIcons, touIcons, tsuIcons } from "./icons";
-import { chakuLevels, daiLevels, hikiLevels, honLevels, maiLevels, nichiLevels, ninLevels, touLevels, tsuLevels } from "./levels";
+import { chakuIcons, daiIcons, funIcons, haiIcons, hikiIcons, honIcons, koIcons, maiIcons, nichiIcons, ninIcons, touIcons, tsuIcons } from "./icons";
+import { chakuLevels, daiLevels, haiLevels, hikiLevels, honLevels, maiLevels, nichiLevels, ninLevels, touLevels, tsuLevels } from "./levels";
 
 export const mai: Stage = {
   id: '1',
@@ -141,6 +141,55 @@ export const group3: StageGroup = {
   description: "When you're ready, let's see if you can remember which counter goes with which thing!",
   stages: [chaku, tou, nin],
   levelChapter: '31'
+}
+
+export const hai: Stage = {
+  id: '10',
+  name: 'hai',
+  counter: {
+    kanji: "杯",
+    reading: "はい"
+  },
+  description: "杯/はい is a counter that is attached to a number when you are counting cups of drinks. This includes bowls of soup, and oddly enough, squid/octopuses.",
+  instruction: "はい, ばい, or ぱい is attached to each number (when written as kanji, though, it is always 杯).",
+  icons: haiIcons,
+  levels: haiLevels
+}
+
+// developing
+export const fun: Stage = {
+  id: '11',
+  name: 'fun',
+  counter: {
+    kanji: "分",
+    reading: "ふん"
+  },
+  description: "分/ふん is a counter that is attached to a number when you are counting minutes (time).",
+  instruction: "ふん, ぶん, or ふん is attached to each number (when written as kanji, though, it is always 分).",
+  icons: funIcons,
+  levels: []
+}
+
+// developing
+export const ko: Stage = {
+  id: '12',
+  name: 'ko',
+  counter: {
+    kanji: '個',
+    reading: 'こ'
+  },
+  description: "個/こ is a generic counter that is attached to a number for counting things (often small objects).",
+  instruction: "こ is attached to each number (when written as kanji, though, it is always 個).",
+  icons: koIcons,
+  levels: []
+}
+
+export const group4: StageGroup = {
+  id: 'stageGroup4',
+  name: 'group4',
+  description: "When you're ready, let's see if you can remember which counter goes with which thing!",
+  stages: [hai, fun, ko],
+  levelChapter: '41'
 }
 
 export const stages: Stages = {

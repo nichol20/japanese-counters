@@ -1,4 +1,4 @@
-import { LevelReference } from '@/types/stages'
+import { Level, LevelReference } from '@/types/stages'
 import { nichiIcons } from './icons'
 import { LevelReferenceNumbers } from './numbers'
 
@@ -1075,6 +1075,93 @@ export const ninLevelReferences: LevelReference[][] = [
         kanji: '十人'
       },
       wrongAnswers: [ 'じゅっにん' ]
+    }
+  ]
+]
+
+export const haiLevelReferences: LevelReference[][] = [
+  [
+    {
+      number: LevelReferenceNumbers[1],
+      reading: {
+        hiragana: 'いっぱい',
+        kanji: '一杯'
+      },
+      wrongAnswers: [ 'いちはい', 'いちばい', 'いちぱい', 'いっはい', 'いっばい', 'ひとはい', 'ひとばい', 'ひとぱい' ]
+    },
+    {
+      number: LevelReferenceNumbers[2],
+      reading: {
+        hiragana: 'にはい',
+        kanji: '二杯'
+      },
+      wrongAnswers: [ 'にばい', 'にぱい', 'ふたはい', 'ふたばい', 'ふたぱい' ]
+    },
+    {
+      number: LevelReferenceNumbers[3],
+      reading: {
+        hiragana: 'さんばい',
+        kanji: '三杯'
+      },
+      wrongAnswers: [ 'さんはい', 'さんぱい', 'みっはい', 'みっばい', 'みっぱい', 'みつはい', 'みつばい', 'みつぱい' ]
+    },
+    {
+      number: LevelReferenceNumbers[4],
+      reading: {
+        hiragana: 'よんはい',
+        kanji: '四杯'
+      },
+      wrongAnswers: [ 'しはい', 'しばい', 'しぱい', 'よはい', 'よばい', 'よぱい', 'よんばい', 'よんぱい' ]
+    },
+    {
+      number: LevelReferenceNumbers[5],
+      reading: {
+        hiragana: 'ごはい',
+        kanji: '五杯'
+      },
+      wrongAnswers: [ 'ごばい', 'ごぱい' ]
+    }
+  ],
+  [
+    {
+      number: LevelReferenceNumbers[6],
+      reading: {
+        hiragana: 'ろっぱい',
+        kanji: '六杯'
+      },
+      wrongAnswers: [ 'ろくはい', 'ろくばい', 'ろくぱい', 'ろっはい', 'ろっばい' ]
+    },
+    {
+      number: LevelReferenceNumbers[7],
+      reading: {
+        hiragana: 'ななはい',
+        kanji: '七杯'
+      },
+      wrongAnswers: [ 'しちはい', 'しちばい', 'しちぱい', 'しっはい', 'しっばい', 'しっぱい', 'ななばい', 'ななぱい' ]
+    },
+    {
+      number: LevelReferenceNumbers[8],
+      reading: {
+        hiragana: 'はっぱい',
+        kanji: '八杯'
+      },
+      wrongAnswers: ['はちはい', 'はちばい', 'はちぱい', 'はっはい', 'はっばい', 'やはい', 'やばい', 'やぱい']
+    },
+    {
+      number: LevelReferenceNumbers[9],
+      reading: {
+        hiragana: 'きゅうはい',
+        kanji: '九杯'
+      },
+      wrongAnswers: [ 'きゅうばい', 'きゅうぱい', 'くはい', 'くばい', 'くぱい' ]
+    },
+    {
+      number: LevelReferenceNumbers[10],
+      reading: {
+        hiragana: 'じゅっぱい',
+        kanji: '十杯'
+      },
+      wrongAnswers: [ 'じゅうはい', 'じゅうばい', 'じゅうぱい', 'じゅっはい', 'じゅっばい' ]
     }
   ]
 ]

@@ -11,12 +11,29 @@
 
 .timer {
   width: 500px;
+
+  @include medias-media('tablet') {
+    width: max(320px, 80%);
+  }
+
+  @include medias-media('phone') {
+    width: max(175px, 92%);
+  }
 }
 
 .question {
   width: 600px;
   @include mixins-display-flex();
   flex-direction: column;
+  min-width: 200px;
+
+  @include medias-media('tablet') {
+    width: max(320px, 80%);
+  }
+
+  @include medias-media('phone') {
+    width: max(175px, 92%);
+  }
 }
 
 .iconList {
@@ -34,6 +51,16 @@
     .icon {
       width: 70px;
       height: 70px;
+
+      @include medias-media('tablet') {
+        width: 50px;
+        height: 50px;
+      }
+
+      @include medias-media('phone') {
+        width: 35px;
+        height: 35px;
+      }
     }
   }
 }
@@ -45,20 +72,34 @@
   @include mixins-display-flex(space-between);
   flex-wrap: wrap;
   width: 100%;
-  gap: 10px;
+  
 }
 
-.answer {
+.answerBox {
+  min-width: 50%;
+  padding: 0 3px 6px 3px;
+  flex-grow: 1;
+}
+
+.answerBtn {
   color: $colors-primary-btn-txt;
   border-radius: 4px;
   cursor: pointer;
   height: 40px;
   transition: background-color 300ms ease, border-color 300ms ease;
-  min-width: 49%;
-  flex-grow: 1;
   @include mixins-display-flex();
   font-size: 1.2em;
   font-weight: 500;
+  width: 100%;
+
+  @include medias-media('tablet') {
+    font-size: 1em;
+    font-weight: 400;
+  }
+
+  @include medias-media('tablet') {
+    font-size: .875em;
+  }
 }
 
 .answerStyle1 {

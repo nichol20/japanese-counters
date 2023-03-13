@@ -87,3 +87,16 @@ export { default as womanIcon } from './images/nin/woman.png'
 export { default as babyIcon } from './images/nin/baby.png'
 export { default as boyIcon } from './images/nin/boy.png'
 export { default as grandfatherIcon } from './images/nin/grandfather.png'
+
+// 杯(はい)
+export { default as squidIcon } from './images/hai/squid.png'
+export { default as cupWithStrawIcon } from './images/hai/cup-with-straw.png'
+export { default as coffeeIcon } from './images/hai/coffee.png'
+export { default as bowlOfSoupIcon } from './images/hai/bowl-of-soup.png'
+
+// 分(ふん)
+
+// 個(こ)
+export { default as donutIcon } from './images/ko/donut.png' 
+export { default as presentIcon } from './images/ko/present.png' 
+export { default as eggIcon } from './images/ko/egg.png' 
