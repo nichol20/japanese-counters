@@ -1,0 +1,12 @@
+@use '../../styles' as *;
+
+.settings {
+  width: 100%;
+  @include mixins-display-flex();
+  margin-top: 20px;
+}
+
+.category {
+  @include mixins-display-flex(center, flex-start);
+  gap: 20px;
+}

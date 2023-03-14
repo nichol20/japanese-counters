@@ -1,11 +1,7 @@
 import { stages } from "@/data/stages"
+import { LocalStorage } from "@/enums/localStorage"
 import { LevelsPercentage, Options } from "@/types/localStorage"
 import { isStageGroup } from "./stage"
-
-enum LocalStorage {
-  LEVELS_PERCENTAGE = 'levelsPercentage',
-  OPTIONS = 'options'
-}
 
 export const populateLevelsPercentage = () => {
   let levelsPercentage: LevelsPercentage = {}

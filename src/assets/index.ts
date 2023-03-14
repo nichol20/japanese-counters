@@ -1,4 +1,7 @@
 export { default as hourglassesIcon } from './images/hourglasses.png'
+export { default as cogwheelIcon } from './images/cogwheel.png'
+export { default as endlessIcon } from './images/endless.png'
+export { default as gamepadIcon } from './images/gamepad.png'
 
 // 枚(まい)
 export { default as blanketIcon } from './images/mai/blanket.png'

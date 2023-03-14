@@ -4,4 +4,5 @@ export interface LevelsPercentage {
 
 export interface Options {
   answerType: 'hiragana' | 'kanji'
+  howToAnswer: 'multipleChoice' | 'fillInTheBlank'
 }

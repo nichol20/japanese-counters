@@ -27,7 +27,7 @@ const defaultStage = 'mai'
 const questionLimit = 10
 
 export default function JapaneseCounters({ query }: JapaneseCountersProps) {
-  const { answerType } = useContext(OptionsContext)
+  const { options } = useContext(OptionsContext)
 
   const { level: chapterQuery, stage: stageQuery } = query
   const stage = typeof(stageQuery) === 'string' ? stages[stageQuery] : stages[defaultStage]
@@ -49,7 +49,7 @@ export default function JapaneseCounters({ query }: JapaneseCountersProps) {
   const timerRef = useRef<TimerRef>(null)
   const finishedLevelCardRef = useRef<FinishedLevelCardRef>(null)
   
-  const [ questionAsked, setQuestionsAsked ] = useState(0)
+  const [ questionsAsked, setQuestionsAsked ] = useState(0)
   const [ correctAnswers, setCorrectAnswers ] = useState(0)
   const percentageResult = Math.floor((correctAnswers / questionLimit) * 100)
   useLocalStorage(() => setLevelPercentage(chapter, percentageResult))
@@ -141,7 +141,7 @@ export default function JapaneseCounters({ query }: JapaneseCountersProps) {
   }
 
   const generateQuestion = () => {
-    if(questionAsked >= questionLimit) {
+    if(questionsAsked >= questionLimit) {
       return finishLevel()
     }
 
@@ -197,7 +197,6 @@ export default function JapaneseCounters({ query }: JapaneseCountersProps) {
 
   return (
     <div className={styles.game}>
-      <h1>{answerType}</h1>
       <div className={styles.timer}>
         <Timer
          totalTime={200} 
