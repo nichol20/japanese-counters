@@ -10,7 +10,8 @@ export const maiLevelReferences: LevelReference[][] = [
         hiragana: 'いちまい',
         kanji: '一枚'
       },
-      wrongAnswers: ['ひとまい', 'いっまい']
+      wrongAnswers: ['ひとまい', 'いっまい'],
+      specificIcons: []
     },
     {
       number: LevelReferenceNumbers[2],
@@ -18,7 +19,8 @@ export const maiLevelReferences: LevelReference[][] = [
         hiragana: 'にまい',
         kanji: '二枚'
       },
-      wrongAnswers: ['ふたまい']
+      wrongAnswers: ['ふたまい'],
+      specificIcons: []
     },
     {
       number: LevelReferenceNumbers[3],
@@ -26,7 +28,8 @@ export const maiLevelReferences: LevelReference[][] = [
         hiragana: 'さんまい',
         kanji: '三枚'
       },
-      wrongAnswers: ['みまい', 'みつまい']
+      wrongAnswers: ['みまい', 'みつまい'],
+      specificIcons: []
     },
     {
       number: LevelReferenceNumbers[4],
@@ -34,7 +37,8 @@ export const maiLevelReferences: LevelReference[][] = [
         hiragana: 'よんまい',
         kanji: '四枚'
       },
-      wrongAnswers: ['しまい', 'よまい']
+      wrongAnswers: ['しまい', 'よまい'],
+      specificIcons: []
     },
     {
       number: LevelReferenceNumbers[5],
@@ -42,7 +46,8 @@ export const maiLevelReferences: LevelReference[][] = [
         hiragana: 'ごまい',
         kanji: '五枚'
       },
-      wrongAnswers: []
+      wrongAnswers: [],
+      specificIcons: []
     }
   ],
   [
@@ -52,7 +57,8 @@ export const maiLevelReferences: LevelReference[][] = [
         hiragana: 'ろくまい',
         kanji: '六枚'
       },
-      wrongAnswers: ['しっまい', 'じゅっまい', 'やまい', 'はっまい', 'ろっまい', 'くまい']
+      wrongAnswers: ['しっまい', 'じゅっまい', 'やまい', 'はっまい', 'ろっまい', 'くまい'],
+      specificIcons: []
     },
     {
       number: LevelReferenceNumbers[7],
@@ -60,7 +66,8 @@ export const maiLevelReferences: LevelReference[][] = [
         hiragana: 'しちまい',
         kanji: '七舞'
       },
-      wrongAnswers: ['しっまい', 'じゅっまい', 'やまい', 'はっまい', 'ろっまい', 'くまい']
+      wrongAnswers: ['しっまい', 'じゅっまい', 'やまい', 'はっまい', 'ろっまい', 'くまい'],
+      specificIcons: []
     },
     {
       number: LevelReferenceNumbers[8],
@@ -68,7 +75,8 @@ export const maiLevelReferences: LevelReference[][] = [
         hiragana: 'はちまい',
         kanji: '八枚'
       },
-      wrongAnswers: ['しっまい', 'じゅっまい', 'やまい', 'はっまい', 'ろっまい', 'くまい']
+      wrongAnswers: ['しっまい', 'じゅっまい', 'やまい', 'はっまい', 'ろっまい', 'くまい'],
+      specificIcons: []
     },
     {
       number: LevelReferenceNumbers[9],
@@ -76,7 +84,8 @@ export const maiLevelReferences: LevelReference[][] = [
         hiragana: 'きゅうまい',
         kanji: '九枚'
       },
-      wrongAnswers: ['しっまい', 'じゅっまい', 'やまい', 'はっまい', 'ろっまい', 'くまい']
+      wrongAnswers: ['しっまい', 'じゅっまい', 'やまい', 'はっまい', 'ろっまい', 'くまい'],
+      specificIcons: []
     },
     {
       number: LevelReferenceNumbers[10],
@@ -84,7 +93,8 @@ export const maiLevelReferences: LevelReference[][] = [
         hiragana: 'じゅうまい',
         kanji: '十枚'
       },
-      wrongAnswers: ['しっまい', 'じゅっまい', 'やまい', 'はっまい', 'ろっまい', 'くまい']
+      wrongAnswers: ['しっまい', 'じゅっまい', 'やまい', 'はっまい', 'ろっまい', 'くまい'],
+      specificIcons: []
     }
   ]
 ]
@@ -97,7 +107,8 @@ export const honLevelReferences: LevelReference[][] = [
         hiragana: 'いっぽん',
         kanji: '一本'
       },
-      wrongAnswers: [ 'いちほん', 'いちぼん', 'いちぽん', 'いっほん', 'いっぼん', 'ひとほん', 'ひとぼん', 'ひとぽん' ]
+      wrongAnswers: [ 'いちほん', 'いちぼん', 'いちぽん', 'いっほん', 'いっぼん', 'ひとほん', 'ひとぼん', 'ひとぽん' ],
+      specificIcons: []
     },
     {
       number: LevelReferenceNumbers[2],
@@ -105,7 +116,8 @@ export const honLevelReferences: LevelReference[][] = [
         hiragana: 'にほん',
         kanji: '二本'
       },
-      wrongAnswers: [ 'にぼん', 'にぽん', 'ふたほん', 'ふたぼん', 'ふたぽん' ]
+      wrongAnswers: [ 'にぼん', 'にぽん', 'ふたほん', 'ふたぼん', 'ふたぽん' ],
+      specificIcons: []
     },
     {
       number: LevelReferenceNumbers[3],
@@ -113,7 +125,8 @@ export const honLevelReferences: LevelReference[][] = [
         hiragana: 'さんぼん',
         kanji: '三本'
       },
-      wrongAnswers: [ 'さんぼん', 'さんぽん', 'みっほん', 'みっぼん', 'みっぽん', 'みつほん', 'みつぼん', 'みつぽん' ]
+      wrongAnswers: [ 'さんぼん', 'さんぽん', 'みっほん', 'みっぼん', 'みっぽん', 'みつほん', 'みつぼん', 'みつぽん' ],
+      specificIcons: []
     },
     {
       number: LevelReferenceNumbers[4],
@@ -121,7 +134,8 @@ export const honLevelReferences: LevelReference[][] = [
         hiragana: 'よんほん',
         kanji: '四本'
       },
-      wrongAnswers: ['しほん', 'しぼん', 'しぽん', 'よほん', 'よぼん', 'よぽん', 'よんぼん', 'よんぽん']
+      wrongAnswers: ['しほん', 'しぼん', 'しぽん', 'よほん', 'よぼん', 'よぽん', 'よんぼん', 'よんぽん'],
+      specificIcons: []
     },
     {
       number: LevelReferenceNumbers[5],
@@ -129,7 +143,8 @@ export const honLevelReferences: LevelReference[][] = [
         hiragana: 'ごほん',
         kanji: '五本'
       },
-      wrongAnswers: [ 'ごぼん', 'ごぽん' ]
+      wrongAnswers: [ 'ごぼん', 'ごぽん' ],
+      specificIcons: []
     }
   ],
   [
@@ -139,7 +154,8 @@ export const honLevelReferences: LevelReference[][] = [
         hiragana: 'ろっぽん',
         kanji: '六本'
       },
-      wrongAnswers: [ 'ろくほん', 'ろくぼん', 'ろくぽん', 'ろっほん', 'ろっぼん' ]
+      wrongAnswers: [ 'ろくほん', 'ろくぼん', 'ろくぽん', 'ろっほん', 'ろっぼん' ],
+      specificIcons: []
     },
     {
       number: LevelReferenceNumbers[7],
@@ -147,7 +163,8 @@ export const honLevelReferences: LevelReference[][] = [
         hiragana: 'ななほん',
         kanji: '七本'
       },
-      wrongAnswers: [ 'しちほん', 'しちぼん', 'しちぽん', 'しっほん', 'しっぼん', 'しっぽん', 'ななぼん', 'ななぽん' ]
+      wrongAnswers: [ 'しちほん', 'しちぼん', 'しちぽん', 'しっほん', 'しっぼん', 'しっぽん', 'ななぼん', 'ななぽん' ],
+      specificIcons: []
     },
     {
       number: LevelReferenceNumbers[8],
@@ -155,7 +172,8 @@ export const honLevelReferences: LevelReference[][] = [
         hiragana: 'はっぽん',
         kanji: '八本'
       },
-      wrongAnswers: ['はちほん', 'はちぼん', 'はちぽん', 'はっほん', 'はっぼん', 'やほん', 'やぼん', 'やぽん']
+      wrongAnswers: ['はちほん', 'はちぼん', 'はちぽん', 'はっほん', 'はっぼん', 'やほん', 'やぼん', 'やぽん'],
+      specificIcons: []
     },
     {
       number: LevelReferenceNumbers[9],
@@ -163,7 +181,8 @@ export const honLevelReferences: LevelReference[][] = [
         hiragana: 'きゅうほん',
         kanji: '九本'
       },
-      wrongAnswers: [ 'きゅうぼん', 'きゅうぽん', 'くほん', 'くぼん', 'くぽん' ]
+      wrongAnswers: [ 'きゅうぼん', 'きゅうぽん', 'くほん', 'くぼん', 'くぽん' ],
+      specificIcons: []
     },
     {
       number: LevelReferenceNumbers[10],
@@ -171,7 +190,8 @@ export const honLevelReferences: LevelReference[][] = [
         hiragana: 'じゅっぽん',
         kanji: '十本'
       },
-      wrongAnswers: [ 'じゅうほん', 'じゅうぼん', 'じゅうぽん', 'じゅっほん', 'じゅっぼん' ]
+      wrongAnswers: [ 'じゅうほん', 'じゅうぼん', 'じゅうぽん', 'じゅっほん', 'じゅっぼん' ],
+      specificIcons: []
     }
   ]
 ]
@@ -184,7 +204,8 @@ export const hikiLevelReferences: LevelReference[][] = [
         hiragana: 'いっぴき',
         kanji: '一匹'
       },
-      wrongAnswers: [ 'いちひき', 'いちびき', 'いちぴき', 'いっひき', 'いっびき', 'ひとひき', 'ひとびき', 'ひとぴき' ]
+      wrongAnswers: [ 'いちひき', 'いちびき', 'いちぴき', 'いっひき', 'いっびき', 'ひとひき', 'ひとびき', 'ひとぴき' ],
+      specificIcons: []
     },
     {
       number: LevelReferenceNumbers[2],
@@ -192,7 +213,8 @@ export const hikiLevelReferences: LevelReference[][] = [
         hiragana: 'にひき',
         kanji: '二匹'
       },
-      wrongAnswers: [ 'にびき', 'にぴき', 'ふたひき', 'ふたびき', 'ふたぴき' ]
+      wrongAnswers: [ 'にびき', 'にぴき', 'ふたひき', 'ふたびき', 'ふたぴき' ],
+      specificIcons: []
     },
     {
       number: LevelReferenceNumbers[3],
@@ -200,7 +222,8 @@ export const hikiLevelReferences: LevelReference[][] = [
         hiragana: 'さんびき',
         kanji: '三匹'
       },
-      wrongAnswers: [ 'さんひき', 'さんぴき', 'みっひき', 'みっびき', 'みっぴき', 'みつひき', 'みつびき', 'みつぴき' ]
+      wrongAnswers: [ 'さんひき', 'さんぴき', 'みっひき', 'みっびき', 'みっぴき', 'みつひき', 'みつびき', 'みつぴき' ],
+      specificIcons: []
     },
     {
       number: LevelReferenceNumbers[4],
@@ -208,7 +231,8 @@ export const hikiLevelReferences: LevelReference[][] = [
         hiragana: 'よんひき',
         kanji: '四匹'
       },
-      wrongAnswers: [ 'しひき', 'しびき', 'しぴき', 'よひき', 'よびき', 'よぴき', 'よんびき', 'よんぴき' ]
+      wrongAnswers: [ 'しひき', 'しびき', 'しぴき', 'よひき', 'よびき', 'よぴき', 'よんびき', 'よんぴき' ],
+      specificIcons: []
     },
     {
       number: LevelReferenceNumbers[5],
@@ -216,7 +240,8 @@ export const hikiLevelReferences: LevelReference[][] = [
         hiragana: 'ごひき',
         kanji: '五匹'
       },
-      wrongAnswers: [ 'ごびき', 'ごぴき' ]
+      wrongAnswers: [ 'ごびき', 'ごぴき' ],
+      specificIcons: []
     }
   ],
   [
@@ -226,7 +251,8 @@ export const hikiLevelReferences: LevelReference[][] = [
         hiragana: 'ろっぴき',
         kanji: '六匹'
       },
-      wrongAnswers: [ 'ろくひき', 'ろくびき', 'ろくぴき', 'ろっひき', 'ろっびき' ]
+      wrongAnswers: [ 'ろくひき', 'ろくびき', 'ろくぴき', 'ろっひき', 'ろっびき' ],
+      specificIcons: []
     },
     {
       number: LevelReferenceNumbers[7],
@@ -234,7 +260,8 @@ export const hikiLevelReferences: LevelReference[][] = [
         hiragana: 'ななひき',
         kanji: '七匹'
       },
-      wrongAnswers: [ 'しちひき', 'しちびき', 'しちぴき', 'しっひき', 'しっびき', 'しっぴき', 'ななびき', 'ななぴき' ]
+      wrongAnswers: [ 'しちひき', 'しちびき', 'しちぴき', 'しっひき', 'しっびき', 'しっぴき', 'ななびき', 'ななぴき' ],
+      specificIcons: []
     },
     {
       number: LevelReferenceNumbers[8],
@@ -242,7 +269,8 @@ export const hikiLevelReferences: LevelReference[][] = [
         hiragana: 'はっぴき',
         kanji: '八匹'
       },
-      wrongAnswers: ['はちひき', 'はちびき', 'はちぴき', 'はっひき', 'はっびき', 'やひき', 'やびき', 'やぴき']
+      wrongAnswers: ['はちひき', 'はちびき', 'はちぴき', 'はっひき', 'はっびき', 'やひき', 'やびき', 'やぴき'],
+      specificIcons: []
     },
     {
       number: LevelReferenceNumbers[9],
@@ -250,7 +278,8 @@ export const hikiLevelReferences: LevelReference[][] = [
         hiragana: 'きゅうひき',
         kanji: '九匹'
       },
-      wrongAnswers: [ 'きゅうびき', 'きゅうぴき', 'くひき', 'くびき', 'くぴき' ]
+      wrongAnswers: [ 'きゅうびき', 'きゅうぴき', 'くひき', 'くびき', 'くぴき' ],
+      specificIcons: []
     },
     {
       number: LevelReferenceNumbers[10],
@@ -258,7 +287,8 @@ export const hikiLevelReferences: LevelReference[][] = [
         hiragana: 'じゅっぴき',
         kanji: '十匹'
       },
-      wrongAnswers: [ 'じゅうひき', 'じゅうびき', 'じゅうぴき', 'じゅっひき', 'じゅっびき' ]
+      wrongAnswers: [ 'じゅうひき', 'じゅうびき', 'じゅうぴき', 'じゅっひき', 'じゅっびき' ],
+      specificIcons: []
     }
   ]
 ]
@@ -271,7 +301,8 @@ export const daiLevelReferences: LevelReference[][] = [
         hiragana: 'いちだい',
         kanji: '一台'
       },
-      wrongAnswers: [ 'いっだい', 'ひとだい' ]
+      wrongAnswers: [ 'いっだい', 'ひとだい' ],
+      specificIcons: []
     },
     {
       number: LevelReferenceNumbers[2],
@@ -279,7 +310,8 @@ export const daiLevelReferences: LevelReference[][] = [
         hiragana: 'にだい',
         kanji: '二台'
       },
-      wrongAnswers: [ 'ふただい' ]
+      wrongAnswers: [ 'ふただい' ],
+      specificIcons: []
     },
     {
       number: LevelReferenceNumbers[3],
@@ -287,7 +319,8 @@ export const daiLevelReferences: LevelReference[][] = [
         hiragana: 'さんだい',
         kanji: '三台'
       },
-      wrongAnswers: [ 'みっだい', 'みつだい' ]
+      wrongAnswers: [ 'みっだい', 'みつだい' ],
+      specificIcons: []
     },
     {
       number: LevelReferenceNumbers[4],
@@ -295,7 +328,8 @@ export const daiLevelReferences: LevelReference[][] = [
         hiragana: 'よんだい',
         kanji: '四台'
       },
-      wrongAnswers: [ 'しだい', 'よだい' ]
+      wrongAnswers: [ 'しだい', 'よだい' ],
+      specificIcons: []
     },
     {
       number: LevelReferenceNumbers[5],
@@ -303,7 +337,8 @@ export const daiLevelReferences: LevelReference[][] = [
         hiragana: 'ごだい',
         kanji: '五台'
       },
-      wrongAnswers: []
+      wrongAnswers: [],
+      specificIcons: []
     }
   ],
   [
@@ -313,7 +348,8 @@ export const daiLevelReferences: LevelReference[][] = [
         hiragana: 'ろくだい',
         kanji: '六台'
       },
-      wrongAnswers: [ 'ろっだい' ]
+      wrongAnswers: [ 'ろっだい' ],
+      specificIcons: []
     },
     {
       number: LevelReferenceNumbers[7],
@@ -321,7 +357,8 @@ export const daiLevelReferences: LevelReference[][] = [
         hiragana: 'ななだい',
         kanji: '七台'
       },
-      wrongAnswers: [ 'しちだい', 'しっだい' ]
+      wrongAnswers: [ 'しちだい', 'しっだい' ],
+      specificIcons: []
     },
     {
       number: LevelReferenceNumbers[8],
@@ -329,7 +366,8 @@ export const daiLevelReferences: LevelReference[][] = [
         hiragana: 'はちだい',
         kanji: '八台'
       },
-      wrongAnswers: [ 'はっだい', 'やだい']
+      wrongAnswers: [ 'はっだい', 'やだい'],
+      specificIcons: []
     },
     {
       number: LevelReferenceNumbers[9],
@@ -337,7 +375,8 @@ export const daiLevelReferences: LevelReference[][] = [
         hiragana: 'きゅうだい',
         kanji: '九台'
       },
-      wrongAnswers: [ 'くだい' ]
+      wrongAnswers: [ 'くだい' ],
+      specificIcons: []
     },
     {
       number: LevelReferenceNumbers[10],
@@ -345,7 +384,8 @@ export const daiLevelReferences: LevelReference[][] = [
         hiragana: 'じゅうだい',
         kanji: '十台'
       },
-      wrongAnswers: [ 'じゅっだい' ]
+      wrongAnswers: [ 'じゅっだい' ],
+      specificIcons: []
     }
   ]
 ]
@@ -358,7 +398,8 @@ export const tsuLevelReferences: LevelReference[][] = [
         hiragana: 'ひとつ',
         kanji: '一つ'
       },
-      wrongAnswers: []
+      wrongAnswers: [],
+      specificIcons: []
     },
     {
       number: LevelReferenceNumbers[2],
@@ -366,7 +407,8 @@ export const tsuLevelReferences: LevelReference[][] = [
         hiragana: 'ふたつ',
         kanji: '二つ'
       },
-      wrongAnswers: []
+      wrongAnswers: [],
+      specificIcons: []
     },
     {
       number: LevelReferenceNumbers[3],
@@ -374,7 +416,8 @@ export const tsuLevelReferences: LevelReference[][] = [
         hiragana: 'みっつ',
         kanji: '三つ'
       },
-      wrongAnswers: []
+      wrongAnswers: [],
+      specificIcons: []
     },
     {
       number: LevelReferenceNumbers[4],
@@ -382,7 +425,8 @@ export const tsuLevelReferences: LevelReference[][] = [
         hiragana: 'よっつ',
         kanji: '四つ'
       },
-      wrongAnswers: []
+      wrongAnswers: [],
+      specificIcons: []
     },
     {
       number: LevelReferenceNumbers[5],
@@ -390,7 +434,8 @@ export const tsuLevelReferences: LevelReference[][] = [
         hiragana: 'いつつ',
         kanji: '五つ'
       },
-      wrongAnswers: []
+      wrongAnswers: [],
+      specificIcons: []
     }
   ],
   [
@@ -400,7 +445,8 @@ export const tsuLevelReferences: LevelReference[][] = [
         hiragana: 'むっつ',
         kanji: '六つ'
       },
-      wrongAnswers: []
+      wrongAnswers: [],
+      specificIcons: []
     },
     {
       number: LevelReferenceNumbers[7],
@@ -408,7 +454,8 @@ export const tsuLevelReferences: LevelReference[][] = [
         hiragana: 'ななつ',
         kanji: '七つ'
       },
-      wrongAnswers: []
+      wrongAnswers: [],
+      specificIcons: []
     },
     {
       number: LevelReferenceNumbers[8],
@@ -416,7 +463,8 @@ export const tsuLevelReferences: LevelReference[][] = [
         hiragana: 'やっつ',
         kanji: '八つ'
       },
-      wrongAnswers: []
+      wrongAnswers: [],
+      specificIcons: []
     },
     {
       number: LevelReferenceNumbers[9],
@@ -424,7 +472,8 @@ export const tsuLevelReferences: LevelReference[][] = [
         hiragana: 'ここのつ',
         kanji: '九つ'
       },
-      wrongAnswers: []
+      wrongAnswers: [],
+      specificIcons: []
     },
     {
       number: LevelReferenceNumbers[10],
@@ -432,7 +481,8 @@ export const tsuLevelReferences: LevelReference[][] = [
         hiragana: 'とお',
         kanji: '十'
       },
-      wrongAnswers: []
+      wrongAnswers: [],
+      specificIcons: []
     }
   ]
 ]
@@ -826,7 +876,8 @@ export const chakuLevelReferences: LevelReference[][] = [
         hiragana: 'いっちゃく',
         kanji: '一着'
       },
-      wrongAnswers: [ 'いちちゃく', 'ひとちゃく' ]
+      wrongAnswers: [ 'いちちゃく', 'ひとちゃく' ],
+      specificIcons: []
     },
     {
       number: LevelReferenceNumbers[2],
@@ -834,7 +885,8 @@ export const chakuLevelReferences: LevelReference[][] = [
         hiragana: 'にちゃく',
         kanji: '二着'
       },
-      wrongAnswers: [ 'ふたちゃく' ]
+      wrongAnswers: [ 'ふたちゃく' ],
+      specificIcons: []
     },
     {
       number: LevelReferenceNumbers[3],
@@ -842,7 +894,8 @@ export const chakuLevelReferences: LevelReference[][] = [
         hiragana: 'さんちゃく',
         kanji: '三着'
       },
-      wrongAnswers: ['みっちゃく', 'みつちゃく']
+      wrongAnswers: ['みっちゃく', 'みつちゃく'],
+      specificIcons: []
     },
     {
       number: LevelReferenceNumbers[4],
@@ -850,7 +903,8 @@ export const chakuLevelReferences: LevelReference[][] = [
         hiragana: 'よんちゃく',
         kanji: '四着'
       },
-      wrongAnswers: [ 'しちゃく', 'よちゃく' ]
+      wrongAnswers: [ 'しちゃく', 'よちゃく' ],
+      specificIcons: []
     },
     {
       number: LevelReferenceNumbers[5],
@@ -858,7 +912,8 @@ export const chakuLevelReferences: LevelReference[][] = [
         hiragana: 'ごちゃく',
         kanji: '五着'
       },
-      wrongAnswers: []
+      wrongAnswers: [],
+      specificIcons: []
     }
   ],
   [
@@ -868,7 +923,8 @@ export const chakuLevelReferences: LevelReference[][] = [
         hiragana: 'ろくちゃく',
         kanji: '六着'
       },
-      wrongAnswers: [ 'ろっちゃく' ]
+      wrongAnswers: [ 'ろっちゃく' ],
+      specificIcons: []
     },
     {
       number: LevelReferenceNumbers[7],
@@ -876,7 +932,8 @@ export const chakuLevelReferences: LevelReference[][] = [
         hiragana: 'ななちゃく',
         kanji: '七着'
       },
-      wrongAnswers: [ 'しちちゃく', 'しっちゃく' ]
+      wrongAnswers: [ 'しちちゃく', 'しっちゃく' ],
+      specificIcons: []
     },
     {
       number: LevelReferenceNumbers[8],
@@ -884,7 +941,8 @@ export const chakuLevelReferences: LevelReference[][] = [
         hiragana: 'はっちゃく',
         kanji: '八着'
       },
-      wrongAnswers: [ 'はちちゃく', 'やちゃく']
+      wrongAnswers: [ 'はちちゃく', 'やちゃく'],
+      specificIcons: []
     },
     {
       number: LevelReferenceNumbers[9],
@@ -892,7 +950,8 @@ export const chakuLevelReferences: LevelReference[][] = [
         hiragana: 'きゅうちゃく',
         kanji: '九着'
       },
-      wrongAnswers: [ 'くちゃく' ]
+      wrongAnswers: [ 'くちゃく' ],
+      specificIcons: []
     },
     {
       number: LevelReferenceNumbers[10],
@@ -900,7 +959,8 @@ export const chakuLevelReferences: LevelReference[][] = [
         hiragana: 'じっちゃく',
         kanji: '十着'
       },
-      wrongAnswers: [ 'じゅっちゃく', 'じゅうちゃく' ]
+      wrongAnswers: [ 'じゅっちゃく', 'じゅうちゃく' ],
+      specificIcons: []
     }
   ]
 ]
@@ -913,7 +973,8 @@ export const touLevelReferences: LevelReference[][] = [
         hiragana: 'いっとう',
         kanji: '一頭'
       },
-      wrongAnswers: [ 'いちとう', 'ひととう' ]
+      wrongAnswers: [ 'いちとう', 'ひととう' ],
+      specificIcons: []
     },
     {
       number: LevelReferenceNumbers[2],
@@ -921,7 +982,8 @@ export const touLevelReferences: LevelReference[][] = [
         hiragana: 'にとう',
         kanji: '二頭'
       },
-      wrongAnswers: [ 'ふたとう' ]
+      wrongAnswers: [ 'ふたとう' ],
+      specificIcons: []
     },
     {
       number: LevelReferenceNumbers[3],
@@ -929,7 +991,8 @@ export const touLevelReferences: LevelReference[][] = [
         hiragana: 'さんとう',
         kanji: '三頭'
       },
-      wrongAnswers: ['みっとう', 'みつとう']
+      wrongAnswers: ['みっとう', 'みつとう'],
+      specificIcons: []
     },
     {
       number: LevelReferenceNumbers[4],
@@ -937,7 +1000,8 @@ export const touLevelReferences: LevelReference[][] = [
         hiragana: 'よんとう',
         kanji: '四頭'
       },
-      wrongAnswers: [ 'しとう', 'よとう' ]
+      wrongAnswers: [ 'しとう', 'よとう' ],
+      specificIcons: []
     },
     {
       number: LevelReferenceNumbers[5],
@@ -945,7 +1009,8 @@ export const touLevelReferences: LevelReference[][] = [
         hiragana: 'ごとう',
         kanji: '五頭'
       },
-      wrongAnswers: []
+      wrongAnswers: [],
+      specificIcons: []
     }
   ],
   [
@@ -955,7 +1020,8 @@ export const touLevelReferences: LevelReference[][] = [
         hiragana: 'ろくとう',
         kanji: '六頭'
       },
-      wrongAnswers: [ 'ろっとう' ]
+      wrongAnswers: [ 'ろっとう' ],
+      specificIcons: []
     },
     {
       number: LevelReferenceNumbers[7],
@@ -963,7 +1029,8 @@ export const touLevelReferences: LevelReference[][] = [
         hiragana: 'ななとう',
         kanji: '七頭'
       },
-      wrongAnswers: [ 'しちとう', 'しっとう' ]
+      wrongAnswers: [ 'しちとう', 'しっとう' ],
+      specificIcons: []
     },
     {
       number: LevelReferenceNumbers[8],
@@ -971,7 +1038,8 @@ export const touLevelReferences: LevelReference[][] = [
         hiragana: 'はっとう',
         kanji: '八頭'
       },
-      wrongAnswers: [ 'はちとう', 'やとう']
+      wrongAnswers: [ 'はちとう', 'やとう'],
+      specificIcons: []
     },
     {
       number: LevelReferenceNumbers[9],
@@ -979,7 +1047,8 @@ export const touLevelReferences: LevelReference[][] = [
         hiragana: 'きゅうとう',
         kanji: '九頭'
       },
-      wrongAnswers: [ 'くとう' ]
+      wrongAnswers: [ 'くとう' ],
+      specificIcons: []
     },
     {
       number: LevelReferenceNumbers[10],
@@ -987,7 +1056,8 @@ export const touLevelReferences: LevelReference[][] = [
         hiragana: 'じっとう',
         kanji: '十頭'
       },
-      wrongAnswers: [ 'じゅっとう', 'じゅうとう' ]
+      wrongAnswers: [ 'じゅっとう', 'じゅうとう' ],
+      specificIcons: []
     }
   ]
 ]
@@ -1000,7 +1070,8 @@ export const ninLevelReferences: LevelReference[][] = [
         hiragana: 'ひとり',
         kanji: '一人'
       },
-      wrongAnswers: [ 'いっにん', 'いちにん', 'ひとにん' ]
+      wrongAnswers: [ 'いっにん', 'いちにん', 'ひとにん' ],
+      specificIcons: []
     },
     {
       number: LevelReferenceNumbers[2],
@@ -1008,7 +1079,8 @@ export const ninLevelReferences: LevelReference[][] = [
         hiragana: 'ふたり',
         kanji: '二人'
       },
-      wrongAnswers: [ 'ににん', 'ふたにん' ]
+      wrongAnswers: [ 'ににん', 'ふたにん' ],
+      specificIcons: []
     },
     {
       number: LevelReferenceNumbers[3],
@@ -1016,7 +1088,8 @@ export const ninLevelReferences: LevelReference[][] = [
         hiragana: 'さんにん',
         kanji: '三人'
       },
-      wrongAnswers: ['みっにん', 'みつにん']
+      wrongAnswers: ['みっにん', 'みつにん'],
+      specificIcons: []
     },
     {
       number: LevelReferenceNumbers[4],
@@ -1024,7 +1097,8 @@ export const ninLevelReferences: LevelReference[][] = [
         hiragana: 'よにん',
         kanji: '四人'
       },
-      wrongAnswers: [ 'しにん', 'よんにん' ]
+      wrongAnswers: [ 'しにん', 'よんにん' ],
+      specificIcons: []
     },
     {
       number: LevelReferenceNumbers[5],
@@ -1032,7 +1106,8 @@ export const ninLevelReferences: LevelReference[][] = [
         hiragana: 'ごにん',
         kanji: '五人'
       },
-      wrongAnswers: []
+      wrongAnswers: [],
+      specificIcons: []
     }
   ],
   [
@@ -1042,7 +1117,8 @@ export const ninLevelReferences: LevelReference[][] = [
         hiragana: 'ろくにん',
         kanji: '六人'
       },
-      wrongAnswers: [ 'ろっにん' ]
+      wrongAnswers: [ 'ろっにん' ],
+      specificIcons: []
     },
     {
       number: LevelReferenceNumbers[7],
@@ -1050,7 +1126,8 @@ export const ninLevelReferences: LevelReference[][] = [
         hiragana: 'しちにん',  // ななにん
         kanji: '七人'
       },
-      wrongAnswers: [ 'しっにん' ]
+      wrongAnswers: [ 'しっにん' ],
+      specificIcons: []
     },
     {
       number: LevelReferenceNumbers[8],
@@ -1058,7 +1135,8 @@ export const ninLevelReferences: LevelReference[][] = [
         hiragana: 'はちにん',
         kanji: '八人'
       },
-      wrongAnswers: [ 'はっにん', 'やにん']
+      wrongAnswers: [ 'はっにん', 'やにん'],
+      specificIcons: []
     },
     {
       number: LevelReferenceNumbers[9],
@@ -1066,7 +1144,8 @@ export const ninLevelReferences: LevelReference[][] = [
         hiragana: 'きゅうにん',
         kanji: '九人'
       },
-      wrongAnswers: [ 'くにん' ]
+      wrongAnswers: [ 'くにん' ],
+      specificIcons: []
     },
     {
       number: LevelReferenceNumbers[10],
@@ -1074,7 +1153,8 @@ export const ninLevelReferences: LevelReference[][] = [
         hiragana: 'じゅうにん',
         kanji: '十人'
       },
-      wrongAnswers: [ 'じゅっにん' ]
+      wrongAnswers: [ 'じゅっにん' ],
+      specificIcons: []
     }
   ]
 ]
@@ -1087,7 +1167,8 @@ export const haiLevelReferences: LevelReference[][] = [
         hiragana: 'いっぱい',
         kanji: '一杯'
       },
-      wrongAnswers: [ 'いちはい', 'いちばい', 'いちぱい', 'いっはい', 'いっばい', 'ひとはい', 'ひとばい', 'ひとぱい' ]
+      wrongAnswers: [ 'いちはい', 'いちばい', 'いちぱい', 'いっはい', 'いっばい', 'ひとはい', 'ひとばい', 'ひとぱい' ],
+      specificIcons: []
     },
     {
       number: LevelReferenceNumbers[2],
@@ -1095,7 +1176,8 @@ export const haiLevelReferences: LevelReference[][] = [
         hiragana: 'にはい',
         kanji: '二杯'
       },
-      wrongAnswers: [ 'にばい', 'にぱい', 'ふたはい', 'ふたばい', 'ふたぱい' ]
+      wrongAnswers: [ 'にばい', 'にぱい', 'ふたはい', 'ふたばい', 'ふたぱい' ],
+      specificIcons: []
     },
     {
       number: LevelReferenceNumbers[3],
@@ -1103,7 +1185,8 @@ export const haiLevelReferences: LevelReference[][] = [
         hiragana: 'さんばい',
         kanji: '三杯'
       },
-      wrongAnswers: [ 'さんはい', 'さんぱい', 'みっはい', 'みっばい', 'みっぱい', 'みつはい', 'みつばい', 'みつぱい' ]
+      wrongAnswers: [ 'さんはい', 'さんぱい', 'みっはい', 'みっばい', 'みっぱい', 'みつはい', 'みつばい', 'みつぱい' ],
+      specificIcons: []
     },
     {
       number: LevelReferenceNumbers[4],
@@ -1111,7 +1194,8 @@ export const haiLevelReferences: LevelReference[][] = [
         hiragana: 'よんはい',
         kanji: '四杯'
       },
-      wrongAnswers: [ 'しはい', 'しばい', 'しぱい', 'よはい', 'よばい', 'よぱい', 'よんばい', 'よんぱい' ]
+      wrongAnswers: [ 'しはい', 'しばい', 'しぱい', 'よはい', 'よばい', 'よぱい', 'よんばい', 'よんぱい' ],
+      specificIcons: []
     },
     {
       number: LevelReferenceNumbers[5],
@@ -1119,7 +1203,8 @@ export const haiLevelReferences: LevelReference[][] = [
         hiragana: 'ごはい',
         kanji: '五杯'
       },
-      wrongAnswers: [ 'ごばい', 'ごぱい' ]
+      wrongAnswers: [ 'ごばい', 'ごぱい' ],
+      specificIcons: []
     }
   ],
   [
@@ -1129,7 +1214,8 @@ export const haiLevelReferences: LevelReference[][] = [
         hiragana: 'ろっぱい',
         kanji: '六杯'
       },
-      wrongAnswers: [ 'ろくはい', 'ろくばい', 'ろくぱい', 'ろっはい', 'ろっばい' ]
+      wrongAnswers: [ 'ろくはい', 'ろくばい', 'ろくぱい', 'ろっはい', 'ろっばい' ],
+      specificIcons: []
     },
     {
       number: LevelReferenceNumbers[7],
@@ -1137,7 +1223,8 @@ export const haiLevelReferences: LevelReference[][] = [
         hiragana: 'ななはい',
         kanji: '七杯'
       },
-      wrongAnswers: [ 'しちはい', 'しちばい', 'しちぱい', 'しっはい', 'しっばい', 'しっぱい', 'ななばい', 'ななぱい' ]
+      wrongAnswers: [ 'しちはい', 'しちばい', 'しちぱい', 'しっはい', 'しっばい', 'しっぱい', 'ななばい', 'ななぱい' ],
+      specificIcons: []
     },
     {
       number: LevelReferenceNumbers[8],
@@ -1145,7 +1232,8 @@ export const haiLevelReferences: LevelReference[][] = [
         hiragana: 'はっぱい',
         kanji: '八杯'
       },
-      wrongAnswers: ['はちはい', 'はちばい', 'はちぱい', 'はっはい', 'はっばい', 'やはい', 'やばい', 'やぱい']
+      wrongAnswers: ['はちはい', 'はちばい', 'はちぱい', 'はっはい', 'はっばい', 'やはい', 'やばい', 'やぱい'],
+      specificIcons: []
     },
     {
       number: LevelReferenceNumbers[9],
@@ -1153,7 +1241,8 @@ export const haiLevelReferences: LevelReference[][] = [
         hiragana: 'きゅうはい',
         kanji: '九杯'
       },
-      wrongAnswers: [ 'きゅうばい', 'きゅうぱい', 'くはい', 'くばい', 'くぱい' ]
+      wrongAnswers: [ 'きゅうばい', 'きゅうぱい', 'くはい', 'くばい', 'くぱい' ],
+      specificIcons: []
     },
     {
       number: LevelReferenceNumbers[10],
@@ -1161,7 +1250,202 @@ export const haiLevelReferences: LevelReference[][] = [
         hiragana: 'じゅっぱい',
         kanji: '十杯'
       },
-      wrongAnswers: [ 'じゅうはい', 'じゅうばい', 'じゅうぱい', 'じゅっはい', 'じゅっばい' ]
+      wrongAnswers: [ 'じゅうはい', 'じゅうばい', 'じゅうぱい', 'じゅっはい', 'じゅっばい' ],
+      specificIcons: []
+    }
+  ]
+]
+
+export const funLevelReferences: LevelReference[][] = [
+  [
+    {
+      number: LevelReferenceNumbers[1],
+      reading: {
+        hiragana: 'いっぷん',
+        kanji: '一分'
+      },
+      wrongAnswers: [ 'いちふん', 'いちぶん', 'いちぷん', 'いっふん', 'いっぶん', 'ひとふん', 'ひとぶん', 'ひとぷん' ],
+      specificIcons: []
+    },
+    {
+      number: LevelReferenceNumbers[2],
+      reading: {
+        hiragana: 'にふん',
+        kanji: '二分'
+      },
+      wrongAnswers: [ 'にぶん', 'にぷん', 'ふたふん', 'ふたぶん', 'ふたぷん' ],
+      specificIcons: []
+    },
+    {
+      number: LevelReferenceNumbers[3],
+      reading: {
+        hiragana: 'さんぷん',
+        kanji: '三分'
+      },
+      wrongAnswers: [ 'さんふん', 'さんぶん', 'みっふん', 'みっぶん', 'みっぷん', 'みつふん', 'みつぶん', 'みつぷん' ],
+      specificIcons: []
+    },
+    {
+      number: LevelReferenceNumbers[4],
+      reading: {
+        hiragana: 'よんぷん',
+        kanji: '四分'
+      },
+      wrongAnswers: [ 'しふん', 'しぶん', 'しぷん', 'よふん', 'よぶん', 'よぷん', 'よんふん', 'よんぶん' ],
+      specificIcons: []
+    },
+    {
+      number: LevelReferenceNumbers[5],
+      reading: {
+        hiragana: 'ごふん',
+        kanji: '五分'
+      },
+      wrongAnswers: [ 'ごぶん', 'ごぷん' ],
+      specificIcons: []
+    }
+  ],
+  [
+    {
+      number: LevelReferenceNumbers[6],
+      reading: {
+        hiragana: 'ろっぷん',
+        kanji: '六分'
+      },
+      wrongAnswers: [ 'ろくはい', 'ろくばい', 'ろくぱい', 'ろっはい', 'ろっばい' ],
+      specificIcons: []
+    },
+    {
+      number: LevelReferenceNumbers[7],
+      reading: {
+        hiragana: 'ななふん',
+        kanji: '七分'
+      },
+      wrongAnswers: [ 'しちはい', 'しちばい', 'しちぱい', 'しっはい', 'しっばい', 'しっぱい', 'ななばい', 'ななぱい' ],
+      specificIcons: []
+    },
+    {
+      number: LevelReferenceNumbers[8],
+      reading: {
+        hiragana: 'はっぷん',
+        kanji: '八分'
+      },
+      wrongAnswers: ['はちはい', 'はちばい', 'はちぱい', 'はっはい', 'はっばい', 'やはい', 'やばい', 'やぱい'],
+      specificIcons: []
+    },
+    {
+      number: LevelReferenceNumbers[9],
+      reading: {
+        hiragana: 'きゅうふん',
+        kanji: '九分'
+      },
+      wrongAnswers: [ 'きゅうばい', 'きゅうぱい', 'くはい', 'くばい', 'くぱい' ],
+      specificIcons: []
+    },
+    {
+      number: LevelReferenceNumbers[10],
+      reading: {
+        hiragana: 'じゅっぷん',
+        kanji: '十分'
+      },
+      wrongAnswers: [ 'じゅうはい', 'じゅうばい', 'じゅうぱい', 'じゅっはい', 'じゅっばい' ],
+      specificIcons: []
+    }
+  ]
+]
+
+export const koLevelReferences: LevelReference[][] = [
+  [
+    {
+      number: LevelReferenceNumbers[1],
+      reading: {
+        hiragana: 'いっこ',
+        kanji: '一個'
+      },
+      wrongAnswers: [ 'いちこ', 'ひとこ' ],
+      specificIcons: []
+    },
+    {
+      number: LevelReferenceNumbers[2],
+      reading: {
+        hiragana: 'にこ',
+        kanji: '二個'
+      },
+      wrongAnswers: [ 'ふたこ' ],
+      specificIcons: []
+    },
+    {
+      number: LevelReferenceNumbers[3],
+      reading: {
+        hiragana: 'さんこ',
+        kanji: '三個'
+      },
+      wrongAnswers: [ 'みっこ', 'みつこ' ],
+      specificIcons: []
+    },
+    {
+      number: LevelReferenceNumbers[4],
+      reading: {
+        hiragana: 'よんこ',
+        kanji: '四個'
+      },
+      wrongAnswers: [ 'しこ', 'よこ' ],
+      specificIcons: []
+    },
+    {
+      number: LevelReferenceNumbers[5],
+      reading: {
+        hiragana: 'ごこ',
+        kanji: '五個'
+      },
+      wrongAnswers: [ 'ごばい', 'ごぱい' ],
+      specificIcons: []
+    }
+  ],
+  [
+    {
+      number: LevelReferenceNumbers[6],
+      reading: {
+        hiragana: 'ろっこ',
+        kanji: '六個'
+      },
+      wrongAnswers: [ 'ろくこ' ],
+      specificIcons: []
+    },
+    {
+      number: LevelReferenceNumbers[7],
+      reading: {
+        hiragana: 'ななこ',
+        kanji: '七個'
+      },
+      wrongAnswers: [ 'しちこ', 'しっこ' ],
+      specificIcons: []
+    },
+    {
+      number: LevelReferenceNumbers[8],
+      reading: {
+        hiragana: 'はっこ',
+        kanji: '八個'
+      },
+      wrongAnswers: ['はちこ','やこ'],
+      specificIcons: []
+    },
+    {
+      number: LevelReferenceNumbers[9],
+      reading: {
+        hiragana: 'きゅうこ',
+        kanji: '九個'
+      },
+      wrongAnswers: [ 'くこ' ],
+      specificIcons: []
+    },
+    {
+      number: LevelReferenceNumbers[10],
+      reading: {
+        hiragana: 'じゅっこ',
+        kanji: '十個'
+      },
+      wrongAnswers: [ 'じゅうこ'],
+      specificIcons: []
     }
   ]
 ]

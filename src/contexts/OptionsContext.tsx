@@ -1,11 +1,13 @@
 import { useLocalStorage } from "@/hooks/useLocalStorage"
 import { Options } from "@/types/localStorage"
 import { getOptions, setOptions as setLocalStorageOptions } from "@/utils/localStorage"
-import { createContext, Dispatch, SetStateAction, useState } from "react"
+import { createContext, Dispatch, SetStateAction, useEffect, useState } from "react"
+
+type SetPref = <T extends keyof Options>(option: T, value: Options[T]) => void
 
 export interface OptionsContext {
   options: Options,
-  setOptions: Dispatch<SetStateAction<Options>>
+  setPref: SetPref
 }
 
 interface OptionsProviderProps {
@@ -20,14 +22,26 @@ const defaultOptions: Options = {
 export const OptionsContext = createContext({} as OptionsContext)
 
 export const OptionsProvider = ({ children }: OptionsProviderProps) => {
-  const [ options, setOptions ] = useState(useLocalStorage(getOptions) || defaultOptions)
-  
-  useLocalStorage(() => {
-    if(options) setLocalStorageOptions(options)
-  })
+  const [options, setOptions ] = useState(defaultOptions)
+  const localStorageOptions = useLocalStorage(getOptions) || defaultOptions
+
+  const setPref: SetPref = (option, value) => {
+    setOptions(prev => {
+      const newOptions = {
+        ...prev,
+        [option]: value
+      }
+      setLocalStorageOptions(newOptions) 
+      return newOptions
+    })
+  }
+
+  useEffect(() => {
+    setOptions(localStorageOptions)
+  }, [ localStorageOptions ])
 
   return (
-    <OptionsContext.Provider value={{ options, setOptions }}>
+    <OptionsContext.Provider value={{ options, setPref }}>
       { children }
     </OptionsContext.Provider>
   )

@@ -4,9 +4,25 @@
   width: 100%;
   @include mixins-display-flex();
   margin-top: 20px;
+  flex-direction: column;
+  gap: 30px;
 }
 
 .category {
-  @include mixins-display-flex(center, flex-start);
+  @include mixins-display-flex(flex-start, flex-start);
   gap: 20px;
+  width: 350px;
+}
+
+.name {
+  flex-grow: 1;
+}
+
+.options {
+  width: 180px;
+
+  .option {
+    @include mixins-display-flex(flex-start, center);
+    gap: 5px;
+  }
 }

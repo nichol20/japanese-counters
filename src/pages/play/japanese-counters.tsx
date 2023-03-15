@@ -61,9 +61,15 @@ export default function JapaneseCounters({ query }: JapaneseCountersProps) {
     return answer === currentReference.reading.hiragana || answer === currentReference.reading.kanji
   }
 
-  const getAnswerClass = (answer: string): string => {
+  const getAnswerBtnsClass = (answer: string): string => {
     if(selectedAnswer === null) return ''
     else if(isAnswerCorrect(answer)) return styles.correctAnswer
+    else return styles.incorrectAnswer
+  }
+
+  const getAnswerInputClass = () => {
+    if(selectedAnswer === null) return ''
+    else if(isAnswerCorrect(selectedAnswer)) return styles.correctAnswer
     else return styles.incorrectAnswer
   }
 
@@ -76,29 +82,40 @@ export default function JapaneseCounters({ query }: JapaneseCountersProps) {
       const fillingReferences = shuffleArray(randomLevel.references.filter(r => r !== randomReference))
 
       // if the reference has specific icons, choose randomly among them
-      if(randomReference.specificIcons && randomReference.specificIcons.length > 0) {
-        setCurrentIcon(selectRandomItem(randomReference.specificIcons))
-      } else {
-        setCurrentIcon(selectRandomItem(randomStage.icons))
-      }
+      setCurrentIcon(() => {
+        if(randomReference.specificIcons.length > 0) {
+          return selectRandomItem(randomReference.specificIcons)
+        }
+        return selectRandomItem(randomStage.icons)
+      })
 
       // creating answers
-      const unshuffledAnswers = [
-        ...randomReference.wrongAnswers.slice(0, 3), 
-        randomReference.reading.hiragana
-      ]
+      let unshuffledAnswers: string[]
 
-      if(unshuffledAnswers.length < 4) {
-        fillingReferences.forEach(r => {
-          // fill up to 4
-          unshuffledAnswers.push(...r.wrongAnswers.slice(0, 4 - unshuffledAnswers.length))
+      if(options.answerType === 'hiragana') {
+        unshuffledAnswers = [
+          ...randomReference.wrongAnswers.slice(0, 3), 
+          randomReference.reading.hiragana
+        ]
+
+        if(unshuffledAnswers.length < 4) {
+          // fill up to 4 with wrong answers from other levels
+          fillingReferences.forEach(r => {
+            unshuffledAnswers.push(...r.wrongAnswers.slice(0, 4 - unshuffledAnswers.length))
+          })
+        }
+  
+        // if not enough, fill up to 4 with readings from other levels
+        fillingReferences.slice(0, 4 - unshuffledAnswers.length).forEach(r => {
+          unshuffledAnswers.push(r.reading.hiragana)
+        })
+      } else {
+        unshuffledAnswers = [randomReference.reading.kanji]
+        // fill up to 4 with readings from other levels
+        fillingReferences.slice(0, 4 - unshuffledAnswers.length).forEach(r => {
+          unshuffledAnswers.push(r.reading.kanji)
         })
       }
-
-      // fill up to 4
-      fillingReferences.slice(0, 4 - unshuffledAnswers.length).forEach(r => {
-        unshuffledAnswers.push(r.reading.hiragana)
-      })
       
       setCurrentReference(randomReference)
       setAnswers(shuffleArray(unshuffledAnswers))
@@ -110,30 +127,41 @@ export default function JapaneseCounters({ query }: JapaneseCountersProps) {
       const fillingReferences = shuffleArray(level.references.filter(r => r !== randomReference))
 
       // if the reference has specific icons, choose randomly among them
-      if(randomReference.specificIcons && randomReference.specificIcons.length > 0) {
-        setCurrentIcon(selectRandomItem(randomReference.specificIcons))
-      } else {
-        setCurrentIcon(selectRandomItem(stage.icons))
-      }
+      setCurrentIcon(() => {
+        if(randomReference.specificIcons.length > 0) {
+          return selectRandomItem(randomReference.specificIcons)
+        }
+        return selectRandomItem(stage.icons)
+      })
 
       // creating answers
-      const unshuffledAnswers = [
-        ...randomReference.wrongAnswers.slice(0, 3), 
-        randomReference.reading.hiragana
-      ]
+      let unshuffledAnswers: string[]
 
-      
-      if(unshuffledAnswers.length < 4) {
-        fillingReferences.forEach(r => {
-          // fill up to 4
-          unshuffledAnswers.push(...r.wrongAnswers.slice(0, 4 - unshuffledAnswers.length))
+      if(options.answerType === 'hiragana') {
+        unshuffledAnswers = [
+          ...randomReference.wrongAnswers.slice(0, 3), 
+          randomReference.reading.hiragana
+        ]
+        
+        if(unshuffledAnswers.length < 4) {
+          // fill up to 4 with wrong answers from other levels
+          fillingReferences.forEach(r => {
+            unshuffledAnswers.push(...r.wrongAnswers.slice(0, 4 - unshuffledAnswers.length))
+          })
+        }
+  
+        // if not enough, fill up to 4 with readings from other levels
+        fillingReferences.slice(0, 4 - unshuffledAnswers.length).forEach(r => {
+          unshuffledAnswers.push(r.reading.hiragana)
+        })
+      } else {
+        unshuffledAnswers = [randomReference.reading.kanji]
+        
+        // fill up to 4 with readings from other levels
+        fillingReferences.slice(0, 4 - unshuffledAnswers.length).forEach(r => {
+          unshuffledAnswers.push(r.reading.kanji)
         })
       }
-
-      // fill up to 4
-      fillingReferences.slice(0, 4 - unshuffledAnswers.length).forEach(r => {
-        unshuffledAnswers.push(r.reading.hiragana)
-      })
 
       setCurrentReference(randomReference)
       setAnswers(shuffleArray(unshuffledAnswers))
@@ -160,7 +188,7 @@ export default function JapaneseCounters({ query }: JapaneseCountersProps) {
     setTimeout(generateQuestion, 2000)
   }
  
-  const handleAnswerClick = (answer: string) => {
+  const handleAnswerSelection = (answer: string) => {
     // block user from clicking multiple times
     if(selectedAnswer) return
 
@@ -171,6 +199,12 @@ export default function JapaneseCounters({ query }: JapaneseCountersProps) {
     if(timerRef.current) timerRef.current.pause()
 
     setTimeout(generateQuestion, 2000)
+  }
+
+  const handleAnswerInputKeyUp = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if(event.key === "Enter") {
+      handleAnswerSelection((event.target as HTMLInputElement).value)
+    }
   }
 
   const finishLevel = () => {
@@ -214,18 +248,20 @@ export default function JapaneseCounters({ query }: JapaneseCountersProps) {
             </li>
           ))}
         </ul>
-        <ul className={styles.answerList}>
+        {options.howToAnswer === 'multipleChoice' && <ul className={styles.answerList}>
           {answers.map((answer, index) => (
             <li key={index} className={styles.answerBox}>
               <button
-               className={`${styles.answerBtn} ${answerStyleList[index]} ${getAnswerClass(answer)}`}
-               onClick={() => handleAnswerClick(answer)}
+               className={`${styles.answerBtn} ${answerStyleList[index]} ${getAnswerBtnsClass(answer)}`}
+               onClick={() => handleAnswerSelection(answer)}
               >
                 {answer}
               </button>
             </li>
           ))}
-        </ul>
+        </ul>}
+        {options.howToAnswer === 'fillInTheBlank' && 
+        <input type="text" className={`${styles.answerInput} ${getAnswerInputClass()}`} onKeyUp={handleAnswerInputKeyUp} />}
       </div>
       <FinishedLevelCard
        percentageResult={percentageResult}

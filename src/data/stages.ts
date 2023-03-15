@@ -1,6 +1,6 @@
 import { Stage, StageGroup, Stages } from "@/types/stages";
 import { chakuIcons, daiIcons, funIcons, haiIcons, hikiIcons, honIcons, koIcons, maiIcons, nichiIcons, ninIcons, touIcons, tsuIcons } from "./icons";
-import { chakuLevels, daiLevels, haiLevels, hikiLevels, honLevels, maiLevels, nichiLevels, ninLevels, touLevels, tsuLevels } from "./levels";
+import { chakuLevels, daiLevels, haiLevels, hikiLevels, honLevels, koLevels, maiLevels, nichiLevels, ninLevels, touLevels, tsuLevels } from "./levels";
 
 export const mai: Stage = {
   id: '1',
@@ -181,7 +181,7 @@ export const ko: Stage = {
   description: "個/こ is a generic counter that is attached to a number for counting things (often small objects).",
   instruction: "こ is attached to each number (when written as kanji, though, it is always 個).",
   icons: koIcons,
-  levels: []
+  levels: koLevels
 }
 
 export const group4: StageGroup = {

@@ -39,7 +39,7 @@ export interface LevelReference {
   number:         LevelReferenceNumber
   reading:        LevelReferenceReading
   wrongAnswers:   string[]
-  specificIcons?: Icon[]
+  specificIcons:  Icon[]
 }
 
 export interface LevelReferenceNumber {
