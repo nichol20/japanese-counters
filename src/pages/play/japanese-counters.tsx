@@ -25,6 +25,7 @@ interface JapaneseCountersProps {
 const defaultChapter = '1'
 const defaultStage = 'mai'
 const questionLimit = 10
+const normalTime = 200
 
 export default function JapaneseCounters({ query }: JapaneseCountersProps) {
   const { options } = useContext(OptionsContext)
@@ -71,6 +72,13 @@ export default function JapaneseCounters({ query }: JapaneseCountersProps) {
     if(selectedAnswer === null) return ''
     else if(isAnswerCorrect(selectedAnswer)) return styles.correctAnswer
     else return styles.incorrectAnswer
+  }
+
+  const getTotalTime = () => {
+    if(options.gameSpeed === 'fast') return normalTime * 0.7
+    else if(options.gameSpeed === 'normal') return normalTime
+    else if(options.gameSpeed === 'relaxed') return normalTime * 1.5
+    else return 0
   }
 
   const generateRandomValues = () => {
@@ -188,7 +196,7 @@ export default function JapaneseCounters({ query }: JapaneseCountersProps) {
     setTimeout(generateQuestion, 2000)
   }
  
-  const handleAnswerSelection = (answer: string) => {
+  const handleAnswerSelection = (answer: string, input?: HTMLInputElement) => {
     // block user from clicking multiple times
     if(selectedAnswer) return
 
@@ -198,12 +206,17 @@ export default function JapaneseCounters({ query }: JapaneseCountersProps) {
 
     if(timerRef.current) timerRef.current.pause()
 
-    setTimeout(generateQuestion, 2000)
+    setTimeout(() => {
+      generateQuestion()
+      // reset answer input element
+      if(input) input.value = ''
+    }, 2000)
   }
 
   const handleAnswerInputKeyUp = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if(event.key === "Enter") {
-      handleAnswerSelection((event.target as HTMLInputElement).value)
+      const input = event.target as HTMLInputElement
+      handleAnswerSelection(input.value, input)
     }
   }
 
@@ -232,12 +245,13 @@ export default function JapaneseCounters({ query }: JapaneseCountersProps) {
   return (
     <div className={styles.game}>
       <div className={styles.timer}>
+        {options.gameSpeed !== 'peaceful' && 
         <Timer
-         totalTime={200} 
+         totalTime={getTotalTime()} 
          decreaseTime={20} 
          onTimeout={() => {}}
          ref={timerRef}
-        />
+        />}
       </div>
       <div className={styles.question}>
         <ul className={styles.iconList}>
@@ -261,7 +275,11 @@ export default function JapaneseCounters({ query }: JapaneseCountersProps) {
           ))}
         </ul>}
         {options.howToAnswer === 'fillInTheBlank' && 
-        <input type="text" className={`${styles.answerInput} ${getAnswerInputClass()}`} onKeyUp={handleAnswerInputKeyUp} />}
+        <input
+         type="text" 
+         className={`${styles.answerInput} ${getAnswerInputClass()}`} 
+         onKeyUp={handleAnswerInputKeyUp} 
+        />}
       </div>
       <FinishedLevelCard
        percentageResult={percentageResult}

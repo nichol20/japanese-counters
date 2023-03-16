@@ -43,7 +43,8 @@ export const setLevelPercentage = (chapter: string, percentage: number) => {
 export const populateOptions = () => {
   const options: Options = {
     answerType: 'hiragana',
-    howToAnswer: 'multipleChoice'
+    howToAnswer: 'multipleChoice',
+    gameSpeed: 'normal'
   }
 
   localStorage.setItem(LocalStorage.OPTIONS, JSON.stringify(options))

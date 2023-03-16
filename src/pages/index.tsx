@@ -1,6 +1,6 @@
 import { stages } from '@/data/stages'
 import { Stage, StageGroup } from '@/types/stages'
-import { Settings, SingleStageDisplay, StageGroupDisplay } from '@/components'
+import { EndlessModeDisplay, Settings, SingleStageDisplay, StageGroupDisplay } from '@/components'
 
 import styles from '@/styles/Home.module.scss'
 import { getLevelsPercentage } from '@/utils/localStorage'
@@ -59,6 +59,7 @@ export default function Home() {
       {activeTab === 0 && <div className={styles.stages}>
         {Object.values(stages).map(renderStage)}
       </div>}
+      {activeTab === 1 && <EndlessModeDisplay />}
       {activeTab === 2 && <Settings />}
     </div>
   )

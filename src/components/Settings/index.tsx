@@ -11,6 +11,47 @@ export const Settings = () => {
     <div className={styles.settings}>
       <h3>These settings will affect all games of Japanese Counter that you play.</h3>
       <div className={styles.category}>
+        <h4 className={styles.name}>Game Speed</h4>
+        <div className={styles.options}>
+          <div className={styles.option}>
+            <input
+             type="radio" 
+             name="game_speed" 
+             defaultChecked={options.gameSpeed === 'fast'} 
+             onClick={() => setPref('gameSpeed', 'fast')}
+            />
+            Fast (30% less time)
+          </div>
+          <div className={styles.option}>
+            <input
+             type="radio" 
+             name="game_speed" 
+             defaultChecked={options.gameSpeed === 'normal'} 
+             onClick={() => setPref('gameSpeed', 'normal')}
+            />
+            Normal
+          </div>
+          <div className={styles.option}>
+            <input
+             type="radio" 
+             name="game_speed" 
+             defaultChecked={options.gameSpeed === 'relaxed'} 
+             onClick={() => setPref('gameSpeed', 'relaxed')}
+            />
+            Relaxed (50% more time)
+          </div>
+          <div className={styles.option}>
+            <input
+             type="radio" 
+             name="game_speed" 
+             defaultChecked={options.gameSpeed === 'peaceful'} 
+             onClick={() => setPref('gameSpeed', 'peaceful')}
+            />
+            Peaceful (no timer)
+          </div>
+        </div>
+      </div>
+      <div className={styles.category}>
         <h4 className={styles.name}>Answer Type</h4>
         <div className={styles.options}>
           <div className={styles.option}>

@@ -102,6 +102,16 @@
   }
 }
 
+.answerInput {
+  width: 250px;
+  font-size: 1.2em;
+  font-weight: 500;
+  padding: 5px 8px;
+  border: none;
+  outline: none;
+  text-align: center;
+}
+
 .answerStyle1 {
   background-color: $colors-answer-bg-1;
   border: 1px solid $colors-answer-border-1;
@@ -125,9 +135,11 @@
 .correctAnswer {
   background-color: $colors-success;
   border-color: $colors-success;
+  color: $colors-primary-txt;
 }
 
 .incorrectAnswer {
   background-color: $colors-danger;
   border-color: $colors-danger;
+  color: $colors-primary-txt;
 }

@@ -19,10 +19,11 @@
 }
 
 .options {
-  width: 180px;
+  width: 190px;
 
   .option {
     @include mixins-display-flex(flex-start, center);
     gap: 5px;
+    font-size: .875em;
   }
 }

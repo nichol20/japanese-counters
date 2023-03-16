@@ -1,7 +1,7 @@
 import { useLocalStorage } from "@/hooks/useLocalStorage"
 import { Options } from "@/types/localStorage"
 import { getOptions, setOptions as setLocalStorageOptions } from "@/utils/localStorage"
-import { createContext, Dispatch, SetStateAction, useEffect, useState } from "react"
+import { createContext, useEffect, useState } from "react"
 
 type SetPref = <T extends keyof Options>(option: T, value: Options[T]) => void
 
@@ -16,7 +16,8 @@ interface OptionsProviderProps {
 
 const defaultOptions: Options = {
   answerType: 'hiragana',
-  howToAnswer: 'multipleChoice'
+  howToAnswer: 'multipleChoice',
+  gameSpeed: 'normal'
 }
 
 export const OptionsContext = createContext({} as OptionsContext)

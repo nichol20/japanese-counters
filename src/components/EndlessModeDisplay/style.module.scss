@@ -1,0 +1,30 @@
+@use '../../styles' as *;
+
+.endlessModeDisplay {
+  @include mixins-display-flex();
+  flex-direction: column;
+  margin-top: 30px;
+}
+
+.startBtn {
+  @include mixins-button-style();
+  margin-top: 20px;
+  padding: 10px 12px;
+}
+
+.counters {
+  @include mixins-display-flex();
+  gap: 20px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+  max-width: 500px;
+  
+}
+
+.counterBox {
+  font-size: 1.2em;
+
+  .checkbox {
+    margin-right: 7px;
+  }
+}
