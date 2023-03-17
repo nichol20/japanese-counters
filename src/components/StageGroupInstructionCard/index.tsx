@@ -1,4 +1,4 @@
-import { StageGroup } from "@/types/stages";
+import { Stage } from "@/types/stages";
 import Router from "next/router";
 import React, { forwardRef, useImperativeHandle, useState } from "react";
 import { Card } from "../Card";
@@ -7,7 +7,7 @@ import { Furigana } from "../Furigana";
 import styles from './style.module.scss'
 
 interface StageGroupInstructionCardProps {
-  stage: StageGroup
+  stages: Stage[]
   onStart: () => void
 }
 
@@ -17,9 +17,8 @@ export interface StageGroupInstructionCardRef {
 }
 
 export const StageGroupInstructionCard = forwardRef<StageGroupInstructionCardRef, StageGroupInstructionCardProps>(
-({ stage, onStart }, ref) => {
+({ stages, onStart }, ref) => {
   const [ showInstructionCard, setShowInstructionCard ] = useState(false)
-  const { stages } = stage
 
   const show = () => {
     setShowInstructionCard(true)

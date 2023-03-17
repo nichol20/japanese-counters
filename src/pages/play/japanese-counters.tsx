@@ -4,7 +4,7 @@ import { GetServerSideProps } from "next"
 import Image from "next/image"
 
 import { stages } from "@/data/stages"
-import { Icon, LevelReference } from "@/types/stages"
+import { Icon, LevelReference, Stage, StageGroup } from "@/types/stages"
 import { selectRandomItem, shuffleArray } from "@/utils/array"
 import { useLocalStorage } from "@/hooks/useLocalStorage"
 import { Timer, TimerRef } from "@/components/Timer"
@@ -12,11 +12,12 @@ import { FinishedLevelCard, SingleStageInstructionCard } from "@/components"
 import { FinishedLevelCardRef } from "@/components/FinishedLevelCard"
 import { StageGroupInstructionCard, StageGroupInstructionCardRef } from "@/components/StageGroupInstructionCard"
 import { SingleStageInstructionCardRef } from "@/components/SingleStageInstructionCard"
-import { isStageGroup } from "@/utils/stage"
+import { isStageGroup, getStage, getChapter, getStageIds } from "@/utils/stage"
 import { setLevelPercentage } from "@/utils/localStorage"
 
 import styles from '../../styles/Game.module.scss'
 import { OptionsContext } from "@/contexts/OptionsContext"
+import { isString } from "@/utils/string"
 
 interface JapaneseCountersProps {
   query: ParsedUrlQuery
@@ -27,12 +28,18 @@ const defaultStage = 'mai'
 const questionLimit = 10
 const normalTime = 200
 
+
+
 export default function JapaneseCounters({ query }: JapaneseCountersProps) {
   const { options } = useContext(OptionsContext)
 
-  const { level: chapterQuery, stage: stageQuery } = query
-  const stage = typeof(stageQuery) === 'string' ? stages[stageQuery] : stages[defaultStage]
-  const chapter = typeof(chapterQuery) === 'string' ? chapterQuery : isStageGroup(stage) ? stage.levelChapter : defaultChapter
+  const { level: chapterQuery, stage: stageQuery, stageIds: stageIdsQuery } = query
+  
+  const stageIds =  isString(stageIdsQuery) ? getStageIds(stageIdsQuery) : undefined
+  const stage = isString(stageQuery) ? getStage(stageQuery, stageIds) : stages[defaultStage]
+  if(!stage) return null
+
+  const chapter = isString(chapterQuery) ? getChapter(stage, chapterQuery) : defaultChapter
 
   const [ currentIcon, setCurrentIcon ] = useState<Icon>()
   const [ currentReference, setCurrentReference ] = useState<LevelReference>()
@@ -54,8 +61,6 @@ export default function JapaneseCounters({ query }: JapaneseCountersProps) {
   const [ correctAnswers, setCorrectAnswers ] = useState(0)
   const percentageResult = Math.floor((correctAnswers / questionLimit) * 100)
   useLocalStorage(() => setLevelPercentage(chapter, percentageResult))
-
-  if(!stage) return null
 
   const isAnswerCorrect = (answer: string) => {
     if(!currentReference) return false
@@ -289,7 +294,7 @@ export default function JapaneseCounters({ query }: JapaneseCountersProps) {
       />
       {isStageGroup(stage) ? 
       <StageGroupInstructionCard
-       stage={stage} 
+       stages={stage.stages} 
        onStart={onStart}
        ref={stageInstructionCardRef} 
       /> 
