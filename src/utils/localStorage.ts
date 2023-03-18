@@ -6,7 +6,7 @@ import { isStageGroup } from "./stage"
 export const populateLevelsPercentage = () => {
   let levelsPercentage: LevelsPercentage = {}
 
-  Object.values(stages).forEach(stage => {
+  stages.forEach(stage => {
     if(isStageGroup(stage)) {
       return levelsPercentage[stage.levelChapter] = 0
     }

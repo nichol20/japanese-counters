@@ -9,6 +9,12 @@
   gap: 50px;
 }
 
+.endlessModeScore {
+  font-size: 2em;
+  font-weight: 600;
+  color: $colors-primary-txt;
+}
+
 .timer {
   width: 500px;
 
@@ -102,6 +108,12 @@
   }
 }
 
+.answerInputBox {
+  @include mixins-display-flex();
+  flex-direction: column;
+  gap: 5px;
+}
+
 .answerInput {
   width: 250px;
   font-size: 1.2em;
@@ -110,6 +122,11 @@
   border: none;
   outline: none;
   text-align: center;
+}
+
+.answerInputDescription {
+  font-size: .875em;
+  color: $colors-primary-txt;
 }
 
 .answerStyle1 {

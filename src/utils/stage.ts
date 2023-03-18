@@ -5,26 +5,28 @@ export const isStageGroup = (stage: Stage | StageGroup): stage is StageGroup => 
   return 'stages' in stage
 }
 
-export const getStage = (stageName: string, stageIds?: string[]) => {
-  if(stageName === 'endlessMode' && stageIds) {
+export const getStage = (id: string, stageIds?: string[]) => {
+  if(id === 'endlessMode' && stageIds) {
     let customStages: (Stage | StageGroup)[] = []
     
     stageIds.forEach(stageId => {
-      Object.values(stages).forEach(s => {
+      stages.forEach(s => {
         if(s.id === stageId && !isStageGroup(s)) customStages.push(s)
       })
     })
 
     return {
-      id: stageName,
-      name: stageName,
+      id: id,
+      name: id,
       description: '',
-      levelChapter: stageName,
+      levelChapter: id,
       stages: customStages
     } as StageGroup
   }
 
-  return stages[stageName] ? stages[stageName] : undefined
+  const stage = stages.filter(s => s.id === id)[0]
+
+  return stage ? stage : undefined
 }
 
 export const getChapter = (stage: Stage | StageGroup, chapter: string) => {

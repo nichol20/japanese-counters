@@ -5,7 +5,7 @@ import { Stage } from '@/types/stages';
 import { Furigana } from '@/components/Furigana';
 import { GAME_PATH } from '@/data/app'
 import { CircularProgress } from '../CircularProgress';
-import { LevelsPercentage } from '@/utils/localStorage';
+import { LevelsPercentage } from '@/types/localStorage';
 
 import styles from './style.module.scss';
 
@@ -19,12 +19,11 @@ export const SingleStageDisplay = ({ stage, levelsPercentage }: SingleStageDispl
     Router.push({
       pathname: GAME_PATH,
       query: {
-        stage: stage.name,
+        stage: stage.id,
         level: chapter
       }
     })
   }
-
   
   return (
     <div className={styles.stageDisplay}>

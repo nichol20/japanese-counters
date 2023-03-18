@@ -1,6 +1,6 @@
 import { Stage, StageGroup, Stages } from "@/types/stages";
 import { chakuIcons, daiIcons, funIcons, haiIcons, hikiIcons, honIcons, koIcons, maiIcons, nichiIcons, ninIcons, touIcons, tsuIcons } from "./icons";
-import { chakuLevels, daiLevels, haiLevels, hikiLevels, honLevels, koLevels, maiLevels, nichiLevels, ninLevels, touLevels, tsuLevels } from "./levels";
+import { chakuLevels, daiLevels, funLevels, haiLevels, hikiLevels, honLevels, koLevels, maiLevels, nichiLevels, ninLevels, touLevels, tsuLevels } from "./levels";
 
 export const mai: Stage = {
   id: '1',
@@ -66,8 +66,8 @@ export const tsu: Stage = {
   id: '5',
   name: 'tsu',
   counter: {
-    kanji: 'つ',
-    reading: ''
+    kanji: '',
+    reading: 'つ'
   },
   description: "つ is a generic counter that is attached to a number when you are counting things. It only goes up to 10.",
   instruction: "There is not a general rule for these, so please memorize each one.",
@@ -167,10 +167,9 @@ export const fun: Stage = {
   description: "分/ふん is a counter that is attached to a number when you are counting minutes (time).",
   instruction: "ふん, ぶん, or ふん is attached to each number (when written as kanji, though, it is always 分).",
   icons: funIcons,
-  levels: []
+  levels: funLevels
 }
 
-// developing
 export const ko: Stage = {
   id: '12',
   name: 'ko',
@@ -192,7 +191,7 @@ export const group4: StageGroup = {
   levelChapter: '41'
 }
 
-export const stages: Stages = {
+export const stages: Stages = [
   mai,
   hon,
   hiki,
@@ -205,4 +204,4 @@ export const stages: Stages = {
   tou,
   nin,
   group3
-}
+]

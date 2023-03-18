@@ -2,28 +2,33 @@
 
 .settings {
   width: 100%;
-  @include mixins-display-flex();
+  @include mixins-display-flex(flex-start, flex-start);
+  padding-left: 20px;
   margin-top: 20px;
   flex-direction: column;
   gap: 30px;
 }
 
-.category {
-  @include mixins-display-flex(flex-start, flex-start);
-  gap: 20px;
-  width: 350px;
+.grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-row-gap: 10px;
 }
 
 .name {
-  flex-grow: 1;
+  font-size: 1em;
+  margin-right: 25px; 
 }
 
 .options {
-  width: 190px;
-
   .option {
     @include mixins-display-flex(flex-start, center);
     gap: 5px;
     font-size: .875em;
+  }
+
+  .description {
+    font-size: .75em;
+    color: $colors-secondary-txt;
   }
 }

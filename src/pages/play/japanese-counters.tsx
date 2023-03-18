@@ -24,7 +24,7 @@ interface JapaneseCountersProps {
 }
 
 const defaultChapter = '1'
-const defaultStage = 'mai'
+const defaultStage = 0
 const questionLimit = 10
 const normalTime = 200
 
@@ -40,6 +40,7 @@ export default function JapaneseCounters({ query }: JapaneseCountersProps) {
   if(!stage) return null
 
   const chapter = isString(chapterQuery) ? getChapter(stage, chapterQuery) : defaultChapter
+  const isEndlessMode = stage.id === 'endlessMode'
 
   const [ currentIcon, setCurrentIcon ] = useState<Icon>()
   const [ currentReference, setCurrentReference ] = useState<LevelReference>()
@@ -59,6 +60,7 @@ export default function JapaneseCounters({ query }: JapaneseCountersProps) {
   
   const [ questionsAsked, setQuestionsAsked ] = useState(0)
   const [ correctAnswers, setCorrectAnswers ] = useState(0)
+  const [ endlessModeScore, setEndlessModeScore ] = useState(0)
   const percentageResult = Math.floor((correctAnswers / questionLimit) * 100)
   useLocalStorage(() => setLevelPercentage(chapter, percentageResult))
 
@@ -182,7 +184,7 @@ export default function JapaneseCounters({ query }: JapaneseCountersProps) {
   }
 
   const generateQuestion = () => {
-    if(questionsAsked >= questionLimit) {
+    if(questionsAsked >= questionLimit && !isEndlessMode) {
       return finishLevel()
     }
 
@@ -207,7 +209,13 @@ export default function JapaneseCounters({ query }: JapaneseCountersProps) {
 
     setSelectedAnswer(answer)
     
-    if(isAnswerCorrect(answer)) setCorrectAnswers(prev => prev + 1)
+    if(isAnswerCorrect(answer)) {
+      setCorrectAnswers(prev => prev + 1)
+
+      if(isEndlessMode && timerRef.current !== null) {
+        setEndlessModeScore(prev => prev + timerRef.current!.getTimeLeft())
+      }
+    }
 
     if(timerRef.current) timerRef.current.pause()
 
@@ -249,6 +257,8 @@ export default function JapaneseCounters({ query }: JapaneseCountersProps) {
 
   return (
     <div className={styles.game}>
+      {isEndlessMode && <div className={styles.endlessModeScore}>Score: {endlessModeScore}</div>}
+      
       <div className={styles.timer}>
         {options.gameSpeed !== 'peaceful' && 
         <Timer
@@ -258,6 +268,7 @@ export default function JapaneseCounters({ query }: JapaneseCountersProps) {
          ref={timerRef}
         />}
       </div>
+
       <div className={styles.question}>
         <ul className={styles.iconList}>
           {Array(currentReference?.number.icons).fill('').map((_, index) => (
@@ -280,12 +291,16 @@ export default function JapaneseCounters({ query }: JapaneseCountersProps) {
           ))}
         </ul>}
         {options.howToAnswer === 'fillInTheBlank' && 
-        <input
-         type="text" 
-         className={`${styles.answerInput} ${getAnswerInputClass()}`} 
-         onKeyUp={handleAnswerInputKeyUp} 
-        />}
+          <div className={styles.answerInputBox}>
+            <input
+              type="text" 
+              className={`${styles.answerInput} ${getAnswerInputClass()}`} 
+              onKeyUp={handleAnswerInputKeyUp} 
+            />
+            <span className={styles.answerInputDescription}>Press enter to submit</span>
+          </div>}
       </div>
+
       <FinishedLevelCard
        percentageResult={percentageResult}
        stage={stage}

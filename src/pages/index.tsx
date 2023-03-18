@@ -57,7 +57,7 @@ export default function Home() {
         </li>
       </ul>
       {activeTab === 0 && <div className={styles.stages}>
-        {Object.values(stages).map(renderStage)}
+        {stages.map(renderStage)}
       </div>}
       {activeTab === 1 && <EndlessModeDisplay />}
       {activeTab === 2 && <Settings />}

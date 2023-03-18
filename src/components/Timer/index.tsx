@@ -14,6 +14,7 @@ export interface TimerRef {
   reset: (newTotalTime?: number) => void
   pause: () => void
   start: () => void
+  getTimeLeft: () => number
 }
 
 export const Timer = forwardRef<TimerRef, TimerProps>(
@@ -33,6 +34,10 @@ export const Timer = forwardRef<TimerRef, TimerProps>(
   const reset = (newTotalTime: number=totalTime) => {
     setIsActive(true)
     setTimeLeft(newTotalTime)
+  }
+
+  const getTimeLeft = () => {
+    return timeLeft
   }
 
   useEffect(() => {
@@ -56,7 +61,8 @@ export const Timer = forwardRef<TimerRef, TimerProps>(
   useImperativeHandle(ref, () => ({
     reset,
     pause,
-    start
+    start,
+    getTimeLeft
   }))
 
   return (

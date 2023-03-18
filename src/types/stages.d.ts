@@ -1,8 +1,6 @@
 import { StaticImageData } from "next/image"
 
-export interface Stages {
-  [stageName: string]: Stage | StageGroup
-}
+export type Stages = (Stage | StageGroup)[]
 
 export interface StageGroup {
   id:           string

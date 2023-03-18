@@ -23,7 +23,7 @@ const defaultOptions: Options = {
 export const OptionsContext = createContext({} as OptionsContext)
 
 export const OptionsProvider = ({ children }: OptionsProviderProps) => {
-  const [options, setOptions ] = useState(defaultOptions)
+  const [ options, setOptions ] = useState(defaultOptions)
   const localStorageOptions = useLocalStorage(getOptions) || defaultOptions
 
   const setPref: SetPref = (option, value) => {

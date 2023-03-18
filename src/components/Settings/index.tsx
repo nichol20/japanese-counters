@@ -10,7 +10,8 @@ export const Settings = () => {
   return (
     <div className={styles.settings}>
       <h3>These settings will affect all games of Japanese Counter that you play.</h3>
-      <div className={styles.category}>
+      <div className={styles.grid}>
+        
         <h4 className={styles.name}>Game Speed</h4>
         <div className={styles.options}>
           <div className={styles.option}>
@@ -48,10 +49,9 @@ export const Settings = () => {
              onClick={() => setPref('gameSpeed', 'peaceful')}
             />
             Peaceful (no timer)
-          </div>
+          </div> 
         </div>
-      </div>
-      <div className={styles.category}>
+      
         <h4 className={styles.name}>Answer Type</h4>
         <div className={styles.options}>
           <div className={styles.option}>
@@ -72,9 +72,9 @@ export const Settings = () => {
             />
             Kanji
           </div>
+          <span className={styles.description}>Kanji answers can only appear in endless mode and review (boss) rounds where there are multiple counters to choose from.</span>
         </div>
-      </div>
-      <div className={styles.category}>
+      
         <h4 className={styles.name}>How to answer</h4>
         <div className={styles.options}>
           <div className={styles.option}>
@@ -95,6 +95,7 @@ export const Settings = () => {
             />
             Fill in the blank
           </div>
+          <span className={styles.description}>Fill in the blank answers will have a 30% time boost.</span>
         </div>
       </div>
     </div>

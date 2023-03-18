@@ -6,11 +6,13 @@ interface FuriganaProps {
 }
 
 export const Furigana = ({ kanji, reading }: FuriganaProps) => {
+  const hasKanji = !!kanji
+
   return (
     <ruby className={styles.furigana}>
-      {kanji}
+      {hasKanji ? kanji : reading}
       <rp>(</rp>
-      <rt className={styles.reading}>{reading}</rt>
+      <rt className={styles.reading}>{hasKanji? reading : ''}</rt>
       <rp>)</rp>
     </ruby>
   );
