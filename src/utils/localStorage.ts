@@ -35,7 +35,14 @@ export const getLevelsPercentage = () => {
 export const setLevelPercentage = (chapter: string, percentage: number) => {
   const levelsPercentage = getLevelsPercentage()
 
-  if(levelsPercentage[chapter] && levelsPercentage[chapter] >= percentage) return
+  if(levelsPercentage[chapter] && levelsPercentage[chapter] >= percentage) {
+    
+    if(levelsPercentage[chapter] > 100) {
+      levelsPercentage[chapter] = 100
+      localStorage.setItem(LocalStorage.LEVELS_PERCENTAGE, JSON.stringify(levelsPercentage))
+    }
+    return
+  }
 
   levelsPercentage[chapter] = percentage
 

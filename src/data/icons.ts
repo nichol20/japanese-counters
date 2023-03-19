@@ -11,7 +11,7 @@ import {
   horseIcon, cowIcon, elephantIcon, lionIcon, // tou
   manIcon, womanIcon, babyIcon, boyIcon, grandfatherIcon, // nin
   squidIcon, cupWithStrawIcon, coffeeIcon, bowlOfSoupIcon, // hai
-  // fun
+  stopwatch1Minute, stopwatch2Minute, stopwatch3Minute, stopwatch4Minute, stopwatch5Minute, stopwatch6Minute, stopwatch7Minute, stopwatch8Minute, stopwatch9Minute, stopwatch10Minute, // fun
   donutIcon, presentIcon, eggIcon // ko
 } from "@/assets";
 
@@ -565,7 +565,76 @@ export const haiIcons: Icon[] = [
 ]
 
 export const funIcons: Icon[] = [
-
+  {
+    src: stopwatch1Minute,
+    name: {
+      english: 'minutes',
+      japanese: '分/ふん'
+    }
+  },
+  {
+    src: stopwatch2Minute,
+    name: {
+      english: 'minutes',
+      japanese: '分/ふん'
+    }
+  },
+  {
+    src: stopwatch3Minute,
+    name: {
+      english: 'minutes',
+      japanese: '分/ふん'
+    }
+  },
+  {
+    src: stopwatch4Minute,
+    name: {
+      english: 'minutes',
+      japanese: '分/ふん'
+    }
+  },
+  {
+    src: stopwatch5Minute,
+    name: {
+      english: 'minutes',
+      japanese: '分/ふん'
+    }
+  },
+  {
+    src: stopwatch6Minute,
+    name: {
+      english: 'minutes',
+      japanese: '分/ふん'
+    }
+  },
+  {
+    src: stopwatch7Minute,
+    name: {
+      english: 'minutes',
+      japanese: '分/ふん'
+    }
+  },
+  {
+    src: stopwatch8Minute,
+    name: {
+      english: 'minutes',
+      japanese: '分/ふん'
+    }
+  },
+  {
+    src: stopwatch9Minute,
+    name: {
+      english: 'minutes',
+      japanese: '分/ふん'
+    }
+  },
+  {
+    src: stopwatch10Minute,
+    name: {
+      english: 'minutes',
+      japanese: '分/ふん'
+    }
+  },
 ]
 
 export const koIcons: Icon[] = [

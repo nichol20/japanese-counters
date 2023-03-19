@@ -98,6 +98,16 @@ export { default as coffeeIcon } from './images/hai/coffee.png'
 export { default as bowlOfSoupIcon } from './images/hai/bowl-of-soup.png'
 
 // 分(ふん)
+export { default as stopwatch1Minute } from './images/fun/stopwatch-1-minute.png'
+export { default as stopwatch2Minute } from './images/fun/stopwatch-2-minute.png'
+export { default as stopwatch3Minute } from './images/fun/stopwatch-3-minute.png'
+export { default as stopwatch4Minute } from './images/fun/stopwatch-4-minute.png'
+export { default as stopwatch5Minute } from './images/fun/stopwatch-5-minute.png'
+export { default as stopwatch6Minute } from './images/fun/stopwatch-6-minute.png'
+export { default as stopwatch7Minute } from './images/fun/stopwatch-7-minute.png'
+export { default as stopwatch8Minute } from './images/fun/stopwatch-8-minute.png'
+export { default as stopwatch9Minute } from './images/fun/stopwatch-9-minute.png'
+export { default as stopwatch10Minute } from './images/fun/stopwatch-10-minute.png'
 
 // 個(こ)
 export { default as donutIcon } from './images/ko/donut.png' 

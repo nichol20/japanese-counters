@@ -1,5 +1,6 @@
 import { stages } from "@/data/stages"
-import { Stage, StageGroup } from "@/types/stages"
+import { LevelReference, LevelReferenceReading, Stage, StageGroup } from "@/types/stages"
+import { selectRandomItem } from "./array"
 
 export const isStageGroup = (stage: Stage | StageGroup): stage is StageGroup => {
   return 'stages' in stage
@@ -17,9 +18,9 @@ export const getStage = (id: string, stageIds?: string[]) => {
 
     return {
       id: id,
-      name: id,
+      name: 'Endless Mode',
       description: '',
-      levelChapter: id,
+      levelChapter: 'Endless Mode',
       stages: customStages
     } as StageGroup
   }
@@ -29,7 +30,7 @@ export const getStage = (id: string, stageIds?: string[]) => {
   return stage ? stage : undefined
 }
 
-export const getChapter = (stage: Stage | StageGroup, chapter: string) => {
+export const getChapter = (stage: Stage | StageGroup, chapter: any) => {
   if(isStageGroup(stage)) {
     return stage.levelChapter
   }
@@ -48,4 +49,12 @@ export const getStageIds = (stageIdsQuery: string) => {
   }
   
   return stageIds
+}
+
+export const getReading = (reading: LevelReference['reading']): LevelReferenceReading => {
+  if(Array.isArray(reading)) {
+    return selectRandomItem(reading)
+  }
+
+  return reading
 }

@@ -156,7 +156,6 @@ export const hai: Stage = {
   levels: haiLevels
 }
 
-// developing
 export const fun: Stage = {
   id: '11',
   name: 'fun',
@@ -196,12 +195,19 @@ export const stages: Stages = [
   hon,
   hiki,
   group1,
+
   dai,
   tsu,
   nichi,
   group2,
+
   chaku,
   tou,
   nin,
-  group3
+  group3,
+
+  hai,
+  fun,
+  ko,
+  group4
 ]

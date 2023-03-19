@@ -12,7 +12,7 @@ import { FinishingCard, SingleStageInstructionCard } from "@/components"
 import { FinishingCardRef } from "@/components/FinishingCard"
 import { StageGroupInstructionCard, StageGroupInstructionCardRef } from "@/components/StageGroupInstructionCard"
 import { SingleStageInstructionCardRef } from "@/components/SingleStageInstructionCard"
-import { isStageGroup, getStage, getChapter, getStageIds } from "@/utils/stage"
+import { isStageGroup, getStage, getChapter, getStageIds, getReading } from "@/utils/stage"
 import { getBestScore, setBestScore, setLevelPercentage } from "@/utils/localStorage"
 
 import styles from '../../styles/Game.module.scss'
@@ -23,9 +23,8 @@ interface JapaneseCountersProps {
   query: ParsedUrlQuery
 }
 
-const defaultChapter = '1'
 const defaultStage = 0
-const questionLimit = 1
+const questionLimit = 20
 const normalTime = 200
 
 export default function JapaneseCounters({ query }: JapaneseCountersProps) {
@@ -37,7 +36,7 @@ export default function JapaneseCounters({ query }: JapaneseCountersProps) {
   const stage = isString(stageQuery) ? getStage(stageQuery, stageIds) : stages[defaultStage]
   if(!stage) return null
 
-  const chapter = isString(chapterQuery) ? getChapter(stage, chapterQuery) : defaultChapter
+  const chapter = getChapter(stage, chapterQuery)
   const isEndlessMode = stage.id === 'endlessMode'
 
   const [ currentIcon, setCurrentIcon ] = useState<Icon>()
@@ -74,8 +73,12 @@ export default function JapaneseCounters({ query }: JapaneseCountersProps) {
     else return `New best score: ${endlessModeScore}`
   }
 
-  const isAnswerCorrect = (answer: string) => {
+  const isAnswerCorrect = (answer: string): boolean => {
     if(!currentReference) return false
+
+    if(Array.isArray(currentReference.reading)) {
+      return currentReference.reading.filter(r => r.hiragana === answer || r.kanji === answer).length > 0
+    }
     return answer === currentReference.reading.hiragana || answer === currentReference.reading.kanji
   }
 
@@ -109,14 +112,15 @@ export default function JapaneseCounters({ query }: JapaneseCountersProps) {
     let unshuffledAnswers: string[]
 
     if(options.answerType === 'kanji' && (isEndlessMode || isStageGroup(stage))) {
-      unshuffledAnswers = [randomReference.reading.kanji]
+      unshuffledAnswers = [getReading(randomReference.reading).kanji]
 
       ;(stage as StageGroup).stages.forEach(s => {
         // get the last level of each stage inside stage.stages and loop through the references
         s.levels[s.levels.length - 1].references.forEach(r => {
           // get the kanjis with the same number as the randomReference
-          if(r.number.actual === randomReference.number.actual && unshuffledAnswers.length < 4 && r.reading.kanji !== randomReference.reading.kanji) {
-            unshuffledAnswers.push(r.reading.kanji)
+          if(r.number.actual === randomReference.number.actual && unshuffledAnswers.length < 4 
+            && getReading(r.reading).kanji !== getReading(randomReference.reading).kanji) {
+            unshuffledAnswers.push(getReading(r.reading).kanji)
           }
         })
       })
@@ -127,7 +131,7 @@ export default function JapaneseCounters({ query }: JapaneseCountersProps) {
           const lastLevel = s.levels[s.levels.length - 1] // last level has all references
           if(lastLevel.references.includes(randomReference)) {
             shuffleArray(lastLevel.references).slice(0, 3).forEach(r => {
-              unshuffledAnswers.push(r.reading.kanji)
+              unshuffledAnswers.push(getReading(r.reading).kanji)
             })
           }
         })
@@ -136,7 +140,7 @@ export default function JapaneseCounters({ query }: JapaneseCountersProps) {
     } else {
       unshuffledAnswers = [
         ...randomReference.wrongAnswers.slice(0, 3), 
-        randomReference.reading.hiragana
+        getReading(randomReference.reading).hiragana
       ]
 
       if(unshuffledAnswers.length < 4) {
@@ -148,7 +152,7 @@ export default function JapaneseCounters({ query }: JapaneseCountersProps) {
 
       // if not enough, fill up to 4 with readings from other levels
       fillingReferences.slice(0, 4 - unshuffledAnswers.length).forEach(r => {
-        unshuffledAnswers.push(r.reading.hiragana)
+        unshuffledAnswers.push(getReading(r.reading).hiragana)
       })
     } 
     return unshuffledAnswers
@@ -331,7 +335,8 @@ export default function JapaneseCounters({ query }: JapaneseCountersProps) {
       />
       {isStageGroup(stage) ? 
       <StageGroupInstructionCard
-       stages={stage.stages} 
+       stage={stage} 
+       isEndlessMode={isEndlessMode}
        onStart={onStart}
        ref={stageInstructionCardRef} 
       /> 

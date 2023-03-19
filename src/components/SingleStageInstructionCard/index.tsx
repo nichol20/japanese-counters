@@ -50,9 +50,8 @@ export const SingleStageInstructionCard = forwardRef<SingleStageInstructionCardR
   return (
     <Card>
       <div className={styles.content}>
-        <div className={styles.title}>
-          <Furigana kanji={stage.counter.kanji} reading={stage.counter.reading} />
-        </div>
+        <h2 className={styles.title}>Level {chapter}</h2>
+        <Furigana kanji={stage.counter.kanji} reading={stage.counter.reading} />
         <div className={styles.description}>{stage.description}</div>
         <ul className={styles.iconList}>
           {icons.map((icon, index) => (
@@ -75,7 +74,9 @@ export const SingleStageInstructionCard = forwardRef<SingleStageInstructionCardR
           {level.references.map((reference, index) => (
             <div className={styles.example} key={index}>
               <span className={styles.number}>{reference.number.japanese}</span>
-              <span className={styles.reading}>{reference.reading.hiragana}</span>
+              <span className={styles.reading}>{
+                Array.isArray(reference.reading) ? reference.reading[0].hiragana : reference.reading.hiragana
+              }</span>
             </div>
           ))}
         </div>

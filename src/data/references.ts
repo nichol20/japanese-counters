@@ -1,5 +1,5 @@
 import { Level, LevelReference } from '@/types/stages'
-import { nichiIcons } from './icons'
+import { funIcons, nichiIcons } from './icons'
 import { LevelReferenceNumbers } from './numbers'
 
 export const maiLevelReferences: LevelReference[][] = [
@@ -62,10 +62,13 @@ export const maiLevelReferences: LevelReference[][] = [
     },
     {
       number: LevelReferenceNumbers[7],
-      reading: {
+      reading: [{
         hiragana: 'しちまい',
         kanji: '七舞'
-      },
+      },{
+        hiragana: 'ななまい',
+        kanji: '七舞'
+      }],
       wrongAnswers: ['しっまい', 'じゅっまい', 'やまい', 'はっまい', 'ろっまい', 'くまい'],
       specificIcons: []
     },
@@ -1122,10 +1125,13 @@ export const ninLevelReferences: LevelReference[][] = [
     },
     {
       number: LevelReferenceNumbers[7],
-      reading: {
-        hiragana: 'しちにん',  // ななにん
+      reading: [{
+        hiragana: 'しちにん',
         kanji: '七人'
-      },
+      },{
+        hiragana: 'ななにん',
+        kanji: '七人'
+      }],
       wrongAnswers: [ 'しっにん' ],
       specificIcons: []
     },
@@ -1265,7 +1271,7 @@ export const funLevelReferences: LevelReference[][] = [
         kanji: '一分'
       },
       wrongAnswers: [ 'いちふん', 'いちぶん', 'いちぷん', 'いっふん', 'いっぶん', 'ひとふん', 'ひとぶん', 'ひとぷん' ],
-      specificIcons: []
+      specificIcons: [funIcons[0]]
     },
     {
       number: LevelReferenceNumbers[2],
@@ -1274,7 +1280,7 @@ export const funLevelReferences: LevelReference[][] = [
         kanji: '二分'
       },
       wrongAnswers: [ 'にぶん', 'にぷん', 'ふたふん', 'ふたぶん', 'ふたぷん' ],
-      specificIcons: []
+      specificIcons: [funIcons[1]]
     },
     {
       number: LevelReferenceNumbers[3],
@@ -1283,7 +1289,7 @@ export const funLevelReferences: LevelReference[][] = [
         kanji: '三分'
       },
       wrongAnswers: [ 'さんふん', 'さんぶん', 'みっふん', 'みっぶん', 'みっぷん', 'みつふん', 'みつぶん', 'みつぷん' ],
-      specificIcons: []
+      specificIcons: [funIcons[2]]
     },
     {
       number: LevelReferenceNumbers[4],
@@ -1292,7 +1298,7 @@ export const funLevelReferences: LevelReference[][] = [
         kanji: '四分'
       },
       wrongAnswers: [ 'しふん', 'しぶん', 'しぷん', 'よふん', 'よぶん', 'よぷん', 'よんふん', 'よんぶん' ],
-      specificIcons: []
+      specificIcons: [funIcons[3]]
     },
     {
       number: LevelReferenceNumbers[5],
@@ -1301,7 +1307,7 @@ export const funLevelReferences: LevelReference[][] = [
         kanji: '五分'
       },
       wrongAnswers: [ 'ごぶん', 'ごぷん' ],
-      specificIcons: []
+      specificIcons: [funIcons[4]]
     }
   ],
   [
@@ -1312,7 +1318,7 @@ export const funLevelReferences: LevelReference[][] = [
         kanji: '六分'
       },
       wrongAnswers: [ 'ろくふん', 'ろくぶん', 'ろくぷん', 'ろっふん', 'ろっぶん' ],
-      specificIcons: []
+      specificIcons: [funIcons[5]]
     },
     {
       number: LevelReferenceNumbers[7],
@@ -1321,7 +1327,7 @@ export const funLevelReferences: LevelReference[][] = [
         kanji: '七分'
       },
       wrongAnswers: [ 'しちふん', 'しちぶん', 'しちぷん', 'しっふん', 'しっぶん', 'しっぷん', 'ななぶん', 'ななぷん' ],
-      specificIcons: []
+      specificIcons: [funIcons[6]]
     },
     {
       number: LevelReferenceNumbers[8],
@@ -1330,7 +1336,7 @@ export const funLevelReferences: LevelReference[][] = [
         kanji: '八分'
       },
       wrongAnswers: ['はちふん', 'はちぶん', 'はちぷん', 'はっふん', 'はっぶん', 'やふん', 'やぶん', 'やぷん'],
-      specificIcons: []
+      specificIcons: [funIcons[7]]
     },
     {
       number: LevelReferenceNumbers[9],
@@ -1339,7 +1345,7 @@ export const funLevelReferences: LevelReference[][] = [
         kanji: '九分'
       },
       wrongAnswers: [ 'きゅうぶん', 'きゅうぷん', 'くふん', 'くぶん', 'くぷん' ],
-      specificIcons: []
+      specificIcons: [funIcons[8]]
     },
     {
       number: LevelReferenceNumbers[10],
@@ -1348,7 +1354,7 @@ export const funLevelReferences: LevelReference[][] = [
         kanji: '十分'
       },
       wrongAnswers: [ 'じゅうふん', 'じゅうぶん', 'じゅうぷん', 'じゅっふん', 'じゅっぶん' ],
-      specificIcons: []
+      specificIcons: [funIcons[9]]
     }
   ]
 ]

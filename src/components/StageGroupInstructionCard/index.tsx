@@ -1,4 +1,4 @@
-import { Stage } from "@/types/stages";
+import { Stage, StageGroup } from "@/types/stages";
 import Router from "next/router";
 import React, { forwardRef, useImperativeHandle, useState } from "react";
 import { Card } from "../Card";
@@ -7,7 +7,8 @@ import { Furigana } from "../Furigana";
 import styles from './style.module.scss'
 
 interface StageGroupInstructionCardProps {
-  stages: Stage[]
+  stage: StageGroup
+  isEndlessMode: boolean
   onStart: () => void
 }
 
@@ -17,7 +18,7 @@ export interface StageGroupInstructionCardRef {
 }
 
 export const StageGroupInstructionCard = forwardRef<StageGroupInstructionCardRef, StageGroupInstructionCardProps>(
-({ stages, onStart }, ref) => {
+({ stage, isEndlessMode, onStart }, ref) => {
   const [ showInstructionCard, setShowInstructionCard ] = useState(false)
 
   const show = () => {
@@ -52,11 +53,12 @@ export const StageGroupInstructionCard = forwardRef<StageGroupInstructionCardRef
   return (
     <Card>
       <div className={styles.content}>
+      <h2 className={styles.title}>{isEndlessMode ? 'Endless Mode' : `Level ${stage.levelChapter}` }</h2>
         <span className={styles.explanation}>
           Questions will cover the counters below! Hit the buttons if you need a refresher on the spelling
         </span>
         <div className={styles.stages}>
-          {stages.map(({ counter, description, instruction, levels }, index) => (
+          {stage.stages.map(({ counter, description, instruction, levels }, index) => (
             <div className={styles.stage} key={index}>
               <div className={styles.counter}>
                 <Furigana kanji={counter.kanji} reading={counter.reading} />
@@ -74,7 +76,7 @@ export const StageGroupInstructionCard = forwardRef<StageGroupInstructionCardRef
                     {levels[2].references.map((reference, index) => (
                       <div className={styles.example} key={index}>
                         <span className={styles.number}>{reference.number.japanese}</span>
-                        <span className={styles.reading}>{reference.reading.hiragana}</span>
+                        <span className={styles.reading}>{Array.isArray(reference.reading) ? reference.reading[0].hiragana : reference.reading.hiragana}</span>
                       </div>
                     ))}
                   </div>
