@@ -7,7 +7,7 @@ export const isStageGroup = (stage: Stage | StageGroup): stage is StageGroup => 
 
 export const getStage = (id: string, stageIds?: string[]) => {
   if(id === 'endlessMode' && stageIds) {
-    let customStages: (Stage | StageGroup)[] = []
+    let customStages: Stage[] = []
     
     stageIds.forEach(stageId => {
       stages.forEach(s => {

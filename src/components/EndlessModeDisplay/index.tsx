@@ -43,7 +43,7 @@ export const EndlessModeDisplay = () => {
 
   return (
     <div className={styles.endlessModeDisplay}>
-      <h3>How long can you last? The monsters grow stronger and faster with each level!</h3>
+      <h3>How long can you last?</h3>
       <button className={styles.startBtn} onClick={handlePlayBtnClick}>
         Begin endless mode
       </button>

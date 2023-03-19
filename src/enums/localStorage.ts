@@ -1,4 +1,5 @@
 export enum LocalStorage {
   LEVELS_PERCENTAGE = 'levelsPercentage',
-  OPTIONS = 'options'
+  OPTIONS = 'options',
+  BEST_SCORE = 'bestScore'
 }

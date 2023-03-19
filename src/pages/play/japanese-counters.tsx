@@ -8,12 +8,12 @@ import { Icon, LevelReference, Stage, StageGroup } from "@/types/stages"
 import { selectRandomItem, shuffleArray } from "@/utils/array"
 import { useLocalStorage } from "@/hooks/useLocalStorage"
 import { Timer, TimerRef } from "@/components/Timer"
-import { FinishedLevelCard, SingleStageInstructionCard } from "@/components"
-import { FinishedLevelCardRef } from "@/components/FinishedLevelCard"
+import { FinishingCard, SingleStageInstructionCard } from "@/components"
+import { FinishingCardRef } from "@/components/FinishingCard"
 import { StageGroupInstructionCard, StageGroupInstructionCardRef } from "@/components/StageGroupInstructionCard"
 import { SingleStageInstructionCardRef } from "@/components/SingleStageInstructionCard"
 import { isStageGroup, getStage, getChapter, getStageIds } from "@/utils/stage"
-import { setLevelPercentage } from "@/utils/localStorage"
+import { getBestScore, setBestScore, setLevelPercentage } from "@/utils/localStorage"
 
 import styles from '../../styles/Game.module.scss'
 import { OptionsContext } from "@/contexts/OptionsContext"
@@ -25,10 +25,8 @@ interface JapaneseCountersProps {
 
 const defaultChapter = '1'
 const defaultStage = 0
-const questionLimit = 10
+const questionLimit = 1
 const normalTime = 200
-
-
 
 export default function JapaneseCounters({ query }: JapaneseCountersProps) {
   const { options } = useContext(OptionsContext)
@@ -56,13 +54,25 @@ export default function JapaneseCounters({ query }: JapaneseCountersProps) {
 
   const stageInstructionCardRef = useRef<SingleStageInstructionCardRef | StageGroupInstructionCardRef>(null)
   const timerRef = useRef<TimerRef>(null)
-  const finishedLevelCardRef = useRef<FinishedLevelCardRef>(null)
+  const FinishingCardRef = useRef<FinishingCardRef>(null)
   
   const [ questionsAsked, setQuestionsAsked ] = useState(0)
   const [ correctAnswers, setCorrectAnswers ] = useState(0)
   const [ endlessModeScore, setEndlessModeScore ] = useState(0)
   const percentageResult = Math.floor((correctAnswers / questionLimit) * 100)
-  useLocalStorage(() => setLevelPercentage(chapter, percentageResult))
+  useLocalStorage(() => {
+    setLevelPercentage(chapter, percentageResult)
+    setBestScore(endlessModeScore)
+  })
+  const bestScore = useLocalStorage(getBestScore)
+  const finishingCardTitle = isEndlessMode ? `Score ${endlessModeScore}` : `Your rating`
+
+  const getFinishingCardMessage = () => {
+    if(!isEndlessMode) return ''
+
+    if(bestScore && bestScore > endlessModeScore) return `Best score: ${bestScore}`
+    else return `New best score: ${endlessModeScore}`
+  }
 
   const isAnswerCorrect = (answer: string) => {
     if(!currentReference) return false
@@ -82,10 +92,66 @@ export default function JapaneseCounters({ query }: JapaneseCountersProps) {
   }
 
   const getTotalTime = () => {
-    if(options.gameSpeed === 'fast') return normalTime * 0.7
-    else if(options.gameSpeed === 'normal') return normalTime
-    else if(options.gameSpeed === 'relaxed') return normalTime * 1.5
-    else return 0
+    let finalTime = normalTime
+
+    if(options.gameSpeed === 'fast') finalTime *= 0.7
+    else if(options.gameSpeed === 'normal') finalTime *= 1
+    else if(options.gameSpeed === 'relaxed') finalTime *= 1.5
+    else finalTime *= 0
+
+    if(options.howToAnswer === 'fillInTheBlank') finalTime *= 1.3
+
+    return Math.floor(finalTime)
+  }
+
+  const getAnswers = (randomReference: LevelReference, fillingReferences: LevelReference[]) => {
+    // creating answers
+    let unshuffledAnswers: string[]
+
+    if(options.answerType === 'kanji' && (isEndlessMode || isStageGroup(stage))) {
+      unshuffledAnswers = [randomReference.reading.kanji]
+
+      ;(stage as StageGroup).stages.forEach(s => {
+        // get the last level of each stage inside stage.stages and loop through the references
+        s.levels[s.levels.length - 1].references.forEach(r => {
+          // get the kanjis with the same number as the randomReference
+          if(r.number.actual === randomReference.number.actual && unshuffledAnswers.length < 4 && r.reading.kanji !== randomReference.reading.kanji) {
+            unshuffledAnswers.push(r.reading.kanji)
+          }
+        })
+      })
+
+      // if length is 1, choose random kanji from the stage that has the randomReference
+      if(unshuffledAnswers.length === 1) {
+        ;(stage as StageGroup).stages.forEach(s => {
+          const lastLevel = s.levels[s.levels.length - 1] // last level has all references
+          if(lastLevel.references.includes(randomReference)) {
+            shuffleArray(lastLevel.references).slice(0, 3).forEach(r => {
+              unshuffledAnswers.push(r.reading.kanji)
+            })
+          }
+        })
+      }
+
+    } else {
+      unshuffledAnswers = [
+        ...randomReference.wrongAnswers.slice(0, 3), 
+        randomReference.reading.hiragana
+      ]
+
+      if(unshuffledAnswers.length < 4) {
+        // fill up to 4 with wrong answers from other levels
+        fillingReferences.forEach(r => {
+          unshuffledAnswers.push(...r.wrongAnswers.slice(0, 4 - unshuffledAnswers.length))
+        })
+      }
+
+      // if not enough, fill up to 4 with readings from other levels
+      fillingReferences.slice(0, 4 - unshuffledAnswers.length).forEach(r => {
+        unshuffledAnswers.push(r.reading.hiragana)
+      })
+    } 
+    return unshuffledAnswers
   }
 
   const generateRandomValues = () => {
@@ -105,32 +171,7 @@ export default function JapaneseCounters({ query }: JapaneseCountersProps) {
       })
 
       // creating answers
-      let unshuffledAnswers: string[]
-
-      if(options.answerType === 'hiragana') {
-        unshuffledAnswers = [
-          ...randomReference.wrongAnswers.slice(0, 3), 
-          randomReference.reading.hiragana
-        ]
-
-        if(unshuffledAnswers.length < 4) {
-          // fill up to 4 with wrong answers from other levels
-          fillingReferences.forEach(r => {
-            unshuffledAnswers.push(...r.wrongAnswers.slice(0, 4 - unshuffledAnswers.length))
-          })
-        }
-  
-        // if not enough, fill up to 4 with readings from other levels
-        fillingReferences.slice(0, 4 - unshuffledAnswers.length).forEach(r => {
-          unshuffledAnswers.push(r.reading.hiragana)
-        })
-      } else {
-        unshuffledAnswers = [randomReference.reading.kanji]
-        // fill up to 4 with readings from other levels
-        fillingReferences.slice(0, 4 - unshuffledAnswers.length).forEach(r => {
-          unshuffledAnswers.push(r.reading.kanji)
-        })
-      }
+      const unshuffledAnswers = getAnswers(randomReference, fillingReferences)
       
       setCurrentReference(randomReference)
       setAnswers(shuffleArray(unshuffledAnswers))
@@ -150,33 +191,7 @@ export default function JapaneseCounters({ query }: JapaneseCountersProps) {
       })
 
       // creating answers
-      let unshuffledAnswers: string[]
-
-      if(options.answerType === 'hiragana') {
-        unshuffledAnswers = [
-          ...randomReference.wrongAnswers.slice(0, 3), 
-          randomReference.reading.hiragana
-        ]
-        
-        if(unshuffledAnswers.length < 4) {
-          // fill up to 4 with wrong answers from other levels
-          fillingReferences.forEach(r => {
-            unshuffledAnswers.push(...r.wrongAnswers.slice(0, 4 - unshuffledAnswers.length))
-          })
-        }
-  
-        // if not enough, fill up to 4 with readings from other levels
-        fillingReferences.slice(0, 4 - unshuffledAnswers.length).forEach(r => {
-          unshuffledAnswers.push(r.reading.hiragana)
-        })
-      } else {
-        unshuffledAnswers = [randomReference.reading.kanji]
-        
-        // fill up to 4 with readings from other levels
-        fillingReferences.slice(0, 4 - unshuffledAnswers.length).forEach(r => {
-          unshuffledAnswers.push(r.reading.kanji)
-        })
-      }
+      const unshuffledAnswers = getAnswers(randomReference, fillingReferences)
 
       setCurrentReference(randomReference)
       setAnswers(shuffleArray(unshuffledAnswers))
@@ -200,11 +215,14 @@ export default function JapaneseCounters({ query }: JapaneseCountersProps) {
 
   const onTimeout = () => {
     setSelectedAnswer('!')
-    setTimeout(generateQuestion, 2000)
+    setTimeout(() => {
+      if(isEndlessMode) return finishLevel()
+      generateQuestion()
+    }, 2000)
   }
  
   const handleAnswerSelection = (answer: string, input?: HTMLInputElement) => {
-    // block user from clicking multiple times
+    // block player from selecting multiple times
     if(selectedAnswer) return
 
     setSelectedAnswer(answer)
@@ -217,9 +235,10 @@ export default function JapaneseCounters({ query }: JapaneseCountersProps) {
       }
     }
 
-    if(timerRef.current) timerRef.current.pause()
+    timerRef.current?.pause()
 
     setTimeout(() => {
+      if(isEndlessMode && !isAnswerCorrect(answer)) return finishLevel()
       generateQuestion()
       // reset answer input element
       if(input) input.value = ''
@@ -234,7 +253,7 @@ export default function JapaneseCounters({ query }: JapaneseCountersProps) {
   }
 
   const finishLevel = () => {
-    finishedLevelCardRef.current?.show()
+    FinishingCardRef.current?.show()
   }
 
   const onStart = () => {
@@ -251,7 +270,7 @@ export default function JapaneseCounters({ query }: JapaneseCountersProps) {
     setAnswers([])
     setQuestionsAsked(0)
     setCorrectAnswers(0)
-    finishedLevelCardRef.current?.close()
+    FinishingCardRef.current?.close()
     stageInstructionCardRef.current?.show()
   }, [ query ])
 
@@ -264,7 +283,7 @@ export default function JapaneseCounters({ query }: JapaneseCountersProps) {
         <Timer
          totalTime={getTotalTime()} 
          decreaseTime={20} 
-         onTimeout={() => {}}
+         onTimeout={onTimeout}
          ref={timerRef}
         />}
       </div>
@@ -301,11 +320,14 @@ export default function JapaneseCounters({ query }: JapaneseCountersProps) {
           </div>}
       </div>
 
-      <FinishedLevelCard
+      <FinishingCard
        percentageResult={percentageResult}
        stage={stage}
        chapter={chapter}
-       ref={finishedLevelCardRef}
+       isEndlessMode={isEndlessMode}
+       title={finishingCardTitle}
+       message={getFinishingCardMessage()}
+       ref={FinishingCardRef}
       />
       {isStageGroup(stage) ? 
       <StageGroupInstructionCard

@@ -1,6 +1,8 @@
+import { DEFAULT_OPTIONS } from "@/data/app"
 import { stages } from "@/data/stages"
 import { LocalStorage } from "@/enums/localStorage"
 import { LevelsPercentage, Options } from "@/types/localStorage"
+import { hasAllProperties } from "./object"
 import { isStageGroup } from "./stage"
 
 export const populateLevelsPercentage = () => {
@@ -41,11 +43,7 @@ export const setLevelPercentage = (chapter: string, percentage: number) => {
 }
 
 export const populateOptions = () => {
-  const options: Options = {
-    answerType: 'hiragana',
-    howToAnswer: 'multipleChoice',
-    gameSpeed: 'normal'
-  }
+  const options = DEFAULT_OPTIONS
 
   localStorage.setItem(LocalStorage.OPTIONS, JSON.stringify(options))
 
@@ -58,8 +56,15 @@ export const getOptions = () => {
   if(!optionsItem) {
     return populateOptions()
   }
+  
+  const options: Options = JSON.parse(optionsItem)
 
-  return JSON.parse(optionsItem) as Options
+  if(!hasAllProperties(options, ['answerType', 'gameSpeed', 'howToAnswer'])) {
+    deleteOptions()
+    return populateOptions()
+  }
+
+  return options
 }
 
 export const setOptions = (newOptions: Partial<Options>) => {
@@ -71,4 +76,29 @@ export const setOptions = (newOptions: Partial<Options>) => {
   }
 
   localStorage.setItem(LocalStorage.OPTIONS, JSON.stringify(options))
+}
+
+const deleteOptions = () => {
+  localStorage.removeItem(LocalStorage.OPTIONS)
+}
+
+export const getBestScore = () => {
+  const bestScoreItem = localStorage.getItem(LocalStorage.BEST_SCORE)
+
+  if(!bestScoreItem) return 0
+
+  const bestScore = parseInt(bestScoreItem)
+
+  if(isNaN(bestScore)) {
+    localStorage.setItem(LocalStorage.BEST_SCORE, '0')
+    return 0
+  }
+
+  return bestScore
+}
+
+export const setBestScore = (score: number) => {
+  const bestScore = getBestScore()
+
+  if(score > bestScore) localStorage.setItem(LocalStorage.BEST_SCORE, String(score))
 }

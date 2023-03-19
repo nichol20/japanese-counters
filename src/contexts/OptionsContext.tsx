@@ -1,3 +1,4 @@
+import { DEFAULT_OPTIONS } from "@/data/app"
 import { useLocalStorage } from "@/hooks/useLocalStorage"
 import { Options } from "@/types/localStorage"
 import { getOptions, setOptions as setLocalStorageOptions } from "@/utils/localStorage"
@@ -14,17 +15,11 @@ interface OptionsProviderProps {
   children: React.ReactNode
 }
 
-const defaultOptions: Options = {
-  answerType: 'hiragana',
-  howToAnswer: 'multipleChoice',
-  gameSpeed: 'normal'
-}
-
 export const OptionsContext = createContext({} as OptionsContext)
 
 export const OptionsProvider = ({ children }: OptionsProviderProps) => {
-  const [ options, setOptions ] = useState(defaultOptions)
-  const localStorageOptions = useLocalStorage(getOptions) || defaultOptions
+  const [ options, setOptions ] = useState(DEFAULT_OPTIONS)
+  const localStorageOptions = useLocalStorage(getOptions) || DEFAULT_OPTIONS
 
   const setPref: SetPref = (option, value) => {
     setOptions(prev => {
