@@ -19,5 +19,5 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ## credits
 
 ### icons
-[icons8](https://icons8.com/)
-[flaticon](https://www.flaticon.com/)
+- [icons8](https://icons8.com/)
+- [flaticon](https://www.flaticon.com/)
