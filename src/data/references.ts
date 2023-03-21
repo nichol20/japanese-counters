@@ -1265,7 +1265,10 @@ export const haiLevelReferences: LevelReference[][] = [
 export const funLevelReferences: LevelReference[][] = [
   [
     {
-      number: LevelReferenceNumbers[1],
+      number: {
+        ...LevelReferenceNumbers[1],
+        icons: 1
+      },
       reading: {
         hiragana: 'いっぷん',
         kanji: '一分'
@@ -1274,7 +1277,10 @@ export const funLevelReferences: LevelReference[][] = [
       specificIcons: [funIcons[0]]
     },
     {
-      number: LevelReferenceNumbers[2],
+      number: {
+        ...LevelReferenceNumbers[2],
+        icons: 1
+      },
       reading: {
         hiragana: 'にふん',
         kanji: '二分'
@@ -1283,7 +1289,10 @@ export const funLevelReferences: LevelReference[][] = [
       specificIcons: [funIcons[1]]
     },
     {
-      number: LevelReferenceNumbers[3],
+      number: {
+        ...LevelReferenceNumbers[3],
+        icons: 1
+      },
       reading: {
         hiragana: 'さんぷん',
         kanji: '三分'
@@ -1292,7 +1301,10 @@ export const funLevelReferences: LevelReference[][] = [
       specificIcons: [funIcons[2]]
     },
     {
-      number: LevelReferenceNumbers[4],
+      number: {
+        ...LevelReferenceNumbers[4],
+        icons: 1
+      },
       reading: {
         hiragana: 'よんぷん',
         kanji: '四分'
@@ -1301,7 +1313,10 @@ export const funLevelReferences: LevelReference[][] = [
       specificIcons: [funIcons[3]]
     },
     {
-      number: LevelReferenceNumbers[5],
+      number: {
+        ...LevelReferenceNumbers[5],
+        icons: 1
+      },
       reading: {
         hiragana: 'ごふん',
         kanji: '五分'
@@ -1312,7 +1327,10 @@ export const funLevelReferences: LevelReference[][] = [
   ],
   [
     {
-      number: LevelReferenceNumbers[6],
+      number: {
+        ...LevelReferenceNumbers[6],
+        icons: 1
+      },
       reading: {
         hiragana: 'ろっぷん',
         kanji: '六分'
@@ -1321,7 +1339,10 @@ export const funLevelReferences: LevelReference[][] = [
       specificIcons: [funIcons[5]]
     },
     {
-      number: LevelReferenceNumbers[7],
+      number: {
+        ...LevelReferenceNumbers[7],
+        icons: 1
+      },
       reading: {
         hiragana: 'ななふん',
         kanji: '七分'
@@ -1330,7 +1351,10 @@ export const funLevelReferences: LevelReference[][] = [
       specificIcons: [funIcons[6]]
     },
     {
-      number: LevelReferenceNumbers[8],
+      number: {
+        ...LevelReferenceNumbers[8],
+        icons: 1
+      },
       reading: {
         hiragana: 'はっぷん',
         kanji: '八分'
@@ -1339,7 +1363,10 @@ export const funLevelReferences: LevelReference[][] = [
       specificIcons: [funIcons[7]]
     },
     {
-      number: LevelReferenceNumbers[9],
+      number: {
+        ...LevelReferenceNumbers[9],
+        icons: 1
+      },
       reading: {
         hiragana: 'きゅうふん',
         kanji: '九分'
@@ -1348,7 +1375,10 @@ export const funLevelReferences: LevelReference[][] = [
       specificIcons: [funIcons[8]]
     },
     {
-      number: LevelReferenceNumbers[10],
+      number: {
+        ...LevelReferenceNumbers[10],
+        icons: 1
+      },
       reading: {
         hiragana: 'じゅっぷん',
         kanji: '十分'
