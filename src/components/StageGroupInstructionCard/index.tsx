@@ -10,6 +10,8 @@ interface StageGroupInstructionCardProps {
   stage: StageGroup
   isEndlessMode: boolean
   onStart: () => void
+  isPause: boolean
+  onUnpause: () => void
 }
 
 export interface StageGroupInstructionCardRef {
@@ -18,7 +20,7 @@ export interface StageGroupInstructionCardRef {
 }
 
 export const StageGroupInstructionCard = forwardRef<StageGroupInstructionCardRef, StageGroupInstructionCardProps>(
-({ stage, isEndlessMode, onStart }, ref) => {
+({ stage, isEndlessMode, onStart, isPause, onUnpause }, ref) => {
   const [ showInstructionCard, setShowInstructionCard ] = useState(false)
 
   const show = () => {
@@ -33,8 +35,16 @@ export const StageGroupInstructionCard = forwardRef<StageGroupInstructionCardRef
     Router.push('/')
   }
 
+  const tryAgain = () => {
+    window.location.reload()
+  }
+
   const handleStartClick = () => {
     onStart()
+  }
+
+  const handleUnpauseClick = () => {
+    onUnpause()
   }
 
   const toggleReview = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
@@ -87,7 +97,15 @@ export const StageGroupInstructionCard = forwardRef<StageGroupInstructionCardRef
         </div>
       </div>
       <div className={styles.actions}>
-        <button className={styles.startLevelButton} onClick={handleStartClick}>Start the level</button>
+        {isPause && (
+          <>
+            <button className={styles.unpauseButton} onClick={handleUnpauseClick}>unpause</button>
+            <button className={styles.startOverAgainButton} onClick={tryAgain}>Start over again</button>
+          </>
+        )}
+        {!isPause && 
+        <button className={styles.startLevelButton} onClick={handleStartClick}>Start the level</button>}
+
         <button className={styles.returnButton} onClick={returnToGameMenu}>Return to game menu</button>
       </div>
     </Card>

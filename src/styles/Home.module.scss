@@ -13,6 +13,10 @@
   gap: 15px;
   list-style: none;
   margin-top: 10px;
+
+  @include medias-media("phone"){
+    gap: 5px;
+  }
 }
 
 .tabItem {
@@ -38,6 +42,12 @@
 
   .tabName {
     color: $colors-secondary-txt;
+    font-size: 1em;
+    text-align: center;
+    
+    @include medias-media("phone") {
+      font-size: .75em;
+    }
   }
 }
 

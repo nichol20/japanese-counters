@@ -109,6 +109,26 @@
   }
 }
 
+.answerStyle1 {
+  background-color: $colors-answer-bg-1;
+  border: 1px solid $colors-answer-border-1;
+}
+
+.answerStyle2 {
+  background-color: $colors-answer-bg-2;
+  border: 1px solid $colors-answer-border-2;
+}
+
+.answerStyle3 {
+  background-color: $colors-answer-bg-3;
+  border: 1px solid $colors-answer-border-3;
+}
+
+.answerStyle4 {
+  background-color: $colors-answer-bg-4;
+  border: 1px solid $colors-answer-border-4;
+}
+
 .answerInputBox {
   @include mixins-display-flex();
   flex-direction: column;
@@ -130,26 +150,6 @@
   color: $colors-primary-txt;
 }
 
-.answerStyle1 {
-  background-color: $colors-answer-bg-1;
-  border: 1px solid $colors-answer-border-1;
-}
-
-.answerStyle2 {
-  background-color: $colors-answer-bg-2;
-  border: 1px solid $colors-answer-border-2;
-}
-
-.answerStyle3 {
-  background-color: $colors-answer-bg-3;
-  border: 1px solid $colors-answer-border-3;
-}
-
-.answerStyle4 {
-  background-color: $colors-answer-bg-4;
-  border: 1px solid $colors-answer-border-4;
-}
-
 .correctAnswer {
   background-color: $colors-success;
   border-color: $colors-success;
@@ -160,4 +160,8 @@
   background-color: $colors-danger;
   border-color: $colors-danger;
   color: $colors-primary-txt;
+}
+
+.pauseBtn {
+  @include mixins-secondary-button-style();
 }

@@ -10,6 +10,8 @@ interface SingleStageInstructionCardProps {
   stage: Stage
   chapter: string
   onStart: () => void
+  isPause: boolean
+  onUnpause: () => void
 }
 
 export interface SingleStageInstructionCardRef {
@@ -18,7 +20,7 @@ export interface SingleStageInstructionCardRef {
 }
 
 export const SingleStageInstructionCard = forwardRef<SingleStageInstructionCardRef, SingleStageInstructionCardProps>(
-({ stage, chapter, onStart }, ref) => {
+({ stage, chapter, onStart, isPause, onUnpause }, ref) => {
   const [ showInstructionCard, setShowInstructionCard ] = useState(false)
   const level = stage.levels.filter(s => s.chapter === chapter)[0]
   const icons = level.specificInstructionIcons ? level.specificInstructionIcons : stage.icons
@@ -35,8 +37,16 @@ export const SingleStageInstructionCard = forwardRef<SingleStageInstructionCardR
     Router.push('/')
   }
 
+  const tryAgain = () => {
+    window.location.reload()
+  }
+
   const handleStartClick = () => {
     onStart()
+  }
+
+  const handleUnpauseClick = () => {
+    onUnpause()
   }
 
   useImperativeHandle(ref, () => ({
@@ -82,7 +92,15 @@ export const SingleStageInstructionCard = forwardRef<SingleStageInstructionCardR
         </div>
       </div>
       <div className={styles.actions}>
-        <button className={styles.startLevelButton} onClick={handleStartClick}>Start the level</button>
+        {isPause && (
+          <>
+            <button className={styles.unpauseButton} onClick={handleUnpauseClick}>unpause</button>
+            <button className={styles.startOverAgainButton} onClick={tryAgain}>Start over again</button>
+          </>
+        )}
+        {!isPause && 
+        <button className={styles.startLevelButton} onClick={handleStartClick}>Start the level</button>}
+
         <button className={styles.returnButton} onClick={returnToGameMenu}>Return to game menu</button>
       </div>
     </Card>

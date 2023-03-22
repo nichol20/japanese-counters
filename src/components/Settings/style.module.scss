@@ -18,6 +18,11 @@
 .name {
   font-size: 1em;
   margin-right: 25px; 
+
+  @include medias-media("phone") {
+    font-size: 0.75em;
+    margin-right: 10px;
+  }
 }
 
 .options {

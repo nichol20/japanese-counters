@@ -2,11 +2,11 @@
 
 .content {
   overflow-y: scroll;
-  height: 95%;
   @include mixins-display-flex(flex-start, center);
   flex-direction: column;
   gap: 20px;
   color: $colors-primary-txt;
+  flex-grow: 1;
 }
 
 .description {
@@ -62,9 +62,18 @@
   margin-top: 15px;
   @include mixins-display-flex();
   gap: 15px;
+  flex-wrap: wrap;
 
   .startLevelButton {
     @include mixins-button-style();
+  }
+
+  .unpauseButton {
+    @include mixins-secondary-button-style();
+  }
+
+  .startOverAgainButton {
+    @include mixins-secondary-button-style();
   }
 
   .returnButton {

@@ -55,6 +55,7 @@ export default function JapaneseCounters({ query }: JapaneseCountersProps) {
   const timerRef = useRef<TimerRef>(null)
   const FinishingCardRef = useRef<FinishingCardRef>(null)
   
+  const [ isPause, setIsPause ] = useState(false)
   const [ questionsAsked, setQuestionsAsked ] = useState(0)
   const [ correctAnswers, setCorrectAnswers ] = useState(0)
   const [ endlessModeScore, setEndlessModeScore ] = useState(0)
@@ -215,9 +216,13 @@ export default function JapaneseCounters({ query }: JapaneseCountersProps) {
     setSelectedAnswer(null)
     timerRef.current?.reset()
     setQuestionsAsked(prev => prev + 1)
+
   }
 
   const onTimeout = () => {
+    // blocks from triggering 2 times on re-rendering of timer component
+    if(selectedAnswer) return
+
     setSelectedAnswer('!')
     setTimeout(() => {
       if(isEndlessMode) return finishLevel()
@@ -232,9 +237,11 @@ export default function JapaneseCounters({ query }: JapaneseCountersProps) {
     setSelectedAnswer(answer)
     
     if(isAnswerCorrect(answer)) {
+      // increase correct answers
       setCorrectAnswers(prev => prev + 1)
 
-      if(isEndlessMode && timerRef.current !== null) {
+      // if endless mode increase score
+      if(isEndlessMode && timerRef.current) {
         setEndlessModeScore(prev => prev + timerRef.current!.getTimeLeft())
       }
     }
@@ -242,7 +249,9 @@ export default function JapaneseCounters({ query }: JapaneseCountersProps) {
     timerRef.current?.pause()
 
     setTimeout(() => {
+      // miss once in endless mode is game over
       if(isEndlessMode && !isAnswerCorrect(answer)) return finishLevel()
+
       generateQuestion()
       // reset answer input element
       if(input) input.value = ''
@@ -261,8 +270,24 @@ export default function JapaneseCounters({ query }: JapaneseCountersProps) {
   }
 
   const onStart = () => {
+    // start game
     stageInstructionCardRef.current!.close()
     generateQuestion()
+    timerRef.current?.start()
+  }
+
+  const pauseGame = () => {
+    // when the player presses the pause button after the question has been answered or the timer has reached zero
+    if(selectedAnswer) return
+    
+    timerRef.current?.pause()
+    stageInstructionCardRef.current?.show()
+    setIsPause(true)
+  }
+
+  const unpauseGame = () => {
+    setIsPause(false)
+    stageInstructionCardRef.current?.close()
     timerRef.current?.start()
   }
 
@@ -324,6 +349,8 @@ export default function JapaneseCounters({ query }: JapaneseCountersProps) {
           </div>}
       </div>
 
+      <button className={styles.pauseBtn} onClick={pauseGame}>pause</button>
+
       <FinishingCard
        percentageResult={percentageResult}
        stage={stage}
@@ -338,6 +365,8 @@ export default function JapaneseCounters({ query }: JapaneseCountersProps) {
        stage={stage} 
        isEndlessMode={isEndlessMode}
        onStart={onStart}
+       isPause={isPause}
+       onUnpause={unpauseGame}
        ref={stageInstructionCardRef} 
       /> 
       : <SingleStageInstructionCard
@@ -345,6 +374,8 @@ export default function JapaneseCounters({ query }: JapaneseCountersProps) {
        stage={stage} 
        chapter={chapter} 
        onStart={onStart}
+       isPause={isPause}
+       onUnpause={unpauseGame}
       />}
     </div>
   )
