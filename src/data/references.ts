@@ -128,7 +128,7 @@ export const honLevelReferences: LevelReference[][] = [
         hiragana: 'さんぼん',
         kanji: '三本'
       },
-      wrongAnswers: [ 'さんぼん', 'さんぽん', 'みっほん', 'みっぼん', 'みっぽん', 'みつほん', 'みつぼん', 'みつぽん' ],
+      wrongAnswers: ['さんぽん', 'みっほん', 'みっぼん', 'みっぽん', 'みつほん', 'みつぼん', 'みつぽん' ],
       specificIcons: []
     },
     {
